@@ -147,3 +147,16 @@ Dashboard: http://127.0.0.1:8775  (Ctrl+C to stop)
 [11:36:47]   COALINDIA NSE:COALINDIA26AUG395PE depth unavailable: ValueError: Fyers depth best quote invalid
 [11:37:24]   COALINDIA NSE:COALINDIA26AUG395PE depth unavailable: ValueError: Fyers depth best quote invalid
 [11:39:24]   KOTAKBANK NSE:KOTAKBANK26AUG395PE depth unavailable: ValueError: Fyers depth best quote invalid
+[11:40:03]   KOTAKBANK NSE:KOTAKBANK26AUG395PE depth unavailable: ValueError: Fyers depth best quote invalid
+[11:40:37]   NTPC NSE:NTPC26AUG330PE depth unavailable: ValueError: Fyers depth best quote invalid
+[11:41:22]   NTPC NSE:NTPC26AUG330PE depth unavailable: ValueError: Fyers depth best quote invalid
+[11:41:59]   SBILIFE NSE:SBILIFE26AUG1740CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[11:42:16]   TATACONSUM NSE:TATACONSUM26AUG1070CE depth unavailable: ValueError: Fyers depth best quote invalid
+[11:42:42]   SBILIFE NSE:SBILIFE26AUG1740CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[11:42:56]   TATACONSUM NSE:TATACONSUM26AUG1070CE depth unavailable: ValueError: Fyers depth best quote invalid
+[11:44:27]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth best quote invalid
+[11:44:28]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[11:44:28]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
+[11:45:10]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth best quote invalid
+[11:45:10]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[11:45:11]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
