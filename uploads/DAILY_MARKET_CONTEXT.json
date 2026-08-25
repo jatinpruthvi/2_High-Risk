@@ -1,0 +1,13 @@
+{
+  "enabled": false,
+  "as_of": "2026-08-17",
+  "expires_at": "2026-08-17T15:30:00+05:30",
+  "source": "MANUAL_PROXY_RESEARCH",
+  "operator_reviewed": false,
+  "event_risk": 10,
+  "recent_iv_expansion_pct": 0,
+  "iv_realized_spread_pct": 0,
+  "term_structure_risk": 15,
+  "skew_risk": 15,
+  "notes": "Set enabled=true only after reviewing event risk and IV conditions for the session. Values are bounded 0-100 manual proxy inputs, not live observations."
+}

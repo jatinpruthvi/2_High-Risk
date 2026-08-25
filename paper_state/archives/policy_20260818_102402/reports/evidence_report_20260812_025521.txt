@@ -1,0 +1,36 @@
+==========================================================================
+PAPER-EVIDENCE REPORT  (proxy scores vs trade outcomes)
+state dir: paper_state
+==========================================================================
+
+DRY-RUN ACCEPTANCE: FAIL
+[FAIL] minimum_trading_days: observed=1 required=20 severity=CRITICAL - Minimum dry-run market days captured.
+[FAIL] minimum_ranking_cycles: observed=3 required=100 severity=CRITICAL - Ranking cycles recorded.
+[FAIL] minimum_paper_trade_candidates: observed=15 required=50 severity=CRITICAL - Simulated/tracked candidates recorded.
+[PASS] critical_mapping_errors_final_5_days: observed=0 required=0 severity=CRITICAL - No critical mapping errors in final five dry-run days.
+[PASS] wrong_lot_tick_calculations: observed=0 required=0 severity=CRITICAL - No wrong lot-size or tick-size calculations.
+[FAIL] candidate_revalidation: observed=0/0 required=all true severity=CRITICAL - Candidate revalidation recorded and passed.
+[FAIL] paper_fill_simulator_active: observed=False required=True severity=CRITICAL - Paper-fill simulator evidence present.
+[FAIL] mtil_core_completeness: observed=0.00% required=>=95% severity=CRITICAL - Core MTIL fields are populated.
+[PASS] skipped_candidate_logging: observed=100.00% required=>=90% severity=CRITICAL - Skipped candidate log fields are populated.
+[PASS] emergency_tests_passed: observed=True required=True severity=CRITICAL - Emergency tests must pass before live review.
+
+EVIDENCE REVIEW
+Overall:
+ALL: trades=0 win_rate=0.00% expectancy=0.00 profit_factor=0.00 net_pnl=0.00 max_dd=0.00
+By Instrument:
+By Archetype:
+By Regime:
+Skipped: total=15 skipped_winner_rate=0.00% no_trade_saved_loss_rate=0.00%
+
+CALIBRATION: does a higher proxy score predict better outcomes?
+OpportunityScore: no data yet
+ExpectedValue_R: no data yet
+VolEdgeRatio: no data yet
+
+SKIPPED CANDIDATES: 15 logged, 0.00% would-have-hit-target, 0.00% would-have-hit-stop
+
+NOTE: rows carry the PROXY scores from paper_signal.py. A flat or
+inverted calibration table is the signal that the proxies need work
+before any live-trading decision. Score buckets with <5 trades are
+not statistically meaningful.

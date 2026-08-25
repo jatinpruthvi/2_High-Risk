@@ -1,0 +1,358 @@
+{
+  "classes": {
+    "BSE_INDEX": {
+      "depth_samples": [
+        28.0,
+        56.0,
+        7.0,
+        7.0,
+        31.0,
+        5.0,
+        16.0,
+        35.0,
+        7.0,
+        13.0,
+        31.0,
+        5.0
+      ],
+      "observations": 12,
+      "paper_fills": 3,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "spread_samples": [
+        0.18798351529174584,
+        0.27155465037338505,
+        5.80168776371308,
+        7.029528426619651,
+        6.277299950466074,
+        36.8874773139746,
+        0.23128071697022592,
+        0.2700877785280191,
+        5.80168776371308,
+        7.029528426619651,
+        6.277299950466074,
+        36.8874773139746
+      ],
+      "stale_quotes": 8,
+      "top_book_samples": [
+        2.0,
+        8.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        5.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "valid_quotes": 4
+    },
+    "NSE_INDEX": {
+      "depth_samples": [
+        969.0,
+        908.0,
+        9.0,
+        24.0,
+        8.0,
+        10.0,
+        6.0,
+        9.0,
+        3.0,
+        776.0,
+        929.0,
+        9.0,
+        14.0,
+        9.0,
+        6.0,
+        8.0,
+        14.0,
+        3.0
+      ],
+      "observations": 20,
+      "paper_fills": 1,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "spread_samples": [
+        0.4424778761061852,
+        0.2076843198338555,
+        0.26158038147139956,
+        0.3391079985256107,
+        1.0551558752997547,
+        1.4011574779165468,
+        0.5417607223476246,
+        0.8668015024559375,
+        199.98319398344609,
+        199.9783783783784,
+        0.4008016032064185,
+        0.22346368715082532,
+        0.23848238482385317,
+        0.2373887240355948,
+        1.1665277943101957,
+        0.5201162612819301,
+        0.7101642254771391,
+        1.2349309026756803,
+        199.98319398344609,
+        199.9783783783784
+      ],
+      "stale_quotes": 9,
+      "top_book_samples": [
+        106.0,
+        1.0,
+        1.0,
+        5.0,
+        1.0,
+        1.0,
+        2.0,
+        1.0,
+        0.0,
+        2.0,
+        146.0,
+        7.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        4.0,
+        0.0,
+        2.0
+      ],
+      "valid_quotes": 11
+    },
+    "NSE_STOCK_OPTION": {
+      "depth_samples": [
+        9.0,
+        6.0,
+        7.0,
+        7.0,
+        6.0,
+        7.0,
+        6.0,
+        8.0,
+        12.0,
+        6.0,
+        5.0
+      ],
+      "observations": 11,
+      "paper_fills": 3,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "spread_samples": [
+        1.5734265734265709,
+        1.9801980198019882,
+        1.0672358591248665,
+        1.818181818181801,
+        1.3584117032392866,
+        1.401541695865452,
+        2.319357716324718,
+        1.0672358591248665,
+        1.818181818181801,
+        1.6675351745700826,
+        1.8348623853210972
+      ],
+      "stale_quotes": 2,
+      "top_book_samples": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        2.0,
+        2.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "valid_quotes": 9
+    }
+  },
+  "gate_learning": {},
+  "instruments": {
+    "ADANIENT": {
+      "instrument_class": "NSE_STOCK_OPTION",
+      "max_drawdown_r": 0.0,
+      "observations": 3,
+      "paper_fills": 1,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 1
+    },
+    "ADANIPORTS": {
+      "instrument_class": "NSE_STOCK_OPTION",
+      "max_drawdown_r": 0.0,
+      "observations": 4,
+      "paper_fills": 2,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 4
+    },
+    "APOLLOHOSP": {
+      "instrument_class": "NSE_STOCK_OPTION",
+      "max_drawdown_r": 0.0,
+      "observations": 4,
+      "paper_fills": 0,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 4
+    },
+    "BANKEX": {
+      "instrument_class": "BSE_INDEX",
+      "max_drawdown_r": 0.0,
+      "observations": 4,
+      "paper_fills": 0,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 0
+    },
+    "BANKNIFTY": {
+      "instrument_class": "NSE_INDEX",
+      "max_drawdown_r": 0.0,
+      "observations": 4,
+      "paper_fills": 0,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 4
+    },
+    "FINNIFTY": {
+      "instrument_class": "NSE_INDEX",
+      "max_drawdown_r": 0.0,
+      "observations": 4,
+      "paper_fills": 0,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 1
+    },
+    "FOCIT": {
+      "instrument_class": "BSE_INDEX",
+      "max_drawdown_r": 0.0,
+      "observations": 4,
+      "paper_fills": 0,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 0
+    },
+    "MIDCPNIFTY": {
+      "instrument_class": "NSE_INDEX",
+      "max_drawdown_r": 0.0,
+      "observations": 4,
+      "paper_fills": 1,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 0
+    },
+    "NIFTY": {
+      "instrument_class": "NSE_INDEX",
+      "max_drawdown_r": 0.0,
+      "observations": 4,
+      "paper_fills": 0,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 4
+    },
+    "NIFTYNXT50": {
+      "instrument_class": "NSE_INDEX",
+      "max_drawdown_r": 0.0,
+      "observations": 4,
+      "paper_fills": 0,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 2
+    },
+    "SENSEX": {
+      "instrument_class": "BSE_INDEX",
+      "max_drawdown_r": 0.0,
+      "observations": 4,
+      "paper_fills": 3,
+      "paper_sum_r": 0.0,
+      "paper_trades": 0,
+      "paper_wins": 0,
+      "sessions": [
+        "2026-08-18"
+      ],
+      "shadow_outcomes": 0,
+      "shadow_sum_r": 0.0,
+      "shadow_wins": 0,
+      "valid_quotes": 4
+    }
+  },
+  "lifecycle": {},
+  "outcomes": {},
+  "updated_at": "2026-08-18T08:54:39.208965+00:00"
+}

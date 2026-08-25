@@ -1,0 +1,37 @@
+==========================================================================
+TOP-10 CANDIDATES BY DAY  (ComparableOpportunityScore, sampled 1/min)
+state dir: paper_state
+==========================================================================
+
+DAY 2026-08-13   rows=5  max=60.6  mean=57.1  p90=60.3  candidates>=80: 0
+  #   score   thr   gr elig und      side strike   expiry    exp/req   prem  spread%  decision
+   1    60.6   80.0  Reject  False MIDCPNIFTY PE   15000  08-25(12d)    1.08    129.1    0.46  NO_TRADE
+      dir=  9.0 tq= 40.5 host= 20.8 conv= 76.5 exec=100.0 conf= 85.0 reg= 70.0  why: Expected/Required hard reject
+   2    60.3   80.0  Reject  False MIDCPNIFTY CE   15000  08-25(12d)    1.08    140.3    0.32  NO_TRADE
+      dir= -9.0 tq= 40.5 host= 20.8 conv= 76.5 exec=100.0 conf= 82.3 reg= 70.0  why: Expected/Required hard reject
+   3    57.3   80.0  Reject  False BANKNIFTY CE   57500  08-25(12d)    1.42    654.1    0.08  NO_EXCELLENT_CANDIDATE
+      dir= -2.7 tq= 32.0 host= 19.2 conv= 76.0 exec=100.0 conf= 80.7 reg= 75.0  why: -
+   4    56.6   80.0  Reject  False MIDCPNIFTY CE   15025  08-25(12d)    1.08    126.7    0.59  CONTRACT_INVALID
+      dir= -9.0 tq= 40.5 host= 20.8 conv= 60.5 exec=100.0 conf= 82.3 reg= 70.0  why: Contract invalid: ; PremiumElasticity hard reject; Expected/Required h
+   5    51.0   80.0  Reject  False NIFTY     CE   24300  08-18(5d)    1.33    146.5    0.17  NO_EXCELLENT_CANDIDATE
+      dir=  0.0 tq=  0.4 host= 18.8 conv= 78.3 exec=100.0 conf= 71.6 reg= 95.0  why: -
+
+--------------------------------------------------------------------------
+SCORE DISTRIBUTION (all days, comparable score)
+    0- 10: 0
+   10- 20: 0
+   20- 30: 0
+   30- 40: 0
+   40- 50: 0
+   50- 60: 3
+   60- 70: 2
+   70- 80: 0
+   80- 90: 0
+   90-100: 0
+
+THRESHOLD INSIGHT
+  all-time max score: 60.6
+  days with any candidate >= 80: 0 / 1
+  A day's max/p90 below the excellent gate means the threshold may be
+  unreachable in current conditions; a max well above it with no trade
+  suggests the gate or the score components need review.

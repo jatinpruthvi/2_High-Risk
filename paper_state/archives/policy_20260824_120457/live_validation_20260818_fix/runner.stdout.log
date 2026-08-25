@@ -1,0 +1,77 @@
+[14:40:10] PAPER-ONLY config overrides active: {'exit_management': {'vol_time_stop_fraction': 0.35, 'stop_exit_slippage_frac': 0.1, 'edge_scaled_target': True, 'edge_scale_min_ratio': 1.1, 'edge_scale_min_r': 1.0, 'edge_scale_max_r': 3.0}, 'risk': {'normal_risk_pct_of_capital': 5.0, 'normal_risk_cap_rupees': 5000, 'a_plus_risk_pct_of_capital': 6.0, 'a_plus_risk_cap_rupees': 6000, 'max_daily_loss_rupees': 8000}, 'instrument_risk_overrides': {'BANKNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'NIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'FINNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'MIDCPNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}}, 'instrument_calibration_status': {'BANKNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'NIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'FINNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'MIDCPNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}}}
+[14:40:12]   NIFTY [NSE, TRADE_ELIGIBLE]: 18 expiries, nearest 2026-08-18
+[14:40:12]   BANKNIFTY [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   FINNIFTY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   MIDCPNIFTY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   SENSEX [BSE, TRADE_ELIGIBLE]: 19 expiries, nearest 2026-08-20
+[14:40:12]   BANKEX [BSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-27
+[14:40:12]   FOCIT [BSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-27
+[14:40:12]   NIFTYNXT50 [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   NIFTYFPI [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   ADANIENT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   ADANIPORTS [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   APOLLOHOSP [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   ASIANPAINT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   AXISBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   BAJAJ-AUTO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   BAJFINANCE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   BAJAJFINSV [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   BEL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   BHARTIARTL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   CIPLA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   COALINDIA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   DRREDDY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   EICHERMOT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   ETERNAL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   GRASIM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   HCLTECH [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   HDFCBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   HDFCLIFE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   HINDALCO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   HINDUNILVR [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   ICICIBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   ITC [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   INFY [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   INDIGO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   JSWSTEEL [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   JIOFIN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   KOTAKBANK [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   LT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   M&M [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   MARUTI [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   MAXHEALTH [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   NTPC [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   NESTLEIND [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   ONGC [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   POWERGRID [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   RELIANCE [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   SBILIFE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   SHRIRAMFIN [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   SBIN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   SUNPHARMA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   TCS [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   TATACONSUM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   TMPV [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   TATASTEEL [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   TECHM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   TITAN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:40:12]   TRENT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   ULTRACEMCO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12]   WIPRO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:40:12] Paper selector universe: NIFTY, BANKNIFTY, FINNIFTY, MIDCPNIFTY, SENSEX, BANKEX, FOCIT, NIFTYNXT50, NIFTYFPI, ADANIENT, ADANIPORTS, APOLLOHOSP, ASIANPAINT, AXISBANK, BAJAJ-AUTO, BAJFINANCE, BAJAJFINSV, BEL, BHARTIARTL, CIPLA, COALINDIA, DRREDDY, EICHERMOT, ETERNAL, GRASIM, HCLTECH, HDFCBANK, HDFCLIFE, HINDALCO, HINDUNILVR, ICICIBANK, ITC, INFY, INDIGO, JSWSTEEL, JIOFIN, KOTAKBANK, LT, M&M, MARUTI, MAXHEALTH, NTPC, NESTLEIND, ONGC, POWERGRID, RELIANCE, SBILIFE, SHRIRAMFIN, SBIN, SUNPHARMA, TCS, TATACONSUM, TMPV, TATASTEEL, TECHM, TITAN, TRENT, ULTRACEMCO, WIPRO; monitor-only: -
+
+Dashboard: http://127.0.0.1:8765  (Ctrl+C to stop)
+[14:40:13] Loop started.
+[14:40:36]   BANKEX BSE:BANKEX26AUG64800PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:40:44]   NIFTYNXT50 NSE:NIFTYNXT5026AUG74300CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:40:44]   NIFTYNXT50 NSE:NIFTYNXT5026AUG74300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:40:45]   NIFTYNXT50 NSE:NIFTYNXT5026AUG74400CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:40:46]   NIFTYNXT50 NSE:NIFTYNXT5026AUG74500CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:40:46]   NIFTYNXT50 NSE:NIFTYNXT5026AUG74500PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:40:47]   NIFTYFPI chain unavailable [OPTIONS_CHAIN_UNAVAILABLE]: OptionChainParseError: Missing data.optionsChain in Fyers payload
+[14:41:28]   NIFTYNXT50 NSE:NIFTYNXT5026AUG74300CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:41:29]   NIFTYNXT50 NSE:NIFTYNXT5026AUG74300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:41:29]   NIFTYNXT50 NSE:NIFTYNXT5026AUG74400CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:41:30]   NIFTYNXT50 NSE:NIFTYNXT5026AUG74500CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:41:31]   NIFTYNXT50 NSE:NIFTYNXT5026AUG74500PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:41:31]   NIFTYFPI chain unavailable [OPTIONS_CHAIN_UNAVAILABLE]: OptionChainParseError: Missing data.optionsChain in Fyers payload

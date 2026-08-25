@@ -1,0 +1,101 @@
+[14:07:26] PAPER-ONLY config overrides active: {'exit_management': {'vol_time_stop_fraction': 0.35, 'stop_exit_slippage_frac': 0.1, 'edge_scaled_target': True, 'edge_scale_min_ratio': 1.1, 'edge_scale_min_r': 1.0, 'edge_scale_max_r': 3.0}, 'risk': {'normal_risk_pct_of_capital': 5.0, 'normal_risk_cap_rupees': 5000, 'a_plus_risk_pct_of_capital': 6.0, 'a_plus_risk_cap_rupees': 6000, 'max_daily_loss_rupees': 8000}, 'instrument_risk_overrides': {'BANKNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'NIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'FINNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'MIDCPNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}}, 'instrument_calibration_status': {'BANKNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'NIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'FINNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'MIDCPNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}}}
+[14:07:28]   NIFTY [NSE, TRADE_ELIGIBLE]: 18 expiries, nearest 2026-08-25
+[14:07:28]   BANKNIFTY [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   FINNIFTY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   MIDCPNIFTY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   SENSEX [BSE, TRADE_ELIGIBLE]: 19 expiries, nearest 2026-08-27
+[14:07:28]   BANKEX [BSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-27
+[14:07:28]   FOCIT [BSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-27
+[14:07:28]   NIFTYNXT50 [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   NIFTYFPI [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   ADANIENT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   ADANIPORTS [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   APOLLOHOSP [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   ASIANPAINT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   AXISBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   BAJAJ-AUTO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   BAJFINANCE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   BAJAJFINSV [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   BEL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   BHARTIARTL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   CIPLA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   COALINDIA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   DRREDDY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   EICHERMOT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   ETERNAL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   GRASIM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   HCLTECH [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   HDFCBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   HDFCLIFE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   HINDALCO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   HINDUNILVR [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   ICICIBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   ITC [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   INFY [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   INDIGO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   JSWSTEEL [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   JIOFIN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   KOTAKBANK [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   LT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   M&M [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   MARUTI [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   MAXHEALTH [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   NTPC [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   NESTLEIND [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   ONGC [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   POWERGRID [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   RELIANCE [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   SBILIFE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   SHRIRAMFIN [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   SBIN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   SUNPHARMA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   TCS [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   TATACONSUM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   TMPV [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   TATASTEEL [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   TECHM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   TITAN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[14:07:28]   TRENT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   ULTRACEMCO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28]   WIPRO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[14:07:28] Paper selector universe: NIFTY, BANKNIFTY, FINNIFTY, MIDCPNIFTY, SENSEX, BANKEX, FOCIT, NIFTYNXT50, NIFTYFPI, ADANIENT, ADANIPORTS, APOLLOHOSP, ASIANPAINT, AXISBANK, BAJAJ-AUTO, BAJFINANCE, BAJAJFINSV, BEL, BHARTIARTL, CIPLA, COALINDIA, DRREDDY, EICHERMOT, ETERNAL, GRASIM, HCLTECH, HDFCBANK, HDFCLIFE, HINDALCO, HINDUNILVR, ICICIBANK, ITC, INFY, INDIGO, JSWSTEEL, JIOFIN, KOTAKBANK, LT, M&M, MARUTI, MAXHEALTH, NTPC, NESTLEIND, ONGC, POWERGRID, RELIANCE, SBILIFE, SHRIRAMFIN, SBIN, SUNPHARMA, TCS, TATACONSUM, TMPV, TATASTEEL, TECHM, TITAN, TRENT, ULTRACEMCO, WIPRO; monitor-only: -
+
+Dashboard: http://127.0.0.1:8775  (Ctrl+C to stop)
+[14:07:28] Loop started.
+[14:07:49]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:07:50]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:07:50]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:07:51]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:07:51]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:07:52]   NIFTYFPI chain unavailable [OPTIONS_CHAIN_UNAVAILABLE]: OptionChainParseError: Missing data.optionsChain in Fyers payload
+[14:08:01] Cycle error; new entries blocked for 30.0s: OptionChainParseError: Missing CE at strike 2960.0
+[14:08:24]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:08:24]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:08:25]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:08:25]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:08:25]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:08:26]   NIFTYFPI chain unavailable [OPTIONS_CHAIN_UNAVAILABLE]: OptionChainParseError: Missing data.optionsChain in Fyers payload
+[14:08:34]   DATA HEALTH ALERT NIFTY: Invalid IV for CE 22650.0; Missing delta for CE 22650.0; Invalid IV for PE 22650.0; Zero volume CE at 22650.0; Zero volume CE at 22750.0; Zero volume CE at 22850.0; Candidate option quote stale 29.10s; Candidate option quote stale 29.10s; Candidate option quote stale 30.10s; Candidate option quote stale 29.10s; Candidate option quote stale 28.11s; Candidate option quote stale 28.11s
+[14:08:34]   DATA HEALTH ALERT BANKNIFTY: CE/PE timestamp delta 3.00s at 57200.0; Candidate option quote stale 28.12s; Candidate option quote stale 26.12s; Candidate option quote stale 34.12s; Candidate option quote stale 31.12s; Candidate option quote stale 28.12s; Candidate option quote stale 26.12s
+[14:08:34]   DATA HEALTH ALERT MIDCPNIFTY: CE/PE timestamp delta 10.00s at 14850.0; CE/PE timestamp delta 5.00s at 14900.0; Candidate option quote stale 23.12s; Candidate option quote stale 24.12s; Candidate option quote stale 38.12s; Candidate option quote stale 28.12s; Candidate option quote stale 26.12s; Candidate option quote stale 21.13s
+[14:08:34]   DATA HEALTH ALERT SENSEX: Invalid IV for CE 74300.0; Missing delta for CE 74300.0; Invalid IV for PE 74300.0; Zero volume CE at 74300.0; Zero volume CE at 74400.0; Zero volume CE at 74500.0; Candidate option quote stale 20.13s; Candidate option quote stale 19.13s; Candidate option quote stale 21.13s; Candidate option quote stale 19.13s; Candidate option quote stale 19.13s; Candidate option quote stale 18.13s
+[14:08:34]   DATA HEALTH ALERT BANKEX: CE/PE timestamp delta 1887.00s at 64900.0; CE/PE timestamp delta 152.00s at 65000.0; CE/PE timestamp delta 71.00s at 65100.0; Candidate option quote stale 25.13s; Candidate option quote stale 177.13s; Candidate option quote stale 1991.13s; Candidate option quote stale 104.13s; Candidate option quote stale 99.13s; Candidate option quote stale 170.14s
+[14:08:34]   DATA HEALTH ALERT FOCIT: CE/PE timestamp delta 1149.00s at 37000.0; CE/PE timestamp delta 37845.00s at 37100.0; CE/PE timestamp delta 6599.00s at 37200.0; Candidate option quote stale 13069.14s; Candidate option quote stale 50914.14s; Candidate option quote stale 743.14s; Candidate option quote stale 1892.14s; Candidate option quote stale 10337.14s; Candidate option quote stale 3738.14s
+[14:08:34]   DATA HEALTH ALERT NIFTYNXT50: CE/PE timestamp delta 2074357.37s at 73800.0; Candidate option quote stale 2074385.14s; Candidate option quote depth unavailable; Candidate option quote invalid; Candidate option quote depth unavailable; Candidate option quote depth unavailable; Candidate option quote invalid
+[14:08:34] Cycle error; new entries blocked for 30.0s: OptionChainParseError: Missing CE at strike 2960.0
+[14:09:51]   DATA HEALTH ALERT ASIANPAINT: Option chain stale 30.67s; Candidate option quote stale 24.86s; Candidate option quote stale 24.86s; Candidate option quote stale 44.86s; Candidate option quote stale 131.86s; Candidate option quote stale 43.87s; Candidate option quote stale 473.87s
+[14:09:51]   DATA HEALTH ALERT AXISBANK: Option chain stale 30.68s; Candidate option quote stale 29.89s; Candidate option quote stale 21.90s; Candidate option quote stale 23.90s; Candidate option quote stale 27.90s; Candidate option quote stale 26.91s; Candidate option quote stale 23.92s
+[14:09:51]   DATA HEALTH ALERT BAJAJ-AUTO: Option chain stale 30.74s; Candidate option quote stale 23.93s; Candidate option quote stale 54.93s; Candidate option quote stale 270.93s; Candidate option quote stale 59.94s; Candidate option quote stale 65.94s; Candidate option quote stale 207.94s
+[14:09:51]   DATA HEALTH ALERT BAJFINANCE: Option chain stale 30.75s; Candidate option quote stale 74.94s; Candidate option quote stale 32.95s; Candidate option quote stale 113.95s; Candidate option quote stale 69.95s; Candidate option quote stale 67.95s; Candidate option quote stale 28.95s
+[14:09:51]   DATA HEALTH ALERT BAJAJFINSV: Option chain stale 30.76s; Candidate option quote stale 33.95s; Candidate option quote stale 31.95s; Candidate option quote stale 102.95s; Candidate option quote stale 42.95s; Candidate option quote stale 40.96s; Candidate option quote stale 102.96s
+[14:09:51]   DATA HEALTH ALERT BEL: Option chain stale 30.78s; Candidate option quote stale 37.96s; Candidate option quote stale 39.97s; Candidate option quote stale 165.97s; Candidate option quote stale 77.97s; Candidate option quote stale 72.97s; Candidate option quote stale 50.97s
+[14:09:51]   DATA HEALTH ALERT BHARTIARTL: Option chain stale 30.78s; Candidate option quote stale 10.97s; Candidate option quote stale 40.97s; Candidate option quote stale 55.97s; Candidate option quote stale 29.98s; Candidate option quote stale 26.98s; Candidate option quote stale 23.98s
+[14:09:51]   DATA HEALTH ALERT CIPLA: Option chain stale 30.79s; Candidate option quote stale 59.98s; Candidate option quote stale 276.98s; Candidate option quote stale 136.98s; Candidate option quote stale 45.99s; Candidate option quote stale 136.99s; Candidate option quote stale 134.99s
+[14:11:12]   DATA HEALTH ALERT COALINDIA: Option chain stale 31.54s; Candidate option quote stale 40.41s; Candidate option quote stale 46.41s; Candidate option quote stale 144.41s; Candidate option quote stale 225.41s; Candidate option quote stale 52.41s; Candidate option quote stale 226.41s
+[14:11:12]   DATA HEALTH ALERT DRREDDY: Option chain stale 31.55s; Candidate option quote stale 49.42s; Candidate option quote stale 49.42s; Candidate option quote stale 161.42s; Candidate option quote stale 71.42s; Candidate option quote stale 52.42s; Candidate option quote stale 161.42s
+[14:11:12]   DATA HEALTH ALERT EICHERMOT: Option chain stale 31.56s; Candidate option quote stale 152.43s; Candidate option quote stale 38.43s; Candidate option quote stale 295.43s; Candidate option quote stale 32.43s; Candidate option quote stale 22.43s; Candidate option quote stale 88.43s
+[14:11:12]   DATA HEALTH ALERT ETERNAL: Option chain stale 31.56s; Candidate option quote stale 37.43s; Candidate option quote stale 105.43s; Candidate option quote stale 54.43s; Candidate option quote stale 44.44s; Candidate option quote stale 57.44s; Candidate option quote stale 93.44s
+[14:11:12]   DATA HEALTH ALERT GRASIM: Option chain stale 31.57s; Candidate option quote stale 38.44s; Candidate option quote stale 40.44s; Candidate option quote stale 39.44s; Candidate option quote stale 38.44s; Candidate option quote stale 38.45s; Candidate option quote stale 40.45s
+[14:11:12]   DATA HEALTH ALERT HCLTECH: Option chain stale 31.58s; Candidate option quote stale 48.45s; Candidate option quote stale 32.45s; Candidate option quote stale 527.45s; Candidate option quote stale 15.45s; Candidate option quote stale 105.45s; Candidate option quote stale 636.45s
+[14:11:12]   DATA HEALTH ALERT HDFCBANK: Option chain stale 31.59s; Candidate option quote stale 18.45s; Candidate option quote stale 13.46s; Candidate option quote stale 22.46s; Candidate option quote stale 19.46s; Candidate option quote stale 17.46s; Candidate option quote stale 44.46s
+[14:11:12]   DATA HEALTH ALERT HDFCLIFE: Option chain stale 31.60s; Candidate option quote stale 47.46s; Candidate option quote stale 47.47s; Candidate option quote stale 105.47s; Candidate option quote stale 47.47s; Candidate option quote stale 105.47s; Candidate option quote stale 105.47s

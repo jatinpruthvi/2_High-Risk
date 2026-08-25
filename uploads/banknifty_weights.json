@@ -1,0 +1,36 @@
+{
+  "index": "NIFTY_BANK",
+  "status": "working_reference_pending_official_verification",
+  "weight_date": "2026-05-14",
+  "last_updated": "2026-05-29",
+  "source": "public_reference_pending_official_verification",
+  "refresh_rule": "Verify official NSE Indices weights at least monthly and after any rebalance announcement.",
+  "stale_penalty_days": 30,
+  "invalid_for_aggressive_days": 60,
+  "weights_pct": {
+    "HDFCBANK": 25.43,
+    "SBIN": 19.74,
+    "ICICIBANK": 19.53,
+    "AXISBANK": 8.60,
+    "KOTAKBANK": 8.28,
+    "BANKBARODA": 2.98,
+    "UNIONBANK": 2.73,
+    "PNB": 2.60,
+    "CANBK": 2.58,
+    "AUBANK": 1.64,
+    "INDUSINDBK": 1.53,
+    "YESBANK": 1.53,
+    "FEDERALBNK": 1.52,
+    "IDFCFIRSTB": 1.30
+  },
+  "tiering": {
+    "tier1_mvp": ["HDFCBANK", "ICICIBANK", "SBIN"],
+    "tier2_later": ["AXISBANK", "KOTAKBANK"],
+    "tier3_conditional": ["BANKBARODA", "UNIONBANK", "PNB", "CANBK", "AUBANK", "INDUSINDBK", "YESBANK", "FEDERALBNK", "IDFCFIRSTB"]
+  },
+  "top3_normalized_for_fast_wbci": {
+    "HDFCBANK": 0.393,
+    "SBIN": 0.305,
+    "ICICIBANK": 0.302
+  }
+}

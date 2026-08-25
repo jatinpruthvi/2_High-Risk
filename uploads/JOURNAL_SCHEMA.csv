@@ -1,0 +1,76 @@
+field,type,required,description
+trade_id,string,yes,Unique trade identifier
+date,date,yes,Trade date
+entry_time,datetime,yes,Entry timestamp
+exit_time,datetime,no,Exit timestamp
+trade_type,string,yes,Trade classification such as breakout_continuation or sweep_reversal
+regime,string,yes,Trend/Range/Uncertain/Panic/Gap etc
+risk_mode,string,yes,Normal/Defensive/Survival/NoTrade
+candidate_action,string,yes,BUY_CALL_CANDIDATE/BUY_PUT_CANDIDATE/WAIT/AVOID/etc
+underlying,string,yes,Underlying index: BANKNIFTY/NIFTY/FINNIFTY/MIDCPNIFTY
+opportunity_rank,int,no,Rank among evaluated Phase 1 candidates
+OpportunityScore,float,no,Final opportunity score used for multi-instrument ranking
+OpportunityConfidenceScore,float,no,Opportunity confidence score
+ConvexityQualityScore,float,no,Convexity quality score
+ExecutionQualityScore,float,no,Execution quality score
+RegimeFitScore,float,no,Instrument regime fit score
+PortfolioNoTradeScore,float,no,Portfolio-level no-trade score
+DynamicExcellentThreshold,float,no,Dynamic excellence threshold for the candidate
+OpportunityGrade,string,no,A+/A/B/C/Reject classification
+InstrumentDirectionScore,float,no,Instrument-specific direction score used for ranking
+instrument_calibration_status,string,no,UNVALIDATED/OBSERVED/VALIDATED/DEGRADED/RETIRED status for selected instrument
+paper_fill_model,string,no,Paper fill model used if simulated trade
+simulated_entry_fill,float,no,Paper/simulated entry fill using bid/ask model
+simulated_exit_fill,float,no,Paper/simulated exit fill using bid/ask model
+candidate_age_seconds,float,no,Age of candidate at final revalidation
+revalidation_passed,bool,no,Whether final pre-order candidate revalidation passed
+evaluated_universe,string,no,Comma-separated instruments evaluated for this decision
+rejected_candidates_summary,string,no,Compact reason why other instruments were rejected or ranked lower
+setup_grade,string,no,C/B/A/A+ quality classification used for dynamic risk band
+BN_futures_entry,float,yes,Bank Nifty futures at entry
+BN_futures_exit,float,no,Bank Nifty futures at exit
+option_symbol,string,yes,Selected option display/trading symbol
+security_id,string,yes,DHAN security id
+strike,float,yes,Option strike
+expiry,date,yes,Option expiry
+option_type,string,yes,CE or PE
+entry_bid,float,yes,Best bid at entry decision
+entry_ask,float,yes,Best ask at entry decision
+entry_mid,float,yes,Mid at entry decision
+entry_fill,float,no,Actual/simulated fill price
+exit_bid,float,no,Best bid at exit decision
+exit_ask,float,no,Best ask at exit decision
+exit_mid,float,no,Mid at exit decision
+exit_fill,float,no,Actual/simulated exit fill price
+spread_entry,float,yes,Ask-bid at entry
+spread_exit,float,no,Ask-bid at exit
+slippage_entry_points,float,no,Entry fill slippage vs reference
+slippage_exit_points,float,no,Exit fill slippage vs reference
+DirectionScore,float,yes,Direction score at entry
+TradeQualityScore,float,yes,Trade quality score at entry
+ContractQualityScore,float,yes,Contract quality score at entry
+FastWBCI,float,yes,Fast weighted bank constituent score
+SlowWBCI,float,no,Slow WBCI context score
+PremiumElasticity,float,yes,Delta-adjusted premium elasticity
+IVCrushRiskScore,float,yes,IV crush risk score
+MarketHostilityScore,float,yes,Combined live hostility score
+RegimeConfidence,float,yes,Regime confidence percentage
+ExpectedMove,float,yes,Expected remaining move
+RequiredMove,float,yes,Required underlying move for target
+ExpectedRequiredRatio,float,yes,ExpectedMove / RequiredMove
+max_allowed_risk_rupees,float,yes,Maximum risk cap for this trade based on mode and setup quality
+planned_risk_rupees,float,yes,Actual planned risk from dynamic stop calculation; may be below cap
+required_stop_points,float,no,Logical stop distance required by structure/volatility/invalidation
+required_stop_rupees,float,no,Required logical stop risk in rupees
+hard_stop_points,float,yes,Hard stop in option points
+hard_stop_rupees,float,yes,Hard stop rupee risk
+position_lots,int,yes,Number of lots
+entry_reason,string,yes,Why trade was entered
+exit_reason,string,no,Why trade was exited
+rule_violations,string,no,List of violations if any
+pnl_points,float,no,Option points P&L
+pnl_rupees,float,no,Rupee P&L after gross option points
+estimated_charges,float,no,Estimated brokerage/taxes/charges
+net_pnl_rupees,float,no,Net P&L after charges and slippage
+screenshot_path,string,no,Optional chart/dashboard snapshot
+notes,string,no,Free-form notes

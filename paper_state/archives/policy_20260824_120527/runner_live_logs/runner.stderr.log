@@ -1,0 +1,34 @@
+Traceback (most recent call last):
+  File "C:\Users\Mishay\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 856, in move
+    os.rename(src, real_dst)
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'paper_state\\runner_live_logs' -> 'paper_state\\archives\\policy_20260824_120457\\runner_live_logs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "E:\Jatin-Project\DHAN\2_High-Risk\institutional_options\paper_trade.py", line 81, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "E:\Jatin-Project\DHAN\2_High-Risk\institutional_options\paper_trade.py", line 61, in main
+    runner = PaperRunner(cfg, runner_cfg, state_dir=state_dir)
+  File "E:\Jatin-Project\DHAN\2_High-Risk\institutional_options\paper_runner.py", line 146, in __init__
+    self._prepare_state_directory()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "E:\Jatin-Project\DHAN\2_High-Risk\institutional_options\paper_runner.py", line 378, in _prepare_state_directory
+    shutil.move(str(child), str(archive_dir / child.name))
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mishay\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 874, in move
+    rmtree(src)
+    ~~~~~~^^^^^
+  File "C:\Users\Mishay\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "C:\Users\Mishay\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mishay\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'paper_state\\runner_live_logs\\runner.stderr.log'

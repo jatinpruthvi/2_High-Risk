@@ -1,0 +1,6 @@
+# Conservative daily mode override. Edit before the session starts.
+# Valid modes: NORMAL, DEFENSIVE, SURVIVAL.
+# The runner applies the more conservative of this mode and computed mode.
+mode=NORMAL
+as_of=2026-08-17
+expires_at=2026-08-17T15:30:00+05:30

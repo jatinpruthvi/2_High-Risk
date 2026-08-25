@@ -1,0 +1,21 @@
+archetype_code,archetype_name,description
+A01,Trend Day Breakout,Breakout continuation on confirmed trend day
+A02,Gap Continuation,Gap accepted and continued after minimum wait
+A03,Gap Fill Reversal,Gap rejected and re-entered prior value
+A04,Short Covering Rally,Upside move driven by short covering and premium confirmation
+A05,Long Buildup Expansion,Fresh futures/OI buildup with accepted direction
+A06,IV Expansion Momentum,Premium/IV expansion aligned with directional move
+A07,OI Wall Breakout,Accepted break through stressed OI wall
+A08,Power Hour Momentum,Late-session momentum with liquidity/premium confirmation
+A09,Compression Breakout,Low-vol compression releases into accepted expansion
+A10,Gamma Pin Failure,Expiry/pin release with ATM premium expansion
+A11,Liquidity Sweep Reversal,Stop sweep followed by reclaim/reject and premium shift
+A12,VWAP Reclaim Continuation,VWAP reclaim/hold with leadership and premium confirmation
+A13,VWAP Rejection Continuation,VWAP rejection with bearish/bullish continuation
+A14,Pullback Continuation,Trend pullback absorbed and premium retained
+A15,Post-Event Continuation,Post-event accepted repricing after IV/spread stabilization
+A16,Risk-Off Put Acceleration,Confirmed risk-off breakdown with put acceleration
+A17,Capitulation Reversal,Panic stabilization and reversal with IV normalization
+A18,Range Failure Continuation,Failed return to value leading to continuation
+A19,Midcap Risk-On Thrust,Validated Midcap risk-on move with excellent liquidity
+A20,No-Trade Saved Loss,Candidate rejected by filter that would have lost

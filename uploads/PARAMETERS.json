@@ -1,0 +1,943 @@
+{
+  "capital": {
+    "starting_capital": 100000,
+    "currency": "INR",
+    "max_lots_mvp": 1,
+    "lot_size_banknifty": 30,
+    "pledge_or_leverage_allowed": false,
+    "overnight_holding_allowed": false,
+    "auto_execution_mvp": false
+  },
+  "risk": {
+    "normal_risk_pct_of_capital": 0.75,
+    "normal_risk_cap_rupees": 750,
+    "min_risk_rupees": 250,
+    "preferred_risk_min_rupees": 400,
+    "preferred_risk_max_rupees": 600,
+    "a_plus_risk_pct_of_capital": 1.0,
+    "a_plus_risk_cap_rupees": 1000,
+    "defensive_risk_min_pct_of_capital": 0.25,
+    "defensive_risk_max_pct_of_capital": 0.5,
+    "defensive_risk_min_rupees": 250,
+    "defensive_risk_max_rupees": 500,
+    "survival_new_risk_rupees": 0,
+    "no_trade_new_risk_rupees": 0,
+    "risk_cap_is_ceiling_not_target": true,
+    "actual_risk_must_be_dynamic": true,
+    "setup_risk_bands_rupees": {
+      "c_grade_unclear": "NO_TRADE",
+      "b_grade_guideline_min": 250,
+      "b_grade_guideline_max": 400,
+      "a_grade_guideline_min": 500,
+      "a_grade_cap": 750,
+      "a_plus_guideline_min": 750,
+      "a_plus_cap": 1000,
+      "a_plus_may_be_lower_if_dynamic_stop_is_lower": true,
+      "defensive_guideline_min": 250,
+      "defensive_cap": 500,
+      "survival": 0,
+      "no_trade": 0
+    },
+    "max_daily_loss_rupees": 1500,
+    "max_weekly_loss_rupees": 3000,
+    "monthly_review_drawdown_pct": 6.0,
+    "monthly_halt_drawdown_pct": 10.0,
+    "max_trades_per_day": 2,
+    "cooldown_after_one_loss_minutes": 15,
+    "cooldown_after_two_losses_minutes": 60,
+    "stop_trading_after_three_losses": true,
+    "no_averaging_down": true,
+    "setup_risk_bands_are_guidance_not_minimums": true
+  },
+  "data_health": {
+    "futures_stale_warning_sec": 3,
+    "futures_stale_invalid_sec": 5,
+    "option_quote_stale_warning_sec": 5,
+    "option_quote_stale_invalid_sec": 8,
+    "option_chain_stale_entry_sec": 15,
+    "option_chain_invalid_sec": 30,
+    "oi_downgrade_sec": 180,
+    "oi_invalid_sec": 300,
+    "iv_downgrade_sec": 30,
+    "iv_invalid_sec": 60,
+    "packet_gap_warning_sec": 5,
+    "packet_gap_freeze_sec": 10,
+    "reconnect_stable_wait_sec": 30,
+    "repeated_api_error_window_min": 5,
+    "repeated_api_error_count_no_trade": 2,
+    "stale_alert_consecutive_cycles": 2,
+    "require_source_timestamp_for_approval": true,
+    "require_chain_semantics_for_approval": true,
+    "fail_closed_after_source_timestamp_unavailable": true
+  },
+  "operator_controls": {
+    "daily_mode_path": "uploads/DAILY_MODE.txt",
+    "market_context_path": "uploads/DAILY_MARKET_CONTEXT.json",
+    "manual_mode_can_loosen": false,
+    "require_valid_market_context_for_canonical": false
+  },
+  "liquidity": {
+    "atm_spread_ideal_pct": 1.0,
+    "atm_spread_acceptable_pct": 1.5,
+    "atm_spread_reject_pct": 2.0,
+    "itm_spread_ideal_pct": 1.2,
+    "itm_spread_acceptable_pct": 1.8,
+    "itm_spread_reject_pct": 2.5,
+    "otm_spread_ideal_pct": 2.0,
+    "otm_spread_acceptable_pct": 3.0,
+    "otm_spread_reject_pct": 4.0,
+    "absolute_spread_cap_points": 8,
+    "min_top_book_lots": 2,
+    "preferred_top_book_lots": 5,
+    "min_5depth_lots_each_side": 10,
+    "preferred_5depth_lots_each_side": 25,
+    "selected_option_min_volume_lots_after_0945": 1000,
+    "selected_option_min_oi_lots": 2000,
+    "selected_option_preferred_oi_lots": 5000,
+    "liquidity_shock_spread_multiple": 2.0,
+    "liquidity_shock_depth_drop_pct": 60
+  },
+  "scores": {
+    "contract_quality_min": 70,
+    "contract_quality_strong": 80,
+    "direction_min": 65,
+    "direction_strong": 80,
+    "trade_quality_min": 70,
+    "trade_quality_strong": 85,
+    "final_confidence_min": 65,
+    "final_confidence_strong": 80,
+    "regime_confidence_min": 60,
+    "market_hostility_normal_max": 35,
+    "market_hostility_defensive_max": 55,
+    "market_hostility_survival_max": 75,
+    "conflict_reduce_threshold": 25,
+    "conflict_wait_threshold": 45,
+    "conflict_no_trade_threshold": 60
+  },
+  "premium_elasticity": {
+    "min_futures_move_points": 30,
+    "min_futures_move_pct": 0.05,
+    "delta_adjusted_entry_min": 0.8,
+    "delta_adjusted_strong": 1.0,
+    "weak_threshold": 0.6,
+    "reject_or_exit_threshold": 0.5,
+    "smoothing_window_sec": 60,
+    "confirmation_windows": 2,
+    "favorable_move_for_failure_exit_points": 50,
+    "require_observed_confirmation_for_selection": true
+  },
+  "expected_move": {
+    "expected_required_ratio_min": 1.3,
+    "expected_required_ratio_strong": 1.6,
+    "hard_reject_ratio": 1.1,
+    "target_premium_gain_min_R": 1.5,
+    "preferred_target_R": 2.0,
+    "gap_expected_range_consumed_penalty_pct": 60,
+    "straddle_cost_high_ratio": 0.7,
+    "straddle_cost_low_ratio": 0.45
+  },
+  "theta": {
+    "expected_gain_theta_multiple_default": 2.0,
+    "expected_gain_theta_multiple_expiry_lunch": 3.0,
+    "lunch_no_trade_penalty": 20,
+    "no_new_short_dated_friday_after": "13:30"
+  },
+  "iv_crush": {
+    "low_risk_max": 30,
+    "moderate_risk_max": 50,
+    "high_risk_max": 70,
+    "very_high_risk_max": 85,
+    "hard_veto_above": 85,
+    "exit_iv_drop_warning_pct": 10,
+    "exit_iv_drop_hard_pct": 20,
+    "weights": {
+      "iv_rank_risk": 0.25,
+      "event_risk": 0.2,
+      "recent_iv_expansion_risk": 0.15,
+      "iv_realized_spread_risk": 0.15,
+      "term_structure_risk": 0.1,
+      "time_to_expiry_risk": 0.1,
+      "skew_risk": 0.05
+    }
+  },
+  "fast_wbci": {
+    "bullish_permission": 45,
+    "bearish_permission": -45,
+    "mixed_zone_low": -20,
+    "mixed_zone_high": 20,
+    "strong_bullish": 70,
+    "strong_bearish": -70,
+    "weights": {
+      "vwap_state": 0.45,
+      "relative_strength_5m": 0.35,
+      "volume_futures_confirmation": 0.2
+    },
+    "top3_weights_normalized": {
+      "HDFCBANK": 0.393,
+      "SBIN": 0.305,
+      "ICICIBANK": 0.302
+    },
+    "vwap_near_band_pct": 0.05,
+    "relative_strength_mild_pct": 0.05,
+    "relative_strength_strong_pct": 0.15,
+    "rvol_confirm_threshold": 1.5,
+    "rvol_mild_threshold": 1.0
+  },
+  "slow_wbci": {
+    "weight_stale_penalty_days": 30,
+    "weight_invalid_for_aggressive_days": 60,
+    "hdfc_icici_required_for_aggressive": true
+  },
+  "hard_stop": {
+    "normal_max_points": 25,
+    "normal_max_premium_pct": 20,
+    "normal_max_rupees": 750,
+    "a_plus_max_points": 33,
+    "a_plus_max_premium_pct": 25,
+    "a_plus_max_rupees": 1000,
+    "risk_cap_is_ceiling_not_target": true,
+    "skip_if_required_stop_exceeds_max_allowed_risk": true
+  },
+  "exit_management": {
+    "enabled": true,
+    "breakeven_trigger_r": 1.0,
+    "trail_trigger_r": 2.0,
+    "trail_distance_r": 1.0,
+    "losing_time_stop_fraction": 0.35,
+    "time_decay_tighten": 0.0,
+    "rationale": "Ratchet never loosens the stop, so worst-case risk per trade is unchanged. Breakeven at 1.0R banks winners (roi_lab 10-seed ensemble: +15.9pp ROI, -20.6R maxDD vs legacy). Losing_time_stop_fraction=0.35 exits a still-losing trade after 35% of the holding window, so losers do not consume the full window: ensemble +22.6pp ROI and -62.5R maxDD over breakeven-only. Trail trigger at 2.0R (default target) keeps the trail latent; lower it to catch give-backs when reversal frequency is high. time_decay_tighten (0..1) tightens the stop toward entry near the deadline; kept at 0.0 because it trades ROI for extra drawdown reduction."
+  },
+  "required_stop_model": {
+    "enabled": true,
+    "premium_stop_pct": 0.2,
+    "min_points": 0.0,
+    "rationale": "Logical invalidation stop as a fraction of premium paid. The DynamicRiskCalculator still skips the trade if this stop does not fit the risk cap; risk caps are never widened."
+  },
+  "holding_time": {
+    "no_trade_before": "09:30",
+    "normal_average_min": 15,
+    "normal_average_max": 20,
+    "normal_max_hold_minutes": 30,
+    "no_new_entries_after": "14:15",
+    "extended_max_hold_minutes": 45,
+    "exceptional_trend_max_minutes": 90,
+    "losing_normal_max_minutes": 12,
+    "flat_trade_max_minutes": 20
+  },
+  "gap": {
+    "micro_gap_pct": 0.25,
+    "small_gap_pct": 0.5,
+    "moderate_gap_pct": 0.9,
+    "large_gap_pct": 1.5,
+    "shock_gap_pct": 2.0,
+    "min_wait_any_gap_min": 15,
+    "wait_gap_0_50_to_0_90_min": 20,
+    "wait_gap_0_90_to_1_50_min": 30,
+    "wait_gap_above_1_50_min": 45,
+    "wait_gap_above_2_00_min": 60
+  },
+  "execution": {
+    "entry_order_type": "marketable_limit",
+    "pure_market_entry_allowed": false,
+    "max_requotes": 2,
+    "requote_window_sec": 20,
+    "entry_limit_max_ask_ticks": 1,
+    "entry_limit_max_mid_spread_fraction": 0.6,
+    "cancel_if_spread_expands_multiple": 1.5,
+    "emergency_market_order_allowed": false,
+    "demo_trade": true,
+    "live_orders_allowed_when_demo_trade_false": true,
+    "dhan_api_base_url": "https://api.dhan.co/v2",
+    "dhan_static_ip_required_for_orders": true,
+    "live_trading_enabled": false,
+    "live_trading_requires_committee_approval_artifact": true
+  },
+  "validation": {
+    "threshold_initial_status": "provisional",
+    "minimum_market_days_before_live_review": 20,
+    "minimum_paper_trades_before_live_review": 50,
+    "minimum_trades_for_preliminary_review": 50,
+    "minimum_trades_for_production_validation": 100,
+    "minimum_occurrences_per_condition": 20
+  },
+  "instrument_universe": {
+    "phase": "PHASE_1_ALL_59_PAPER_SELECTION",
+    "paper_trade_all_configured_underlyings": true,
+    "live_trade_universe_remains_frozen_four": true,
+    "eligible_underlyings": [
+      "BANKNIFTY",
+      "NIFTY",
+      "FINNIFTY",
+      "MIDCPNIFTY",
+      "SENSEX",
+      "BANKEX",
+      "FOCIT",
+      "NIFTYNXT50",
+      "NIFTYFPI",
+      "ADANIENT",
+      "ADANIPORTS",
+      "APOLLOHOSP",
+      "ASIANPAINT",
+      "AXISBANK",
+      "BAJAJ-AUTO",
+      "BAJFINANCE",
+      "BAJAJFINSV",
+      "BEL",
+      "BHARTIARTL",
+      "CIPLA",
+      "COALINDIA",
+      "DRREDDY",
+      "EICHERMOT",
+      "ETERNAL",
+      "GRASIM",
+      "HCLTECH",
+      "HDFCBANK",
+      "HDFCLIFE",
+      "HINDALCO",
+      "HINDUNILVR",
+      "ICICIBANK",
+      "ITC",
+      "INFY",
+      "INDIGO",
+      "JSWSTEEL",
+      "JIOFIN",
+      "KOTAKBANK",
+      "LT",
+      "M&M",
+      "MARUTI",
+      "MAXHEALTH",
+      "NTPC",
+      "NESTLEIND",
+      "ONGC",
+      "POWERGRID",
+      "RELIANCE",
+      "SBILIFE",
+      "SHRIRAMFIN",
+      "SBIN",
+      "SUNPHARMA",
+      "TCS",
+      "TATACONSUM",
+      "TMPV",
+      "TATASTEEL",
+      "TECHM",
+      "TITAN",
+      "TRENT",
+      "ULTRACEMCO",
+      "WIPRO"
+    ],
+    "trade_only_best_ranked_candidate": true,
+    "max_open_positions": 1,
+    "max_pending_orders": 1,
+    "global_position_lock": true,
+    "no_trade_if_no_excellent_candidate": true,
+    "midcap_nifty_requires_extra_liquidity_validation": true
+  },
+  "opportunity_selection": {
+    "enabled": true,
+    "excellent_opportunity_min_score": 80,
+    "minimum_core_gate_score": 70,
+    "require_contract_quality_min": 80,
+    "require_premium_elasticity_min": 1.0,
+    "require_expected_required_ratio_min": 1.6,
+    "require_market_hostility_max": 35,
+    "require_iv_crush_max": 50,
+    "allow_defensive_candidates_phase1": false,
+    "same_direction_after_loss_cooldown_min": 30,
+    "ranking_weights": {
+      "trade_quality_score": 0.3,
+      "direction_score": 0.2,
+      "premium_elasticity_score": 0.15,
+      "contract_quality_score": 0.15,
+      "regime_fit_score": 0.1,
+      "expected_move_required_score": 0.1
+    },
+    "penalties": {
+      "market_hostility_penalty_multiplier": 1.0,
+      "instrument_uncertainty_penalty": 10,
+      "midcap_unvalidated_penalty": 10,
+      "same_direction_recent_loss_penalty": 20,
+      "liquidity_not_baselined_penalty": 15
+    },
+    "final_opportunity_score_weights": {
+      "trade_quality_score": 0.25,
+      "convexity_quality_score": 0.2,
+      "direction_score": 0.15,
+      "execution_quality_score": 0.15,
+      "regime_fit_score": 0.1,
+      "opportunity_confidence_score": 0.1,
+      "contract_quality_score": 0.05
+    },
+    "rank_tie_threshold_points": 3,
+    "ambiguous_after_tie_break_means_no_trade": true,
+    "excellent_gate_requirements": {
+      "execution_quality_min": 80,
+      "convexity_edge_min": 80,
+      "opportunity_confidence_min": 70,
+      "regime_fit_min": 70,
+      "required_stop_must_be_configured": true
+    },
+    "rank_persistence_required_windows": 2,
+    "a_plus_impulse_exception_allowed": true
+  },
+  "instrument_risk_overrides": {
+    "BANKNIFTY": {
+      "normal_risk_cap_rupees": 750,
+      "a_plus_risk_cap_rupees": 1000
+    },
+    "NIFTY": {
+      "normal_risk_cap_rupees": 750,
+      "a_plus_risk_cap_rupees": 1000
+    },
+    "FINNIFTY": {
+      "normal_risk_cap_rupees": 750,
+      "a_plus_risk_cap_rupees": 1000
+    },
+    "MIDCPNIFTY": {
+      "normal_risk_cap_rupees": 500,
+      "a_plus_risk_cap_rupees": 750,
+      "status": "stricter_until_liquidity_validated"
+    }
+  },
+  "phase1_direction_models": {
+    "common_direction_score_weights": {
+      "instrument_leadership": 0.35,
+      "futures_auction_structure": 0.3,
+      "momentum_trend_efficiency": 0.2,
+      "options_premium_confirmation": 0.15
+    },
+    "banknifty_model": "FastWBCI",
+    "nifty_model": "Phase1_NiftyLeadershipProxy_until_weight_file_validated",
+    "finnifty_model": "Phase1_FinancialLeadershipProxy_until_weight_file_validated",
+    "midcpnifty_model": "Phase1_PriceFuturesRegimeProxy_with_extra_liquidity_validation",
+    "direction_bullish_permission": 45,
+    "direction_bearish_permission": -45,
+    "direction_strong_abs": 70,
+    "mixed_zone_low": -20,
+    "mixed_zone_high": 20,
+    "unvalidated_model_penalty": {
+      "BANKNIFTY": 0,
+      "NIFTY": 10,
+      "FINNIFTY": 10,
+      "MIDCPNIFTY": 15
+    }
+  },
+  "direction_model_runtime": {
+    "shadow_enabled": true,
+    "use_model_for_trade": false,
+    "minimum_component_history_bars": 10,
+    "component_symbols": {
+      "BANKNIFTY": [
+        "HDFCBANK",
+        "SBIN",
+        "ICICIBANK"
+      ],
+      "NIFTY": [
+        "HDFCBANK",
+        "SBIN",
+        "ICICIBANK"
+      ],
+      "FINNIFTY": [
+        "HDFCBANK",
+        "SBIN",
+        "ICICIBANK"
+      ]
+    },
+    "component_weights": {
+      "BANKNIFTY": {
+        "HDFCBANK": 0.393,
+        "SBIN": 0.305,
+        "ICICIBANK": 0.302
+      },
+      "NIFTY": {
+        "HDFCBANK": 0.333333,
+        "SBIN": 0.333333,
+        "ICICIBANK": 0.333334
+      },
+      "FINNIFTY": {
+        "HDFCBANK": 0.333333,
+        "SBIN": 0.333333,
+        "ICICIBANK": 0.333334
+      }
+    },
+    "rationale": "Direction models run in shadow mode until constituent data quality, model agreement, and out-of-sample calibration are validated. Missing component history returns UNAVAILABLE and never substitutes guessed values."
+  },
+  "per_instrument_risk_handling": {
+    "lot_size_source": "DHAN_DETAILED_INSTRUMENT_MASTER_RUNTIME",
+    "use_banknifty_lot_size_for_all_instruments": false,
+    "risk_cap_stop_points_formula": "MaxAllowedRisk / (lot_size_i * lots)",
+    "minimum_viable_stop_points_formula": "max(2 * spread_points + 2_ticks, instrument_noise_floor_points)",
+    "reject_if_hard_stop_below_minimum_viable_stop": true
+  },
+  "midcap_liquidity_baseline": {
+    "minimum_trading_days": 20,
+    "minimum_ranking_cycles": 100,
+    "minimum_excellent_candidate_observations": 20,
+    "live_selection_requires_contract_quality": 85,
+    "live_selection_requires_premium_elasticity": 1.1,
+    "live_selection_requires_expected_required_ratio": 1.75,
+    "live_selection_requires_market_hostility_max": 30,
+    "status_until_baseline_passes": "CONDITIONAL_OR_MONITOR_ONLY"
+  },
+  "expected_move_model_phase1": {
+    "formula": "median(ATRRemainingMove, ATMStraddleImpliedMove, RegimeProjectedMove) * InstrumentConfidenceHaircut * LiquidityAdjustment * GapRemainingAdjustment",
+    "confidence_haircuts": {
+      "BANKNIFTY": 0.85,
+      "NIFTY": 0.8,
+      "FINNIFTY": 0.75,
+      "MIDCPNIFTY": 0.65
+    },
+    "phase1_required_ratio": 1.6,
+    "midcap_required_ratio": 1.75
+  },
+  "paper_fill_simulator": {
+    "use_ltp_fills": false,
+    "entry_slippage_buffer_formula": "max(1_tick, 0.10 * spread, instrument_slippage_baseline)",
+    "entry_limit_formula": "min(ask + 1_tick, mid + 0.60 * spread)",
+    "entry_fill_rule": "if ask + slippage_buffer <= limit_price then ask + slippage_buffer else NO_FILL",
+    "exit_fill_formula": "bid - max(1_tick, 0.10 * spread, instrument_slippage_baseline)",
+    "emergency_slippage_buffer_formula": "max(2_ticks, 0.25 * spread, instrument_emergency_slippage_baseline)"
+  },
+  "cost_tax_model": {
+    "gross_pnl_formula": "(exit_fill - entry_fill) * lot_size * lots",
+    "net_pnl_formula": "GrossPnL - brokerage - STT - exchange_transaction_charges - SEBI_charges - stamp_duty - GST - other_broker_charges - slippage_cost",
+    "rates_must_be_configured_and_verified_weekly": true,
+    "do_not_hardcode_statutory_rates_in_strategy_logic": true,
+    "gst_rate_placeholder_pct": 18.0,
+    "brokerage_per_order_placeholder_rupees": null,
+    "stt_rate_placeholder": null,
+    "exchange_transaction_rate_placeholder": null,
+    "sebi_fee_rate_placeholder": null,
+    "stamp_duty_rate_placeholder": null
+  },
+  "candidate_revalidation": {
+    "enabled": true,
+    "fast_market_max_candidate_age_sec": 5,
+    "normal_market_max_candidate_age_sec": 15,
+    "max_spread_expansion_from_ranking_multiple": 1.25,
+    "recalculate_all_if_top_candidate_fails": true,
+    "never_auto_trade_rank_2_without_recalculation": true
+  },
+  "phase1_dry_run_acceptance": {
+    "minimum_trading_days": 20,
+    "minimum_ranking_cycles": 100,
+    "minimum_paper_trade_candidates": 50,
+    "critical_mapping_errors_allowed_final_5_days": 0,
+    "wrong_lot_size_calculations_allowed": 0,
+    "wrong_tick_size_calculations_allowed": 0,
+    "dashboard_ranking_latency_pass_rate_pct": 95,
+    "global_position_lock_must_pass": true,
+    "candidate_revalidation_must_pass": true,
+    "paper_fill_simulator_must_be_active": true,
+    "emergency_tests_must_pass": true,
+    "live_trading_allowed_if_any_critical_fail": false
+  },
+  "instrument_class_profiles": {
+    "NSE_INDEX": {
+      "contract_quality_min": 80,
+      "min_top_book_lots": 2,
+      "min_5depth_lots_each_side": 10,
+      "min_valid_quote_rate": 0.95,
+      "min_paper_fill_rate": 0.8,
+      "excellent_score_min": 80,
+      "minimum_observations": 100,
+      "minimum_days": 20,
+      "minimum_outcome_observations": 20
+    },
+    "BSE_INDEX": {
+      "contract_quality_min": 85,
+      "min_top_book_lots": 3,
+      "min_5depth_lots_each_side": 15,
+      "min_valid_quote_rate": 0.97,
+      "min_paper_fill_rate": 0.85,
+      "excellent_score_min": 85,
+      "minimum_observations": 150,
+      "minimum_days": 20,
+      "minimum_outcome_observations": 20
+    },
+    "NSE_STOCK_OPTION": {
+      "contract_quality_min": 90,
+      "min_top_book_lots": 3,
+      "min_5depth_lots_each_side": 20,
+      "min_valid_quote_rate": 0.98,
+      "min_paper_fill_rate": 0.88,
+      "excellent_score_min": 87,
+      "minimum_observations": 200,
+      "minimum_days": 20,
+      "minimum_outcome_observations": 25
+    },
+    "BSE_STOCK_OPTION": {
+      "contract_quality_min": 92,
+      "min_top_book_lots": 4,
+      "min_5depth_lots_each_side": 25,
+      "min_valid_quote_rate": 0.98,
+      "min_paper_fill_rate": 0.9,
+      "excellent_score_min": 90,
+      "minimum_observations": 250,
+      "minimum_days": 20,
+      "minimum_outcome_observations": 25
+    }
+  },
+  "research_lifecycle": {
+    "initial_state_monitor_only": "MONITOR",
+    "promotion_order": [
+      "MONITOR",
+      "SHADOW",
+      "PAPER_ELIGIBLE",
+      "TRADE_ELIGIBLE"
+    ],
+    "retirement_state": "RETIRED",
+    "shadow_min_outcomes": 20,
+    "paper_min_closed_trades": 50,
+    "promotion_requires_walk_forward_review": true,
+    "monitor_only_never_auto_promotes_to_trade": false,
+    "paper_selector_all_configured_underlyings": true,
+    "trade_universe_mutation_allowed": false,
+    "paper_trade_policy_revision": "ALL_59_INSTRUMENTS_WITH_INSTRUMENT_GATE_CALIBRATION"
+  },
+  "instrument_calibration_status": {
+    "BANKNIFTY": {
+      "direction": "OBSERVED",
+      "liquidity": "UNVALIDATED",
+      "expected_move": "UNVALIDATED"
+    },
+    "NIFTY": {
+      "direction": "UNVALIDATED",
+      "liquidity": "UNVALIDATED",
+      "expected_move": "UNVALIDATED"
+    },
+    "FINNIFTY": {
+      "direction": "UNVALIDATED",
+      "liquidity": "UNVALIDATED",
+      "expected_move": "UNVALIDATED"
+    },
+    "MIDCPNIFTY": {
+      "direction": "UNVALIDATED",
+      "liquidity": "UNVALIDATED",
+      "expected_move": "UNVALIDATED"
+    }
+  },
+  "excellence_framework": {
+    "grades": {
+      "A_plus": {
+        "min_score": 90,
+        "trade_permission": "TRADABLE_A_PLUS_IF_ALL_STRONG_GATES_PASS"
+      },
+      "A": {
+        "min_score": 80,
+        "max_score": 89.99,
+        "trade_permission": "TRADABLE_NORMAL_RISK_IF_ALL_EXCELLENT_GATES_PASS"
+      },
+      "B": {
+        "min_score": 70,
+        "max_score": 79.99,
+        "trade_permission": "NO_LIVE_TRADE_WATCH_OR_PAPER_ONLY"
+      },
+      "C": {
+        "min_score": 60,
+        "max_score": 69.99,
+        "trade_permission": "NO_TRADE"
+      },
+      "Reject": {
+        "max_score": 59.99,
+        "trade_permission": "NO_TRADE"
+      }
+    },
+    "dynamic_threshold_additions": {
+      "gap_day_above_0_50_pct": 5,
+      "expiry_day": 5,
+      "iv_crush_risk_50_to_70": 5,
+      "midcap_unvalidated": 10,
+      "same_direction_recent_loss": 10,
+      "market_hostility_25_to_35_blocks_a_plus": true
+    },
+    "phase1_dynamic_threshold_can_only_increase_strictness": true
+  },
+  "opportunity_quality_scores": {
+    "opportunity_confidence_score": {
+      "weights": {
+        "data_confidence": 0.3,
+        "calibration_confidence": 0.25,
+        "rank_stability": 0.2,
+        "signal_agreement": 0.15,
+        "execution_confidence": 0.1
+      },
+      "minimum_for_live_trade": 70,
+      "minimum_for_a_plus": 80,
+      "cap_if_liquidity_unvalidated": 70,
+      "cap_if_direction_unvalidated": 75,
+      "no_live_trade_if_direction_and_liquidity_both_unvalidated": true
+    },
+    "convexity_quality_score": {
+      "weights": {
+        "premium_elasticity_score": 0.3,
+        "expected_move_required_score": 0.25,
+        "gamma_suitability_score": 0.2,
+        "iv_expansion_or_stability_score": 0.15,
+        "time_to_profit_score": 0.1
+      },
+      "minimum_for_live_trade": 80
+    },
+    "execution_quality_score": {
+      "weights": {
+        "spread_stability_score": 0.25,
+        "depth_persistence_score": 0.2,
+        "quote_freshness_score": 0.2,
+        "paper_fill_probability_score": 0.15,
+        "slippage_baseline_score": 0.1,
+        "requote_risk_score": 0.1
+      },
+      "minimum_for_live_trade": 80,
+      "midcap_minimum_for_live_trade": 85
+    }
+  },
+  "portfolio_overlap_guard": {
+    "enabled": true,
+    "max_open_positions": 1,
+    "block_same_underlying": true,
+    "block_same_exposure_group": true,
+    "exposure_group_formula": "conservative underlying and factor grouping",
+    "research_only_overlap_diagnostics": true
+  },
+  "retirement_rules": {
+    "minimum_shadow_outcomes": 20,
+    "minimum_paper_trades": 50,
+    "negative_expectancy_retire_threshold_r": -0.25,
+    "data_quality_degradation_factor": 0.8,
+    "retirement_never_promotes_to_trade": true
+  },
+  "portfolio_no_trade_engine": {
+    "enabled": true,
+    "no_trade_if_no_candidate_grade_at_least_A": true,
+    "portfolio_no_trade_score_shutdown_above": 70,
+    "weights": {
+      "best_candidate_weakness_risk": 0.25,
+      "cross_instrument_market_hostility": 0.2,
+      "data_breadth_risk": 0.15,
+      "liquidity_breadth_risk": 0.15,
+      "event_gap_system_risk": 0.1,
+      "recent_loss_psychology_risk": 0.1,
+      "calibration_uncertainty_risk": 0.05
+    },
+    "hard_vetoes": {
+      "three_or_more_instruments_data_invalid": true,
+      "broad_event_tail_risk_active": true,
+      "daily_risk_budget_insufficient": true,
+      "global_position_lock_active": true,
+      "top_candidate_revalidation_failed": true,
+      "top_two_ambiguous_after_tie_break": true
+    }
+  },
+  "instrument_regime_fit_matrix": {
+    "banking_led_trend": {
+      "BANKNIFTY": 95,
+      "NIFTY": 75,
+      "FINNIFTY": 90,
+      "MIDCPNIFTY": 50
+    },
+    "broad_market_trend": {
+      "BANKNIFTY": 75,
+      "NIFTY": 95,
+      "FINNIFTY": 75,
+      "MIDCPNIFTY": 70
+    },
+    "financial_sector_divergence": {
+      "BANKNIFTY": 80,
+      "NIFTY": 65,
+      "FINNIFTY": 90,
+      "MIDCPNIFTY": 45
+    },
+    "risk_on_high_beta": {
+      "BANKNIFTY": 70,
+      "NIFTY": 80,
+      "FINNIFTY": 70,
+      "MIDCPNIFTY": 85
+    },
+    "risk_off_panic": {
+      "BANKNIFTY": 60,
+      "NIFTY": 75,
+      "FINNIFTY": 55,
+      "MIDCPNIFTY": 30
+    },
+    "low_vol_compression": {
+      "BANKNIFTY": 60,
+      "NIFTY": 75,
+      "FINNIFTY": 60,
+      "MIDCPNIFTY": 45
+    },
+    "expiry_pin_dealer_control": {
+      "BANKNIFTY": 35,
+      "NIFTY": 45,
+      "FINNIFTY": 35,
+      "MIDCPNIFTY": 25
+    },
+    "event_news_chaos": {
+      "BANKNIFTY": 20,
+      "NIFTY": 30,
+      "FINNIFTY": 20,
+      "MIDCPNIFTY": 10
+    },
+    "minimum_for_excellent": 70,
+    "midcap_minimum_until_validated": 80
+  },
+  "opportunity_decay_and_scarcity": {
+    "candidate_age_fast_market_sec": 5,
+    "candidate_age_normal_market_sec": 15,
+    "candidate_age_slow_market_sec": 30,
+    "rank_persistence_required_windows": 2,
+    "do_not_lower_thresholds_after_no_trade_days": true,
+    "review_after_no_trade_sessions": 5,
+    "do_not_change_thresholds_without_sample": true
+  },
+  "remaining_daily_risk_budget": {
+    "formula": "MaxDailyLoss - RealizedLossToday",
+    "new_trade_cap_formula": "min(NormalRiskCap, InstrumentRiskCap, 0.80 * RemainingDailyLossBudget)",
+    "reject_if_planned_risk_exceeds_new_trade_cap": true
+  },
+  "global_risk_filter": {
+    "enabled": true,
+    "role": "risk_filter_not_entry_signal",
+    "states": [
+      "RISK_ON",
+      "NEUTRAL",
+      "RISK_OFF",
+      "SHOCK"
+    ],
+    "weights": {
+      "us_index_futures_risk": 0.25,
+      "gift_nifty_gap_risk": 0.2,
+      "europe_market_risk": 0.15,
+      "vix_risk": 0.15,
+      "currency_risk": 0.1,
+      "yield_risk": 0.1,
+      "crude_gold_risk": 0.05
+    },
+    "score_bands": {
+      "risk_on_neutral_max": 25,
+      "caution_max": 45,
+      "risk_off_max": 65,
+      "shock_above": 65
+    },
+    "direction_adjustment_limits": {
+      "normal_max_abs": 10,
+      "strong_risk_off_call_penalty_max": 20
+    },
+    "gift_gap_rules_pct": {
+      "caution": 0.5,
+      "extended_wait": 1.0,
+      "survival_no_trade_initially": 2.0
+    }
+  },
+  "news_risk_filter": {
+    "enabled": true,
+    "role": "risk_filter_not_entry_signal",
+    "rss_allowed_as_monitoring_layer": true,
+    "states": [
+      "NEWS_NORMAL",
+      "NEWS_CAUTION",
+      "NEWS_DEFENSIVE",
+      "NEWS_SURVIVAL",
+      "NEWS_NO_TRADE"
+    ],
+    "weights": {
+      "event_severity": 0.3,
+      "instrument_relevance": 0.2,
+      "source_reliability": 0.2,
+      "market_reaction_confirmed": 0.15,
+      "timing_proximity": 0.15
+    },
+    "market_hostility_penalties": {
+      "global_caution_min": 5,
+      "global_caution_max": 10,
+      "global_risk_off_min": 10,
+      "global_risk_off_max": 25,
+      "news_caution_min": 5,
+      "news_caution_max": 10,
+      "news_defensive_min": 15,
+      "news_defensive_max": 25,
+      "news_survival_min": 35,
+      "news_survival_max": 50
+    },
+    "hard_vetoes": {
+      "global_shock_without_indian_stabilization": true,
+      "news_no_trade_state": true,
+      "broker_exchange_api_outage_confirmed": true,
+      "major_rbi_sebi_nse_surprise_not_digested": true,
+      "unverified_major_news_with_abnormal_spreads": true
+    }
+  },
+  "instrument_gate_learning": {
+    "enabled": true,
+    "warmup_days": 5,
+    "minimum_learning_observations": 100,
+    "minimum_learning_days": 20,
+    "minimum_learning_outcomes": 20,
+    "winning_quantile": 0.25,
+    "high_watermark_quantile": 0.9,
+    "candidate_quantiles": [
+      0.5,
+      0.6,
+      0.7,
+      0.75,
+      0.8,
+      0.9
+    ],
+    "validation_fraction": 0.3,
+    "minimum_validation_outcomes": 10,
+    "minimum_validation_days": 5,
+    "validation_min_expectancy_r": 0.1,
+    "validation_max_drawdown_r": 10.0,
+    "minimum_retention": 0.6,
+    "maximum_gate_update_step_fraction": 0.1,
+    "required_stable_validation_windows": 2,
+    "minimum_improvement_r": 0.0,
+    "do_not_loosen": true,
+    "positive_expectancy_required": true,
+    "policy": "Start at strict class floors; collect linked skipped-forward evidence; test candidate gates on earlier observations; activate only the least restrictive gate with positive post-cost out-of-sample improvement across stable validation windows; roll back to the last validated gate when validation fails."
+  },
+  "evidence_profiles": {
+    "active_profile": "FYERS_PAPER_PROXY_RESEARCH",
+    "elasticity_status": "PROXY_RESEARCH_NOT_OBSERVED",
+    "mapping_status": "FYERS_PAPER_RESEARCH_ONLY",
+    "cost_status": "COST_MODEL_UNVALIDATED",
+    "global_risk_status": "OPTIONAL_PROXY_RESEARCH",
+    "exclude_from_canonical_validation": true
+  },
+  "runtime_risk_controls": {
+    "enforce_on_paper": false,
+    "risk_context_path": "paper_state/risk_context.json",
+    "stale_after_sec": 30,
+    "fail_closed_if_missing": true,
+    "source_required": true,
+    "rationale": "The paper runner can consume a verified external risk/news snapshot. Until a source is supplied, the system records UNAVAILABLE and preserves the existing paper research path; when enforcement is enabled, missing or stale context blocks new entries."
+  },
+  "playbook_runtime": {
+    "enforce_on_paper": false,
+    "require_rank_persistence": true,
+    "rationale": "Playbook and persistence filters are available for replay/shadow validation but remain disabled for paper trading until event and regime inputs are verified."
+  },
+  "dhan": {
+    "client_id_env": "DHAN_CLIENT_ID",
+    "access_token_env": "DHAN_ACCESS_TOKEN",
+    "api_base_url": "https://api.dhan.co/v2",
+    "instrument_master_url": "https://images.dhan.co/api-data/api-scrip-master-detailed.csv",
+    "option_chain_rate_limit_sec": 3,
+    "underlying_segment_for_indices": "IDX_I"
+  },
+  "expected_value": {
+    "enabled": true,
+    "shadow_only_until_cost_model_valid": true,
+    "canonical_min_r": 0.3,
+    "max_probability": 0.62,
+    "units": "R_multiple"
+  },
+  "no_trade_alpha": {
+    "enabled": true,
+    "forward_windows_minutes": [
+      5,
+      15,
+      30
+    ],
+    "research_only": true,
+    "cost_model_required_for_canonical": true
+  }
+}

@@ -1,0 +1,25 @@
+﻿last_cycle=2026-08-18T14:23:43.936613+05:30
+last_cycle_ok=True
+market_open=True
+mode=PAPER (no orders placed)
+open_position=False
+closed_trades=0
+cost_model_status=COST_MODEL_UNVALIDATED
+canonical_promotion_allowed=False
+daily_mode=NORMAL status=STALE
+schedule_total=59
+schedule_selected=NIFTY,BANKNIFTY,FINNIFTY,MIDCPNIFTY,SENSEX,BANKEX,FOCIT,NIFTYNXT50,NIFTYFPI,ADANIENT,ADANIPORTS,APOLLOHOSP
+underlying_count=59
+depth_applied_count=9
+depth_partial_count=2
+depth_unavailable_count=0
+depth_total_requested=64
+depth_total_successful=58
+depth_total_five_level=58
+depth_total_failed=6
+depth_rate_limit_errors=0
+depth_api_errors=6
+candidate_count=1
+candidate_eligible=0
+candidate_decisions=
+niftyfpi_error=OptionChainParseError: Missing data.optionsChain in Fyers payload

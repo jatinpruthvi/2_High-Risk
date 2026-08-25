@@ -1,0 +1,41 @@
+﻿{
+    "mode":  "CORE_PLUS_PRIORITY_LANES",
+    "batch_size":  8,
+    "total_paper_underlyings":  59,
+    "selected":  [
+                     "NIFTY",
+                     "BANKNIFTY",
+                     "FINNIFTY",
+                     "MIDCPNIFTY",
+                     "COALINDIA",
+                     "DRREDDY",
+                     "EICHERMOT",
+                     "ETERNAL",
+                     "GRASIM",
+                     "HCLTECH",
+                     "HDFCBANK",
+                     "HDFCLIFE"
+                 ],
+    "core":  [
+                 "NIFTY",
+                 "BANKNIFTY",
+                 "FINNIFTY",
+                 "MIDCPNIFTY"
+             ],
+    "last_batch":  [
+                       "COALINDIA",
+                       "DRREDDY",
+                       "EICHERMOT",
+                       "ETERNAL",
+                       "GRASIM",
+                       "HCLTECH",
+                       "HDFCBANK",
+                       "HDFCLIFE"
+                   ],
+    "deferred":  [
+
+                 ],
+    "scheduler_cycle":  6,
+    "next_refresh_in_sec":  6.3,
+    "max_full_audit_cycles":  7
+}

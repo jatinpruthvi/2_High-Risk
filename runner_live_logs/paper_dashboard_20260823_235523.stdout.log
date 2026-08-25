@@ -1,0 +1,192 @@
+[12:25:24] PAPER-ONLY config overrides active: {'exit_management': {'vol_time_stop_fraction': 0.35, 'stop_exit_slippage_frac': 0.1, 'edge_scaled_target': True, 'edge_scale_min_ratio': 1.1, 'edge_scale_min_r': 1.0, 'edge_scale_max_r': 3.0}, 'risk': {'normal_risk_pct_of_capital': 5.0, 'normal_risk_cap_rupees': 5000, 'a_plus_risk_pct_of_capital': 6.0, 'a_plus_risk_cap_rupees': 6000, 'max_daily_loss_rupees': 8000}, 'instrument_risk_overrides': {'BANKNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'NIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'FINNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'MIDCPNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}}, 'instrument_calibration_status': {'BANKNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'NIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'FINNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'MIDCPNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}}}
+[12:25:33]   NIFTY [NSE, TRADE_ELIGIBLE]: 18 expiries, nearest 2026-08-25
+[12:25:33]   BANKNIFTY [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   FINNIFTY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   MIDCPNIFTY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   SENSEX [BSE, TRADE_ELIGIBLE]: 19 expiries, nearest 2026-08-27
+[12:25:33]   BANKEX [BSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-27
+[12:25:33]   FOCIT [BSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-27
+[12:25:33]   NIFTYNXT50 [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   NIFTYFPI [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   ADANIENT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   ADANIPORTS [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   APOLLOHOSP [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   ASIANPAINT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   AXISBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   BAJAJ-AUTO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   BAJFINANCE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   BAJAJFINSV [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   BEL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   BHARTIARTL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   CIPLA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   COALINDIA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   DRREDDY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   EICHERMOT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   ETERNAL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   GRASIM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   HCLTECH [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   HDFCBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   HDFCLIFE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   HINDALCO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   HINDUNILVR [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   ICICIBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   ITC [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   INFY [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   INDIGO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   JSWSTEEL [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   JIOFIN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   KOTAKBANK [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   LT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   M&M [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   MARUTI [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   MAXHEALTH [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   NTPC [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   NESTLEIND [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   ONGC [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   POWERGRID [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   RELIANCE [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   SBILIFE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   SHRIRAMFIN [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   SBIN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   SUNPHARMA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   TCS [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   TATACONSUM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   TMPV [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   TATASTEEL [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   TECHM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   TITAN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
+[12:25:33]   TRENT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   ULTRACEMCO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33]   WIPRO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
+[12:25:33] Paper selector universe: NIFTY, BANKNIFTY, FINNIFTY, MIDCPNIFTY, SENSEX, BANKEX, FOCIT, NIFTYNXT50, NIFTYFPI, ADANIENT, ADANIPORTS, APOLLOHOSP, ASIANPAINT, AXISBANK, BAJAJ-AUTO, BAJFINANCE, BAJAJFINSV, BEL, BHARTIARTL, CIPLA, COALINDIA, DRREDDY, EICHERMOT, ETERNAL, GRASIM, HCLTECH, HDFCBANK, HDFCLIFE, HINDALCO, HINDUNILVR, ICICIBANK, ITC, INFY, INDIGO, JSWSTEEL, JIOFIN, KOTAKBANK, LT, M&M, MARUTI, MAXHEALTH, NTPC, NESTLEIND, ONGC, POWERGRID, RELIANCE, SBILIFE, SHRIRAMFIN, SBIN, SUNPHARMA, TCS, TATACONSUM, TMPV, TATASTEEL, TECHM, TITAN, TRENT, ULTRACEMCO, WIPRO; monitor-only: -
+
+Dashboard: http://127.0.0.1:8775  (Ctrl+C to stop)
+[12:25:33] Loop started.
+[12:25:47]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:25:47]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700PE depth unavailable: ValueError: Fyers depth best quote invalid
+[12:25:47]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:25:48]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:25:48]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
+[12:25:48]   NIFTYFPI chain unavailable [OPTIONS_CHAIN_UNAVAILABLE]: OptionChainParseError: Missing data.optionsChain in Fyers payload
+[12:26:09]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:26:09]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700PE depth unavailable: ValueError: Fyers depth best quote invalid
+[12:26:10]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:26:10]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:26:10]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
+[12:26:10]   NIFTYFPI chain unavailable [OPTIONS_CHAIN_UNAVAILABLE]: OptionChainParseError: Missing data.optionsChain in Fyers payload
+[12:26:15]   DATA HEALTH ALERT NIFTY: Invalid IV for CE 22700.0; Missing delta for CE 22700.0; Invalid IV for PE 22700.0; Zero volume CE at 22750.0; Zero volume CE at 22850.0; Zero volume CE at 22950.0; Candidate option quote stale 18.21s; Candidate option quote stale 18.21s; Candidate option quote stale 19.22s; Candidate option quote stale 18.22s; Candidate option quote stale 18.22s; Candidate option quote stale 18.22s
+[12:26:15]   DATA HEALTH ALERT BANKNIFTY: Invalid IV for CE 54400.0; Missing delta for CE 54400.0; Invalid IV for PE 54400.0; Zero volume CE at 54400.0; Zero volume CE at 54600.0; Zero volume CE at 54700.0; Candidate option quote stale 17.22s; Candidate option quote stale 17.22s; Candidate option quote stale 19.22s; Candidate option quote stale 18.22s; Candidate option quote stale 17.22s; Candidate option quote stale 17.22s
+[12:26:15]   DATA HEALTH ALERT FINNIFTY: CE/PE timestamp delta 8.00s at 26100.0; CE/PE timestamp delta 35.00s at 26150.0; Candidate option quote stale 55.23s; Candidate option quote stale 20.23s; Candidate option quote stale 20.23s; Candidate option quote stale 28.23s; Candidate option quote stale 19.23s; Candidate option quote stale 19.23s
+[12:26:15]   DATA HEALTH ALERT MIDCPNIFTY: CE/PE timestamp delta 4.00s at 14900.0; Candidate option quote stale 16.23s; Candidate option quote stale 17.23s; Candidate option quote stale 17.23s; Candidate option quote stale 16.23s; Candidate option quote stale 17.23s; Candidate option quote stale 13.23s
+[12:26:15]   DATA HEALTH ALERT SENSEX: CE/PE timestamp delta 5.00s at 77200.0; Candidate option quote stale 13.24s; Candidate option quote stale 13.24s; Candidate option quote stale 19.24s; Candidate option quote stale 14.24s; Candidate option quote stale 13.24s; Candidate option quote stale 14.24s
+[12:26:15]   DATA HEALTH ALERT BANKEX: CE/PE timestamp delta 44521.00s at 64900.0; CE/PE timestamp delta 35.00s at 65000.0; CE/PE timestamp delta 688.00s at 65100.0; Candidate option quote stale 219.24s; Candidate option quote stale 254.25s; Candidate option quote stale 44775.25s; Candidate option quote stale 254.25s; Candidate option quote stale 942.25s; Candidate option quote stale 254.25s
+[12:26:15]   DATA HEALTH ALERT FOCIT: CE/PE timestamp delta 2694.00s at 37200.0; CE/PE timestamp delta 44573.00s at 37300.0; CE/PE timestamp delta 44723.00s at 37400.0; Candidate option quote stale 44775.25s; Candidate option quote stale 202.25s; Candidate option quote stale 4198.25s; Candidate option quote stale 1504.25s; Candidate option quote stale 44775.25s; Candidate option quote stale 52.25s
+[12:26:15]   DATA HEALTH ALERT NIFTYNXT50: CE/PE timestamp delta 2068230.03s at 73800.0; Candidate option quote stale 2068246.25s; Candidate option quote depth unavailable; Candidate option quote depth unavailable; Candidate option quote invalid; Candidate option quote depth unavailable; Candidate option quote invalid
+[12:26:15]   DATA HEALTH ALERT ADANIENT: CE/PE timestamp delta 81.00s at 3000.0; Candidate option quote stale 100.25s; Candidate option quote stale 19.26s; Candidate option quote stale 26.26s; Candidate option quote stale 2045.26s
+[12:26:15]   DATA HEALTH ALERT ADANIPORTS: CE/PE timestamp delta 11.00s at 1660.0; CE/PE timestamp delta 3.00s at 1680.0; CE/PE timestamp delta 11.00s at 1700.0; Candidate option quote stale 27.26s; Candidate option quote stale 30.27s; Candidate option quote stale 31.27s; Candidate option quote stale 20.27s; Candidate option quote stale 31.27s; Candidate option quote stale 20.27s
+[12:26:15]   DATA HEALTH ALERT APOLLOHOSP: CE/PE timestamp delta 55.00s at 8600.0; CE/PE timestamp delta 12.00s at 8700.0; CE/PE timestamp delta 4.00s at 8800.0; Candidate option quote stale 45.27s; Candidate option quote stale 33.27s; Candidate option quote stale 87.27s; Candidate option quote stale 32.27s; Candidate option quote stale 28.27s; Candidate option quote stale 32.27s
+[12:26:30]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:26:31]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700PE depth unavailable: ValueError: Fyers depth best quote invalid
+[12:26:31]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:26:31]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:26:32]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
+[12:26:32]   NIFTYFPI chain unavailable [OPTIONS_CHAIN_UNAVAILABLE]: OptionChainParseError: Missing data.optionsChain in Fyers payload
+[12:27:20]   BAJAJ-AUTO NSE:BAJAJ-AUTO26AUG11800CE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3ABAJAJ-AUTO26AUG11800CE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:27:22]   BAJAJ-AUTO NSE:BAJAJ-AUTO26AUG11800PE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3ABAJAJ-AUTO26AUG11800PE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:27:31]   DATA HEALTH ALERT ASIANPAINT: CE/PE timestamp delta 164.00s at 2620.0; CE/PE timestamp delta 17.00s at 2640.0; CE/PE timestamp delta 487.00s at 2660.0; Candidate option quote stale 121.64s; Candidate option quote stale 104.64s; Candidate option quote stale 421.64s; Candidate option quote stale 585.64s; Candidate option quote stale 142.64s; Candidate option quote stale 629.64s
+[12:27:31]   DATA HEALTH ALERT AXISBANK: CE/PE timestamp delta 30.00s at 1220.0; CE/PE timestamp delta 8.00s at 1240.0; CE/PE timestamp delta 50.00s at 1260.0; Candidate option quote stale 40.65s; Candidate option quote stale 32.65s; Candidate option quote stale 63.65s; Candidate option quote stale 93.65s; Candidate option quote stale 43.65s; Candidate option quote stale 93.65s
+[12:27:31]   DATA HEALTH ALERT BAJAJ-AUTO: CE/PE timestamp delta 138.00s at 11900.0; Candidate option quote depth unavailable; Candidate option quote depth unavailable; Candidate option quote stale 52.65s; Candidate option quote stale 52.65s; Candidate option quote stale 28.65s; Candidate option quote stale 166.65s
+[12:27:31]   DATA HEALTH ALERT BAJFINANCE: CE/PE timestamp delta 57.00s at 1080.0; CE/PE timestamp delta 20.00s at 1090.0; CE/PE timestamp delta 9.00s at 1100.0; Candidate option quote stale 61.65s; Candidate option quote stale 41.65s; Candidate option quote stale 81.65s; Candidate option quote stale 24.65s; Candidate option quote stale 13.65s; Candidate option quote stale 22.65s
+[12:27:31]   DATA HEALTH ALERT BAJAJFINSV: CE/PE timestamp delta 18.00s at 2000.0; CE/PE timestamp delta 18.00s at 2020.0; CE/PE timestamp delta 47.00s at 2040.0; Candidate option quote stale 85.65s; Candidate option quote stale 103.65s; Candidate option quote stale 28.66s; Candidate option quote stale 10.66s; Candidate option quote stale 16.66s; Candidate option quote stale 63.66s
+[12:27:31]   DATA HEALTH ALERT BEL: CE/PE timestamp delta 56.00s at 405.0; CE/PE timestamp delta 14.00s at 410.0; CE/PE timestamp delta 142.00s at 415.0; Candidate option quote stale 9.66s; Candidate option quote stale 23.66s; Candidate option quote stale 110.66s; Candidate option quote stale 54.66s; Candidate option quote stale 47.66s; Candidate option quote stale 189.66s
+[12:27:31]   DATA HEALTH ALERT BHARTIARTL: CE/PE timestamp delta 13.00s at 1920.0; CE/PE timestamp delta 6.00s at 1960.0; Candidate option quote stale 37.66s; Candidate option quote stale 38.66s; Candidate option quote stale 65.66s; Candidate option quote stale 52.66s; Candidate option quote stale 9.66s; Candidate option quote stale 15.66s
+[12:27:31]   DATA HEALTH ALERT CIPLA: CE/PE timestamp delta 225.00s at 1420.0; CE/PE timestamp delta 562.00s at 1430.0; Candidate option quote stale 173.66s; Candidate option quote stale 735.66s; Candidate option quote stale 277.66s; Candidate option quote stale 52.66s; Candidate option quote stale 53.66s; Candidate option quote stale 52.66s
+[12:28:16]   HCLTECH NSE:HCLTECH26AUG1330CE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AHCLTECH26AUG1330CE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:28:18]   HCLTECH NSE:HCLTECH26AUG1330PE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AHCLTECH26AUG1330PE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:28:19]   HDFCBANK chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AHDFCBANK-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:28:19]   HDFCLIFE chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AHDFCLIFE-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:28:42]   DATA HEALTH ALERT COALINDIA: CE/PE timestamp delta 121.00s at 400.0; CE/PE timestamp delta 12.00s at 405.0; CE/PE timestamp delta 41.00s at 410.0; Candidate option quote stale 44.21s; Candidate option quote stale 32.21s; Candidate option quote stale 27.21s; Candidate option quote stale 148.21s; Candidate option quote stale 21.21s; Candidate option quote stale 62.21s
+[12:28:42]   DATA HEALTH ALERT DRREDDY: CE/PE timestamp delta 13.00s at 1190.0; CE/PE timestamp delta 8.00s at 1200.0; Candidate option quote stale 34.22s; Candidate option quote stale 47.22s; Candidate option quote stale 47.22s; Candidate option quote stale 47.22s; Candidate option quote stale 39.22s; Candidate option quote stale 47.22s
+[12:28:42]   DATA HEALTH ALERT EICHERMOT: CE/PE timestamp delta 13.00s at 8000.0; CE/PE timestamp delta 58.00s at 8100.0; CE/PE timestamp delta 5.00s at 8200.0; Candidate option quote stale 44.22s; Candidate option quote stale 102.22s; Candidate option quote stale 31.22s; Candidate option quote stale 44.22s; Candidate option quote stale 39.22s; Candidate option quote stale 44.22s
+[12:28:42]   DATA HEALTH ALERT ETERNAL: CE/PE timestamp delta 8.00s at 320.0; CE/PE timestamp delta 35.00s at 325.0; CE/PE timestamp delta 13.00s at 330.0; Candidate option quote stale 53.22s; Candidate option quote stale 18.22s; Candidate option quote stale 127.22s; Candidate option quote stale 119.22s; Candidate option quote stale 60.22s; Candidate option quote stale 47.22s
+[12:28:42]   DATA HEALTH ALERT GRASIM: CE/PE timestamp delta 3.00s at 3320.0; Candidate option quote stale 30.23s; Candidate option quote stale 30.23s; Candidate option quote stale 32.23s; Candidate option quote stale 31.23s; Candidate option quote stale 31.23s; Candidate option quote stale 28.23s
+[12:28:42]   DATA HEALTH ALERT HCLTECH: CE/PE timestamp delta 751.00s at 1310.0; CE/PE timestamp delta 45.00s at 1320.0; CE/PE timestamp delta 70.00s at 1330.0; Candidate option quote stale 18.23s; Candidate option quote stale 63.23s; Candidate option quote stale 767.23s; Candidate option quote stale 16.23s; Candidate option quote stale 14.23s; Candidate option quote stale 84.23s
+[12:29:04]   DATA HEALTH ALERT HDFCBANK: CE/PE timestamp delta 5.00s at 730.0; CE/PE timestamp delta 4.00s at 740.0; Candidate option quote stale 17.13s; Candidate option quote stale 12.13s; Candidate option quote stale 12.13s; Candidate option quote stale 12.13s; Candidate option quote stale 14.13s; Candidate option quote stale 10.13s
+[12:29:04]   DATA HEALTH ALERT HDFCLIFE: CE/PE timestamp delta 20.00s at 545.0; CE/PE timestamp delta 75.00s at 550.0; Candidate option quote stale 120.13s; Candidate option quote stale 45.13s; Candidate option quote stale 45.13s; Candidate option quote stale 25.13s; Candidate option quote stale 45.13s; Candidate option quote stale 45.13s
+[12:29:17]   MIDCPNIFTY NSE:MIDCPNIFTY26AUG14875CE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AMIDCPNIFTY26AUG14875CE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:29:19]   MIDCPNIFTY NSE:MIDCPNIFTY26AUG14875PE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AMIDCPNIFTY26AUG14875PE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:29:21]   MIDCPNIFTY NSE:MIDCPNIFTY26AUG14900CE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AMIDCPNIFTY26AUG14900CE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:29:23]   MIDCPNIFTY NSE:MIDCPNIFTY26AUG14900PE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AMIDCPNIFTY26AUG14900PE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:29:24]   HINDALCO chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AHINDALCO-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:29:24]   HINDUNILVR chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AHINDUNILVR-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:29:24]   ICICIBANK chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AICICIBANK-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:29:24]   ITC chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AITC-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:29:31] Cycle error; new entries blocked for 30.0s: OptionChainParseError: Missing CE at strike 1135.0
+[12:30:20]   JIOFIN NSE:JIOFIN26AUG245PE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AJIOFIN26AUG245PE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:30:20] Cycle error; new entries blocked for 30.0s: OptionChainParseError: Missing CE at strike 1135.0
+[12:31:06] Cycle error; new entries blocked for 30.0s: OptionChainParseError: Missing CE at strike 4080.0
+[12:31:17]   FINNIFTY NSE:FINNIFTY26AUG26200PE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AFINNIFTY26AUG26200PE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:17]   MIDCPNIFTY chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AMIDCPNIFTY-INDEX&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:17]   KOTAKBANK chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AKOTAKBANK-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:17]   LT chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ALT-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:17]   M&M chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AM%26M-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:17]   MARUTI chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AMARUTI-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:18]   MAXHEALTH chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AMAXHEALTH-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:18]   NTPC chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ANTPC-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:18]   NESTLEIND chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ANESTLEIND-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:18]   ONGC chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AONGC-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:23]   NIFTY chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ANIFTY50-INDEX&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:24]   BANKNIFTY chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ANIFTYBANK-INDEX&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:24]   FINNIFTY chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AFINNIFTY-INDEX&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:24]   MIDCPNIFTY chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AMIDCPNIFTY-INDEX&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:24]   KOTAKBANK chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AKOTAKBANK-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:24]   LT chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ALT-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:25]   M&M chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AM%26M-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:25]   MARUTI chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AMARUTI-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:25]   MAXHEALTH chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AMAXHEALTH-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:31:25]   NTPC chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ANTPC-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:32:12]   DATA HEALTH ALERT NIFTY: Invalid IV for CE 22700.0; Missing delta for CE 22700.0; Invalid IV for PE 22700.0; Zero volume CE at 22750.0; Zero volume CE at 22850.0; Zero volume CE at 22950.0; Candidate option quote stale 18.62s; Candidate option quote stale 18.62s; Candidate option quote stale 18.62s; Candidate option quote stale 17.62s; Candidate option quote stale 17.62s; Candidate option quote stale 18.62s
+[12:32:12]   DATA HEALTH ALERT BANKNIFTY: Invalid IV for CE 54300.0; Missing delta for CE 54300.0; Invalid IV for PE 54300.0; Zero volume CE at 54300.0; Zero volume CE at 54400.0; Zero volume CE at 54600.0; Candidate option quote stale 17.62s; Candidate option quote stale 16.62s; Candidate option quote stale 17.62s; Candidate option quote stale 17.62s; Candidate option quote stale 17.63s; Candidate option quote stale 16.63s
+[12:32:12]   DATA HEALTH ALERT FINNIFTY: CE/PE timestamp delta 7.00s at 26100.0; CE/PE timestamp delta 25.00s at 26150.0; CE/PE timestamp delta 7.00s at 26200.0; Candidate option quote stale 44.63s; Candidate option quote stale 19.63s; Candidate option quote stale 23.63s; Candidate option quote stale 16.63s; Candidate option quote stale 22.63s; Candidate option quote stale 15.63s
+[12:32:12]   DATA HEALTH ALERT MIDCPNIFTY: CE/PE timestamp delta 3.00s at 14850.0; Candidate option quote stale 14.63s; Candidate option quote stale 14.63s; Candidate option quote stale 17.63s; Candidate option quote stale 14.63s; Candidate option quote stale 14.63s; Candidate option quote stale 14.63s
+[12:32:12]   DATA HEALTH ALERT POWERGRID: CE/PE timestamp delta 13.00s at 270.0; CE/PE timestamp delta 14.00s at 272.5; Candidate option quote stale 37.64s; Candidate option quote stale 24.64s; Candidate option quote stale 37.64s; Candidate option quote stale 37.64s; Candidate option quote stale 18.64s; Candidate option quote stale 32.64s
+[12:32:12]   DATA HEALTH ALERT RELIANCE: CE/PE timestamp delta 7.00s at 1320.0; Candidate option quote stale 25.64s; Candidate option quote stale 27.64s; Candidate option quote stale 27.64s; Candidate option quote stale 27.64s; Candidate option quote stale 33.64s; Candidate option quote stale 26.64s
+[12:32:12]   DATA HEALTH ALERT SBILIFE: CE/PE timestamp delta 315.00s at 1760.0; CE/PE timestamp delta 161.00s at 1780.0; CE/PE timestamp delta 29.00s at 1800.0; Candidate option quote stale 186.64s; Candidate option quote stale 347.64s; Candidate option quote stale 361.64s; Candidate option quote stale 46.65s; Candidate option quote stale 85.65s; Candidate option quote stale 114.65s
+[12:32:12]   DATA HEALTH ALERT SHRIRAMFIN: CE/PE timestamp delta 6.00s at 1120.0; CE/PE timestamp delta 236.00s at 1140.0; Candidate option quote stale 40.65s; Candidate option quote stale 34.65s; Candidate option quote stale 40.65s; Candidate option quote stale 41.65s; Candidate option quote stale 60.65s; Candidate option quote stale 296.65s
+[12:32:12]   DATA HEALTH ALERT SBIN: CE/PE timestamp delta 49.00s at 1020.0; CE/PE timestamp delta 10.00s at 1030.0; CE/PE timestamp delta 52.00s at 1040.0; Candidate option quote stale 50.65s; Candidate option quote stale 40.65s; Candidate option quote stale 107.66s; Candidate option quote stale 58.66s; Candidate option quote stale 76.66s; Candidate option quote stale 24.66s
+[12:32:12]   DATA HEALTH ALERT SUNPHARMA: CE/PE timestamp delta 62.00s at 1900.0; CE/PE timestamp delta 62.00s at 1920.0; Candidate option quote stale 43.66s; Candidate option quote stale 105.66s; Candidate option quote stale 96.66s; Candidate option quote stale 34.66s; Candidate option quote stale 21.66s; Candidate option quote stale 19.66s
+[12:32:12]   DATA HEALTH ALERT TCS: CE/PE timestamp delta 16.00s at 2280.0; CE/PE timestamp delta 5.00s at 2300.0; CE/PE timestamp delta 42.00s at 2320.0; Candidate option quote warning stale 7.66s; Candidate option quote stale 12.66s; Candidate option quote stale 70.66s; Candidate option quote stale 54.66s; Candidate option quote stale 12.66s; Candidate option quote stale 54.66s
+[12:32:12]   DATA HEALTH ALERT TATACONSUM: CE/PE timestamp delta 22.00s at 1050.0; CE/PE timestamp delta 208.00s at 1060.0; CE/PE timestamp delta 642.00s at 1070.0; Candidate option quote stale 21.67s; Candidate option quote stale 229.67s; Candidate option quote stale 35.67s; Candidate option quote stale 13.67s; Candidate option quote stale 73.67s; Candidate option quote stale 715.67s
+[12:32:21]   NIFTY NSE:NIFTY26AUG24200PE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3ANIFTY26AUG24200PE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:32:23]   NIFTY NSE:NIFTY26AUG24250CE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3ANIFTY26AUG24250CE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:32:25]   NIFTY NSE:NIFTY26AUG24250PE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3ANIFTY26AUG24250PE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:33:16]   MIDCPNIFTY NSE:MIDCPNIFTY26AUG14900CE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AMIDCPNIFTY26AUG14900CE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:33:18]   MIDCPNIFTY NSE:MIDCPNIFTY26AUG14900PE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AMIDCPNIFTY26AUG14900PE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:33:19]   TMPV chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ATMPV-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:33:19]   TATASTEEL chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ATATASTEEL-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:33:19]   TECHM chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ATECHM-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:33:19]   TITAN chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ATITAN-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:33:20]   TRENT chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ATRENT-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:33:20]   ULTRACEMCO chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AULTRACEMCO-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:33:20]   WIPRO chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AWIPRO-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:33:20]   SENSEX chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=BSE%3ASENSEX-INDEX&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:00]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:34:00]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:34:00]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:34:00]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:34:01]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
+[12:34:21]   FINNIFTY NSE:FINNIFTY26AUG26200PE depth unavailable: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/depth?symbol=NSE%3AFINNIFTY26AUG26200PE&ohlcv_flag=1: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:21]   MIDCPNIFTY chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AMIDCPNIFTY-INDEX&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:21]   BANKEX chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=BSE%3ABANKEX-INDEX&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:21]   FOCIT chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=BSE%3AFOCIT-INDEX&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:21]   NIFTYNXT50 chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3ANIFTYNXT50-INDEX&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:22]   ADANIENT chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AADANIENT-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:22]   ADANIPORTS chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AADANIPORTS-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:22]   APOLLOHOSP chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AAPOLLOHOSP-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:22]   ASIANPAINT chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AASIANPAINT-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:22]   AXISBANK chain unavailable [OPTIONS_CHAIN_ERROR]: FyersAPIError: Fyers HTTP 429 on https://api-t1.fyers.in/data/options-chain-v3?symbol=NSE%3AAXISBANK-EQ&strikecount=30: {"message":"request limit reached","code":429,"s":"error"}
+[12:34:36]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:34:36]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73700PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:34:37]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:34:37]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[12:34:37]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid

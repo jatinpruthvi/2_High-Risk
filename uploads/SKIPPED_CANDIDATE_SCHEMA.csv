@@ -1,0 +1,35 @@
+field,type,required,description
+skip_id,string,yes,Unique skipped/ranked candidate identifier
+timestamp,datetime,yes,Timestamp of ranking decision
+ranking_cycle_id,string,yes,Identifier grouping all candidates evaluated at the same time
+underlying,string,yes,BANKNIFTY/NIFTY/FINNIFTY/MIDCPNIFTY
+option_type,string,yes,CE or PE
+rank,int,yes,Rank among candidates in this ranking cycle
+OpportunityScore,float,yes,Opportunity score after penalties
+DirectionScore,float,yes,Instrument direction score
+TradeQualityScore,float,yes,Trade quality score
+ContractQualityScore,float,yes,Contract quality score
+PremiumElasticity,float,yes,Delta-adjusted premium elasticity
+ExpectedMove,float,yes,Expected remaining move
+RequiredMove,float,yes,Required move
+ExpectedRequiredRatio,float,yes,ExpectedMove / RequiredMove
+IVCrushRiskScore,float,yes,IV crush risk score
+MarketHostilityScore,float,yes,Market hostility score
+RegimeConfidence,float,yes,Regime confidence
+DataHealthStatus,string,yes,VALID/WARNING/INVALID
+hard_stop_fit,bool,yes,Whether required stop fits risk cap
+veto_reason,string,no,Hard veto reason if rejected
+why_not_traded,string,yes,Reason candidate was skipped or ranked lower
+calibration_status,string,yes,UNVALIDATED/OBSERVED/VALIDATED/DEGRADED/RETIRED
+instrument_uncertainty_penalty,float,no,Penalty applied for unvalidated instrument model
+liquidity_not_baselined_penalty,float,no,Penalty applied for liquidity uncertainty
+same_direction_recent_loss_penalty,float,no,Penalty after recent correlated/same-direction loss
+subsequent_5m_MFE_points,float,no,Max favorable option move after skip over 5 minutes
+subsequent_5m_MAE_points,float,no,Max adverse option move after skip over 5 minutes
+subsequent_15m_MFE_points,float,no,Max favorable option move after skip over 15 minutes
+subsequent_15m_MAE_points,float,no,Max adverse option move after skip over 15 minutes
+subsequent_30m_MFE_points,float,no,Max favorable option move after skip over 30 minutes
+subsequent_30m_MAE_points,float,no,Max adverse option move after skip over 30 minutes
+would_have_hit_target,bool,no,Whether skipped candidate would have hit planned target in review window
+would_have_hit_stop,bool,no,Whether skipped candidate would have hit planned stop in review window
+notes,string,no,Free-form notes

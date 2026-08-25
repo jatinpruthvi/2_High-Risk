@@ -1,0 +1,21 @@
+﻿runner_present=False
+dashboard_http=200
+session_id=20260819_095810
+started_at=2026-08-19T09:58:10.136612+05:30
+last_cycle=2026-08-19T10:00:40.365421+05:30
+last_cycle_ok=True
+last_error=
+market_open=True
+mode=PAPER (no orders placed)
+note=Live Fyers data. All scores marked PROXY are research-grade approximations; see paper_signal.py. Shadow outcomes are counterfactual paper fills only.
+underlying_count=59
+candidate_count=24
+open_position=False
+closed_trades=0
+depth_summary=ADANIENT|APPLIED|4/4|5L=4|failure= || ADANIPORTS|APPLIED|6/6|5L=6|failure= || APOLLOHOSP|APPLIED|6/6|5L=6|failure= || ASIANPAINT|APPLIED|6/6|5L=6|failure= || AXISBANK|APPLIED|6/6|5L=6|failure= || BAJAJ-AUTO|APPLIED|6/6|5L=6|failure= || BAJAJFINSV|APPLIED|6/6|5L=6|failure= || BAJFINANCE|APPLIED|6/6|5L=6|failure= || BANKEX|APPLIED|6/6|5L=5|failure= || BANKNIFTY|APPLIED|6/6|5L=6|failure= || BEL|APPLIED|6/6|5L=6|failure= || BHARTIARTL|APPLIED|6/6|5L=6|failure= || CIPLA|APPLIED|6/6|5L=6|failure= || FINNIFTY|APPLIED|6/6|5L=6|failure= || FOCIT|APPLIED|6/6|5L=2|failure= || MIDCPNIFTY|APPLIED|6/6|5L=6|failure= || NIFTY|APPLIED|6/6|5L=6|failure= || NIFTYNXT50|PARTIAL|2/6|5L=2|failure=NSE:NIFTYNXT5026AUG73900CE: ValueError: Fyers depth best quote invalid; NSE:NIFTYNXT5026AUG73900PE: ValueError: Fyers depth best quote invalid; NSE:NIFTYNXT5026AUG74100CE: ValueError: Fyers depth best quote invalid; NSE:NIFTYNXT5026AUG74100PE: ValueError: Fyers depth best quote invalid || SENSEX|APPLIED|6/6|5L=6|failure=
+niftyfpi_chain_error=OptionChainParseError: Missing data.optionsChain in Fyers payload
+niftyfpi_reason=OPTIONS_CHAIN_UNAVAILABLE
+niftyfpi_fail_closed=True
+route_root=200
+route_rootstate.json=200
+route_rootunknown=404

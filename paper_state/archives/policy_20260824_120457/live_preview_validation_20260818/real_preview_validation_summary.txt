@@ -1,0 +1,1 @@
+﻿validation_error=Paper runner did not publish a completed live Fyers snapshot within the validation window.

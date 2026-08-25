@@ -1,0 +1,3 @@
+﻿paper_runner=running pid=1188
+files=BSE_FO.csv,creds.env,daily_risk.json,instrument_calibration.json,master_provenance.json,NSE_FO.csv,research_events.csv,runner.stderr.log,runner.stdout.log,run_manifest.json,tokens.json,trades.csv
+dashboard_http=200

@@ -1,0 +1,655 @@
+{
+  "poll_seconds": 5,
+  "fyers_request_timeout_seconds": 15,
+  "fyers_request_min_interval_seconds": 0.35,
+  "fyers_max_transient_retries": 2,
+  "fyers_transient_backoff_seconds": [
+    1.0,
+    3.0
+  ],
+  "fyers_max_backoff_seconds": 8.0,
+  "strikecount": 30,
+  "capture": true,
+  "dashboard": {
+    "host": "127.0.0.1",
+    "port": 8775
+  },
+  "underlyings": {
+    "NIFTY": {
+      "index_symbol": "NSE:NIFTY50-INDEX",
+      "prefer_monthly": false,
+      "exchange": "NSE",
+      "instrument_kind": "INDEX",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "BANKNIFTY": {
+      "index_symbol": "NSE:NIFTYBANK-INDEX",
+      "prefer_monthly": false,
+      "exchange": "NSE",
+      "instrument_kind": "INDEX",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "FINNIFTY": {
+      "index_symbol": "NSE:FINNIFTY-INDEX",
+      "prefer_monthly": false,
+      "exchange": "NSE",
+      "instrument_kind": "INDEX",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "MIDCPNIFTY": {
+      "index_symbol": "NSE:MIDCPNIFTY-INDEX",
+      "prefer_monthly": false,
+      "exchange": "NSE",
+      "instrument_kind": "INDEX",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "SENSEX": {
+      "index_symbol": "BSE:SENSEX-INDEX",
+      "exchange": "BSE",
+      "prefer_monthly": true,
+      "instrument_kind": "INDEX",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "BANKEX": {
+      "index_symbol": "BSE:BANKEX-INDEX",
+      "exchange": "BSE",
+      "prefer_monthly": true,
+      "instrument_kind": "INDEX",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "FOCIT": {
+      "index_symbol": "BSE:FOCIT-INDEX",
+      "exchange": "BSE",
+      "prefer_monthly": true,
+      "instrument_kind": "INDEX",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "NIFTYNXT50": {
+      "index_symbol": "NSE:NIFTYNXT50-INDEX",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "INDEX",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "NIFTYFPI": {
+      "index_symbol": "NSE:NIFTYFPI-INDEX",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "INDEX",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "ADANIENT": {
+      "index_symbol": "NSE:ADANIENT-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "ADANIPORTS": {
+      "index_symbol": "NSE:ADANIPORTS-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "APOLLOHOSP": {
+      "index_symbol": "NSE:APOLLOHOSP-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "ASIANPAINT": {
+      "index_symbol": "NSE:ASIANPAINT-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "AXISBANK": {
+      "index_symbol": "NSE:AXISBANK-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "BAJAJ-AUTO": {
+      "index_symbol": "NSE:BAJAJ-AUTO-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "BAJFINANCE": {
+      "index_symbol": "NSE:BAJFINANCE-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "BAJAJFINSV": {
+      "index_symbol": "NSE:BAJAJFINSV-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "BEL": {
+      "index_symbol": "NSE:BEL-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "BHARTIARTL": {
+      "index_symbol": "NSE:BHARTIARTL-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "CIPLA": {
+      "index_symbol": "NSE:CIPLA-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "COALINDIA": {
+      "index_symbol": "NSE:COALINDIA-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "DRREDDY": {
+      "index_symbol": "NSE:DRREDDY-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "EICHERMOT": {
+      "index_symbol": "NSE:EICHERMOT-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "ETERNAL": {
+      "index_symbol": "NSE:ETERNAL-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "GRASIM": {
+      "index_symbol": "NSE:GRASIM-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "HCLTECH": {
+      "index_symbol": "NSE:HCLTECH-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "HDFCBANK": {
+      "index_symbol": "NSE:HDFCBANK-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "HDFCLIFE": {
+      "index_symbol": "NSE:HDFCLIFE-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "HINDALCO": {
+      "index_symbol": "NSE:HINDALCO-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "HINDUNILVR": {
+      "index_symbol": "NSE:HINDUNILVR-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "ICICIBANK": {
+      "index_symbol": "NSE:ICICIBANK-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "ITC": {
+      "index_symbol": "NSE:ITC-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "INFY": {
+      "index_symbol": "NSE:INFY-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "INDIGO": {
+      "index_symbol": "NSE:INDIGO-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "JSWSTEEL": {
+      "index_symbol": "NSE:JSWSTEEL-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "JIOFIN": {
+      "index_symbol": "NSE:JIOFIN-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "KOTAKBANK": {
+      "index_symbol": "NSE:KOTAKBANK-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "LT": {
+      "index_symbol": "NSE:LT-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "M&M": {
+      "index_symbol": "NSE:M&M-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "MARUTI": {
+      "index_symbol": "NSE:MARUTI-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "MAXHEALTH": {
+      "index_symbol": "NSE:MAXHEALTH-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "NTPC": {
+      "index_symbol": "NSE:NTPC-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "NESTLEIND": {
+      "index_symbol": "NSE:NESTLEIND-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "ONGC": {
+      "index_symbol": "NSE:ONGC-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "POWERGRID": {
+      "index_symbol": "NSE:POWERGRID-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "RELIANCE": {
+      "index_symbol": "NSE:RELIANCE-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "SBILIFE": {
+      "index_symbol": "NSE:SBILIFE-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "SHRIRAMFIN": {
+      "index_symbol": "NSE:SHRIRAMFIN-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "SBIN": {
+      "index_symbol": "NSE:SBIN-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "SUNPHARMA": {
+      "index_symbol": "NSE:SUNPHARMA-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "TCS": {
+      "index_symbol": "NSE:TCS-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "TATACONSUM": {
+      "index_symbol": "NSE:TATACONSUM-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "TMPV": {
+      "index_symbol": "NSE:TMPV-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "TATASTEEL": {
+      "index_symbol": "NSE:TATASTEEL-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "TECHM": {
+      "index_symbol": "NSE:TECHM-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "TITAN": {
+      "index_symbol": "NSE:TITAN-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "TRENT": {
+      "index_symbol": "NSE:TRENT-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "ULTRACEMCO": {
+      "index_symbol": "NSE:ULTRACEMCO-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    },
+    "WIPRO": {
+      "index_symbol": "NSE:WIPRO-EQ",
+      "exchange": "NSE",
+      "prefer_monthly": true,
+      "instrument_kind": "STOCK",
+      "monitor_only": false,
+      "trade_enabled": true
+    }
+  },
+  "signal": {
+    "required_move_straddle_factor": 0.6,
+    "rationale": "Proxies are research-grade approximations of the institutional scores. required_move is set as a fraction of the ATM straddle implied move so the Expected/Required gate can be met on genuinely moving days. Re-tune after observing live behaviour; never mistake PROXY scores for validated signals."
+  },
+  "config_overrides": {
+    "_comment": "PAPER-ONLY overrides applied to a copy of PARAMETERS.json for the paper runner. PARAMETERS.json is never modified. IMPORTANT: with the frozen risk caps, a real NIFTY/BANKNIFTY ATM premium (required stop = 20% of premium x lot) always exceeds the Rs 750 cap, so no trade can fire. To watch the strategy trade in paper mode, uncomment an override below (e.g. premium_stop_pct 0.06). The dashboard shows a PAPER-ONLY OVERRIDE banner whenever these are active; such results are NOT valid evidence for live parameters.",
+    "required_stop_model": {
+      "enabled": true,
+      "premium_stop_pct": 0.2
+    },
+    "exit_management": {
+      "_comment": "PAPER-ONLY exit-management tuning: vol_time_stop_fraction exits dead trades once 35% of the holding window has passed and the remaining expected move can no longer reach the target; stop_exit_slippage_frac models gap-through-stop on risk-reducing exits (10% of 1R) so paper drawdown is an honest upper bound; edge_scaled_target gives high expected/required setups more room (up to 3R) and banks marginal ones earlier. None of these loosen the stop, so worst-case per-trade risk is unchanged. All paper-only.",
+      "vol_time_stop_fraction": 0.35,
+      "stop_exit_slippage_frac": 0.1,
+      "edge_scaled_target": true,
+      "edge_scale_min_ratio": 1.1,
+      "edge_scale_min_r": 1.0,
+      "edge_scale_max_r": 3.0
+    },
+    "risk": {
+      "normal_risk_pct_of_capital": 5.0,
+      "normal_risk_cap_rupees": 5000,
+      "a_plus_risk_pct_of_capital": 6.0,
+      "a_plus_risk_cap_rupees": 6000,
+      "max_daily_loss_rupees": 8000
+    },
+    "instrument_risk_overrides": {
+      "_comment": "PAPER-ONLY: PARAMETERS.json hardcodes per-underlying risk caps (750/1000) that shadow the section-level caps - these must be raised in paper mode too or the RiskCap gate still blocks every real NIFTY/BANKNIFTY trade.",
+      "BANKNIFTY": {
+        "normal_risk_cap_rupees": 5000,
+        "a_plus_risk_cap_rupees": 6000
+      },
+      "NIFTY": {
+        "normal_risk_cap_rupees": 5000,
+        "a_plus_risk_cap_rupees": 6000
+      },
+      "FINNIFTY": {
+        "normal_risk_cap_rupees": 5000,
+        "a_plus_risk_cap_rupees": 6000
+      },
+      "MIDCPNIFTY": {
+        "normal_risk_cap_rupees": 5000,
+        "a_plus_risk_cap_rupees": 6000
+      }
+    },
+    "instrument_calibration_status": {
+      "_comment": "PAPER-ONLY: PARAMETERS.json marks every underlying UNVALIDATED, which subtracts 20 pts from every candidate score vs the 80-pt excellent threshold - with the frozen config no trade can EVER fire. PAPER mode marks direction/liquidity OBSERVED as an operational override so the strategy can be observed trading on live data. These results are NOT evidence for live parameters; the dashboard shows the override banner whenever this is active.",
+      "BANKNIFTY": {
+        "direction": "OBSERVED",
+        "liquidity": "OBSERVED",
+        "expected_move": "UNVALIDATED"
+      },
+      "NIFTY": {
+        "direction": "OBSERVED",
+        "liquidity": "OBSERVED",
+        "expected_move": "UNVALIDATED"
+      },
+      "FINNIFTY": {
+        "direction": "OBSERVED",
+        "liquidity": "OBSERVED",
+        "expected_move": "UNVALIDATED"
+      },
+      "MIDCPNIFTY": {
+        "direction": "OBSERVED",
+        "liquidity": "OBSERVED",
+        "expected_move": "UNVALIDATED"
+      }
+    }
+  },
+  "state_dir": "paper_state",
+  "state_management": {
+    "fresh_state_on_policy_change": true,
+    "fresh_state_on_missing_manifest": true,
+    "archive_dir": "archives",
+    "require_run_manifest": true
+  },
+  "notes": "Paper-only policy revision: all 59 configured underlyings may enter the main paper selector when their instrument-specific gates, metadata, liquidity, rank persistence, risk, and paper-fill checks pass. Live execution remains disabled. Main paper evidence is tagged with the policy revision and per-instrument gate snapshot. High-risk breakout dashboard isolated on port 8775.",
+  "monitoring": {
+    "enabled": true,
+    "monitor_batch_size": 8,
+    "monitor_poll_seconds": 60,
+    "paper_trade_rotation_enabled": true,
+    "paper_trade_batch_size": 8,
+    "staged_evaluation_enabled": true,
+    "max_full_audit_cycles": 7,
+    "failure_backoff_base_seconds": 30,
+    "failure_backoff_max_seconds": 180,
+    "structural_prefilter_max_spread_pct": 8.0,
+    "rationale": "Research-only collection is batched and refreshed once per minute so the expanded universe does not overwhelm the broker endpoint. Monitor-only instruments never enter ranking or paper entry until explicitly promoted.",
+    "constituent_source": "https://nsearchives.nseindia.com/content/indices/ind_nifty50list.csv",
+    "constituent_source_updated": "2026-04-22",
+    "gate_breakout": {
+      "enabled": true,
+      "lookback_seconds": 1800,
+      "minimum_improvement_points": 0.25,
+      "metric": "threshold_margin",
+      "require_current_eligible": true,
+      "require_data_health_valid": true,
+      "require_contract_valid": true,
+      "require_cost_model_valid": true,
+      "max_samples_per_instrument": 720,
+      "rationale": "High-risk paper-only trigger: compare each instrument's current validated opportunity margin with its prior rolling 30-minute maximum; never bypass hard data, contract, cost, portfolio, or paper-fill controls."
+    }
+  },
+  "gate_breakout": {
+    "enabled": true,
+    "lookback_seconds": 1800,
+    "minimum_improvement_points": 0.25,
+    "metric": "threshold_margin",
+    "require_current_eligible": true,
+    "require_data_health_valid": true,
+    "require_contract_valid": true,
+    "require_cost_model_valid": true,
+    "max_samples_per_instrument": 720
+  },
+  "experimental_impulse_breakout": {
+    "enabled": true,
+    "label": "EXPERIMENTAL_IMPULSE_BREAKOUT",
+    "research_only": true,
+    "paper_entry_enabled": false,
+    "range_lookback_minutes": 30,
+    "minimum_history_bars": 20,
+    "max_signal_age_seconds": 180,
+    "min_breakout_displacement_points": 0,
+    "min_breakout_displacement_atr": 0.75,
+    "max_late_entry_atr": 1.5,
+    "min_direction_score": 25,
+    "min_trend_efficiency": 50,
+    "require_volume_confirmation": false,
+    "min_relative_volume": 1.1,
+    "one_shot_cooldown_seconds": 1800,
+    "require_cost_model_valid": true,
+    "require_data_health_valid": true,
+    "require_contract_valid": true,
+    "require_canonical_eligibility_for_paper_entry": true,
+    "rationale": "Research-only impulse-breakout evidence lane. It never weakens canonical data, contract, cost, risk, position, or paper-fill controls."
+  },
+  "history_bars": 40,
+  "paper_calibration": {
+    "enabled": true,
+    "research_only": true,
+    "max_entries_per_day": 1,
+    "min_score": 40.0,
+    "min_core_gate_score": 50.0,
+    "contract_quality_min": 70.0,
+    "direction_min": 0.0,
+    "premium_elasticity_min": 0.3,
+    "expected_required_ratio_min": 1.1,
+    "market_hostility_max": 55.0,
+    "iv_crush_max": 70.0,
+    "trade_quality_min": 50.0,
+    "regime_confidence_min": 50.0,
+    "final_confidence_min": 60.0,
+    "execution_quality_min": 60.0,
+    "convexity_edge_min": 60.0,
+    "opportunity_confidence_min": 60.0,
+    "regime_fit_min": 55.0,
+    "rationale": "Bounded paper-only calibration lane using real Fyers bid/ask/depth and the same conservative fill, stop, one-lot, one-position, no-overnight controls. Proxy elasticity and relaxed signal floors are research-only and excluded from canonical validation.",
+    "max_quote_age_seconds": 45.0,
+    "max_chain_age_seconds": 45.0,
+    "max_candidate_age_seconds": 45.0,
+    "allow_chain_semantic_warnings": true,
+    "allow_chain_timestamp_mismatch_warnings": true
+  }
+}

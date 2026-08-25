@@ -1,0 +1,1 @@
+﻿http_status=200 last_cycle=2026-08-18T14:24:39.223760+05:30 last_cycle_ok=True market_open=True mode=PAPER (no orders placed) open_position=False closed_trades=0 underlyings=59 depth_applied=9 depth_partial=2 requested=65 successful=59 five_level=59 failed=6 api_errors=6 niftyfpi_error=OptionChainParseError: Missing data.optionsChain in Fyers payload

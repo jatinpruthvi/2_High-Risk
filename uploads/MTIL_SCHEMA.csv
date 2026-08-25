@@ -1,0 +1,290 @@
+section,field,type,required,alpha_value,survivability_value,roi_optimization_value,description
+01_trade_identity,trade_id,string,yes,H,H,H,Unique trade identifier
+01_trade_identity,ranking_cycle_id,string,yes,H,M,H,ID linking all candidates evaluated before this trade
+01_trade_identity,candidate_id,string,yes,H,M,H,Selected candidate ID from opportunity ranking
+01_trade_identity,date,date,yes,M,M,M,Trade date
+01_trade_identity,day_of_week,string,yes,M,L,M,Day of week
+01_trade_identity,month,int,yes,L,L,M,Calendar month
+01_trade_identity,quarter,int,yes,L,L,M,Calendar quarter
+01_trade_identity,instrument,string,yes,H,H,H,BANKNIFTY/NIFTY/FINNIFTY/MIDCPNIFTY
+01_trade_identity,option_type,string,yes,H,M,H,CE or PE
+01_trade_identity,strike,float,yes,M,M,M,Selected option strike
+01_trade_identity,expiry_date,date,yes,M,H,M,Option expiry date
+01_trade_identity,dte,float,yes,H,H,H,Days to expiry at entry
+01_trade_identity,expiry_week_flag,bool,yes,M,H,M,Whether trade occurs in expiry week
+01_trade_identity,monthly_expiry_week_flag,bool,no,L,M,L,Monthly expiry week flag
+01_trade_identity,entry_time,datetime,yes,H,M,H,Entry decision/fill time
+01_trade_identity,exit_time,datetime,no,H,M,H,Exit decision/fill time
+01_trade_identity,trade_duration_seconds,int,no,H,M,H,Time in trade in seconds
+01_trade_identity,session_bucket,string,yes,H,M,H,Opening/Morning/Midday/PowerHour/Close
+01_trade_identity,trade_mode,string,yes,M,H,M,DRY_RUN/PAPER/MANUAL_LIVE
+01_trade_identity,execution_mode,string,yes,M,H,M,manual/paper/simulated
+02_entry_data,entry_underlying_spot,float,yes,H,M,H,Underlying index spot at entry
+02_entry_data,entry_futures_price,float,yes,H,M,H,Nearest relevant futures price at entry
+02_entry_data,entry_option_bid,float,yes,M,H,H,Best bid at entry decision
+02_entry_data,entry_option_ask,float,yes,M,H,H,Best ask at entry decision
+02_entry_data,entry_option_mid,float,yes,H,H,H,Mid price at entry decision
+02_entry_data,entry_option_ltp,float,no,L,M,L,Last traded price at entry
+02_entry_data,entry_fill_price,float,no,H,H,H,Actual or simulated entry fill
+02_entry_data,entry_order_type,string,yes,L,H,M,Marketable limit / paper fill / etc.
+02_entry_data,entry_limit_price,float,no,L,H,M,Limit price used for entry
+02_entry_data,entry_underlying_vwap,float,yes,H,M,H,Underlying/futures VWAP at entry
+02_entry_data,entry_distance_from_vwap_pct,float,yes,H,M,H,Distance from VWAP at entry
+02_entry_data,entry_day_high,float,yes,M,L,M,Day high at entry
+02_entry_data,entry_day_low,float,yes,M,L,M,Day low at entry
+02_entry_data,entry_distance_from_day_high_pct,float,no,M,L,M,Distance from day high
+02_entry_data,entry_distance_from_day_low_pct,float,no,M,L,M,Distance from day low
+02_entry_data,entry_candidate_age_seconds,float,yes,H,H,H,Age of selected candidate before order
+02_entry_data,entry_revalidation_passed,bool,yes,H,H,H,Final pre-order revalidation result
+02_entry_data,entry_reason_code,string,yes,H,M,H,Structured entry reason code
+02_entry_data,entry_reason_text,string,yes,M,M,M,Human-readable entry reason
+03_exit_data,exit_underlying_spot,float,no,M,M,M,Underlying spot at exit
+03_exit_data,exit_futures_price,float,no,M,M,M,Futures price at exit
+03_exit_data,exit_option_bid,float,no,M,H,H,Best bid at exit
+03_exit_data,exit_option_ask,float,no,M,H,H,Best ask at exit
+03_exit_data,exit_option_mid,float,no,H,H,H,Mid at exit
+03_exit_data,exit_option_ltp,float,no,L,M,L,LTP at exit
+03_exit_data,exit_fill_price,float,no,H,H,H,Actual/simulated exit fill
+03_exit_data,exit_order_type,string,no,L,H,M,Order type used to exit
+03_exit_data,exit_reason_primary,string,yes,H,H,H,Primary exit reason
+03_exit_data,exit_reason_secondary,string,no,M,M,M,Secondary exit reason
+03_exit_data,exit_rule_triggered,string,no,H,H,H,Hard stop/time stop/premium failure/target/etc.
+03_exit_data,exit_revalidation_status,string,no,M,H,M,Exit data quality/revalidation status
+03_exit_data,exit_notes,string,no,L,M,M,Discretionary notes on exit
+04_trade_result_data,gross_pnl_points,float,no,H,M,H,Option points P&L before costs
+04_trade_result_data,gross_pnl_rupees,float,no,H,M,H,Gross rupee P&L
+04_trade_result_data,total_costs_rupees,float,no,H,H,H,"Brokerage, taxes, fees, slippage cost"
+04_trade_result_data,net_pnl_rupees,float,no,H,H,H,Net P&L after costs
+04_trade_result_data,net_pnl_pct_capital,float,no,H,H,H,Net P&L as % of capital
+04_trade_result_data,r_multiple,float,no,H,H,H,Net result in R units
+04_trade_result_data,planned_risk_rupees,float,yes,H,H,H,Planned risk at entry
+04_trade_result_data,max_allowed_risk_rupees,float,yes,M,H,M,Max risk allowed for this trade
+04_trade_result_data,win_loss,string,no,H,M,H,WIN/LOSS/BREAKEVEN
+04_trade_result_data,highest_premium_reached,float,no,H,M,H,Highest option mid/fillable price during trade
+04_trade_result_data,lowest_premium_reached,float,no,H,M,H,Lowest option mid/fillable price during trade
+04_trade_result_data,mfe_points,float,no,H,M,H,Maximum favorable excursion in option points
+04_trade_result_data,mae_points,float,no,H,H,H,Maximum adverse excursion in option points
+04_trade_result_data,mfe_r,float,no,H,M,H,MFE in R units
+04_trade_result_data,mae_r,float,no,H,H,H,MAE in R units
+04_trade_result_data,time_to_mfe_seconds,int,no,H,M,H,Seconds until MFE
+04_trade_result_data,time_to_mae_seconds,int,no,H,H,M,Seconds until MAE
+04_trade_result_data,time_to_profit_seconds,int,no,H,M,H,Seconds until first meaningful profit
+04_trade_result_data,target_hit,bool,no,H,M,H,Whether planned target hit
+04_trade_result_data,stop_hit,bool,no,H,H,H,Whether hard stop hit
+04_trade_result_data,would_have_hit_target_after_exit,bool,no,H,L,H,Post-exit target hit flag
+04_trade_result_data,would_have_hit_stop_after_exit,bool,no,H,M,H,Post-exit stop hit flag
+05_opportunity_quality_data,OpportunityScore,float,yes,H,H,H,Final opportunity score before trade
+05_opportunity_quality_data,ComparableOpportunityScore,float,no,H,H,H,OpportunityScore after calibration/liquidity/staleness penalties
+05_opportunity_quality_data,DynamicExcellentThreshold,float,no,H,H,H,Dynamic excellence threshold
+05_opportunity_quality_data,OpportunityGrade,string,yes,H,H,H,A+/A/B/C/Reject
+05_opportunity_quality_data,OpportunityConfidenceScore,float,no,H,H,H,Confidence in opportunity quality
+05_opportunity_quality_data,DirectionScore,float,yes,H,H,H,Instrument direction score
+05_opportunity_quality_data,TradeQualityScore,float,yes,H,H,H,Option trade quality score
+05_opportunity_quality_data,ContractQualityScore,float,yes,H,H,H,Contract quality score
+05_opportunity_quality_data,ConvexityEdgeScore,float,no,H,H,H,Convexity edge score
+05_opportunity_quality_data,ExecutionQualityScore,float,no,H,H,H,Execution quality score
+05_opportunity_quality_data,RegimeFitScore,float,no,H,H,H,Instrument regime fit score
+05_opportunity_quality_data,PortfolioNoTradeScore,float,no,H,H,H,Portfolio-level no-trade score
+05_opportunity_quality_data,MarketHostilityScore,float,yes,H,H,H,Market hostility score
+05_opportunity_quality_data,NoTradeScore,float,no,H,H,H,Detailed no-trade score if separately computed
+05_opportunity_quality_data,ConflictScore,float,no,H,H,H,Signal conflict score
+05_opportunity_quality_data,ExpectedValue_R,float,no,H,H,H,Expected value in R units
+05_opportunity_quality_data,VolEdgeRatio,float,no,H,H,H,Forecast realized move / required move
+05_opportunity_quality_data,ForcedFlowScore,float,no,H,H,H,Forced-flow / trapped participant score
+05_opportunity_quality_data,LiquidityVacuumScore,float,no,H,H,H,Liquidity vacuum / reward path speed score
+05_opportunity_quality_data,RangeExpansionQuality,float,no,H,H,H,Quality of accepted range expansion
+05_opportunity_quality_data,TrendExhaustionRisk,float,no,H,H,H,Late-trend/exhaustion risk
+05_opportunity_quality_data,LateEntryRisk,float,no,H,H,H,Late entry risk
+05_opportunity_quality_data,RewardPathScore,float,no,H,H,H,Reward path obstacle score
+05_opportunity_quality_data,TimeToProfitProbability,float,no,H,H,H,Probability of fast enough profit
+05_opportunity_quality_data,TradeLocationEfficiency,float,no,H,H,H,Entry location efficiency
+05_opportunity_quality_data,OpportunityHalfLife_seconds,float,no,H,H,H,Expected half-life of opportunity
+05_opportunity_quality_data,CandidateRank,float,no,H,H,H,Rank among all evaluated candidates
+06_market_regime_data,primary_regime,string,yes,H,H,H,Trend/Range/Compression/Panic/Event/Pin/etc.
+06_market_regime_data,secondary_regime,string,no,M,M,M,Secondary regime label
+06_market_regime_data,regime_confidence,float,yes,H,H,H,Confidence in primary regime
+06_market_regime_data,trend_direction,string,yes,H,M,H,UP/DOWN/NEUTRAL
+06_market_regime_data,trend_strength_score,float,yes,H,M,H,Trend strength
+06_market_regime_data,range_compression_score,float,no,H,M,H,Compression score
+06_market_regime_data,expansion_phase,string,no,H,M,H,None/Early/Mid/Late/Exhausted
+06_market_regime_data,volatility_regime,string,yes,H,H,H,Low/Normal/High/Panic/Crush
+06_market_regime_data,liquidity_regime,string,yes,M,H,H,Deep/Normal/Thin/Shock
+06_market_regime_data,risk_on_off_state,string,yes,H,H,H,RiskOn/Neutral/RiskOff/Shock
+06_market_regime_data,regime_transition_probability,float,no,H,M,H,Probability of regime transition
+06_market_regime_data,correlation_regime,string,no,M,M,M,Normal/HighCorrelation/StressDivergence
+07_gap_data,gap_direction,string,yes,H,M,H,UP/DOWN/FLAT
+07_gap_data,gap_pct,float,yes,H,H,H,Gap percent from previous close
+07_gap_data,gap_points,float,yes,M,M,M,Gap in index points
+07_gap_data,gap_type,string,yes,H,H,H,Micro/Small/Moderate/Large/Shock/InsideRange
+07_gap_data,gap_min_wait_required_min,int,yes,M,H,M,Minimum wait required by gap rules
+07_gap_data,gap_wait_completed,bool,yes,M,H,M,Whether required wait completed
+07_gap_data,gap_acceptance_quality,float,no,H,M,H,Gap acceptance score
+07_gap_data,gap_fade_quality,float,no,H,M,H,Gap fade/rejection score
+07_gap_data,gap_filled,bool,no,M,L,M,Whether gap filled during session
+07_gap_data,gap_fill_time,datetime,no,M,L,M,Time gap filled
+07_gap_data,opening_auction_strength,float,no,M,M,M,Opening auction strength/instability
+07_gap_data,previous_day_trend,string,no,M,L,M,Previous session trend context
+07_gap_data,overnight_news_impact,string,no,H,H,M,None/Low/Medium/High/Shock
+08_global_market_data,sp500_overnight_pct,float,no,M,M,M,S&P 500 overnight/change pct
+08_global_market_data,nasdaq_overnight_pct,float,no,M,M,M,Nasdaq overnight/change pct
+08_global_market_data,dow_overnight_pct,float,no,L,M,L,Dow overnight/change pct
+08_global_market_data,us_vix_level,float,no,M,H,M,US VIX level
+08_global_market_data,us_vix_change_pct,float,no,M,H,M,US VIX change percent
+08_global_market_data,us_10y_change_bps,float,no,M,M,M,US 10Y yield change
+08_global_market_data,dxy_change_pct,float,no,M,M,M,DXY change
+08_global_market_data,crude_change_pct,float,no,M,M,M,Crude change
+08_global_market_data,gold_change_pct,float,no,L,M,L,Gold change
+08_global_market_data,usdinr_change_pct,float,no,H,H,M,USDINR change
+08_global_market_data,gift_nifty_gap_pct,float,no,H,H,H,GIFT Nifty implied gap
+08_global_market_data,asian_risk_sentiment,string,no,M,M,M,RiskOn/Neutral/RiskOff
+08_global_market_data,nikkei_change_pct,float,no,L,L,L,Nikkei change pct
+08_global_market_data,hangseng_change_pct,float,no,L,L,L,Hang Seng change pct
+08_global_market_data,shanghai_change_pct,float,no,L,L,L,Shanghai change pct
+08_global_market_data,european_risk_sentiment,string,no,M,M,M,RiskOn/Neutral/RiskOff
+08_global_market_data,ftse_change_pct,float,no,L,L,L,FTSE change pct
+08_global_market_data,dax_change_pct,float,no,L,L,L,DAX change pct
+08_global_market_data,global_risk_score,float,no,H,H,M,GlobalRiskScore
+08_global_market_data,global_risk_state,string,no,H,H,M,RiskOn/Neutral/RiskOff/Shock
+09_option_chain_data,atm_iv,float,yes,H,H,H,ATM implied volatility
+09_option_chain_data,iv_rank,float,no,M,M,M,IV rank if available
+09_option_chain_data,iv_percentile,float,no,M,M,M,IV percentile if available
+09_option_chain_data,iv_change_from_entry_pct,float,no,H,H,H,IV change during trade
+09_option_chain_data,pcr_oi,float,no,M,L,M,Put/call OI ratio
+09_option_chain_data,pcr_volume,float,no,M,L,M,Put/call volume ratio
+09_option_chain_data,atm_call_oi,float,no,M,L,M,ATM call OI
+09_option_chain_data,atm_put_oi,float,no,M,L,M,ATM put OI
+09_option_chain_data,atm_call_oi_change,float,no,M,L,M,ATM call OI change
+09_option_chain_data,atm_put_oi_change,float,no,M,L,M,ATM put OI change
+09_option_chain_data,max_call_oi_strike,float,no,M,M,M,Strike with max call OI
+09_option_chain_data,max_put_oi_strike,float,no,M,M,M,Strike with max put OI
+09_option_chain_data,distance_to_call_wall_points,float,no,H,M,H,Distance to call wall
+09_option_chain_data,distance_to_put_wall_points,float,no,H,M,H,Distance to put wall
+09_option_chain_data,oi_wall_stress_score,float,no,H,M,H,OI wall stress
+09_option_chain_data,oi_migration_quality,float,no,M,L,M,OI migration quality
+09_option_chain_data,directional_option_breadth_score,float,no,H,M,H,Multi-strike premium breadth
+09_option_chain_data,iv_surface_stability_score,float,no,H,H,H,IV surface stability
+09_option_chain_data,skew_normalization_risk,float,no,H,H,H,Risk of skew crushing selected option
+10_futures_data,futures_basis_points,float,no,M,M,M,Futures minus spot basis
+10_futures_data,futures_basis_change,float,no,M,M,M,Change in basis
+10_futures_data,futures_oi,float,no,M,M,M,Futures open interest
+10_futures_data,futures_oi_change,float,no,M,M,M,Change in futures OI
+10_futures_data,futures_build_type,string,no,H,M,H,Long buildup/short buildup/short covering/long unwinding/neutral
+10_futures_data,long_buildup_flag,bool,no,M,L,M,Futures long buildup flag
+10_futures_data,short_buildup_flag,bool,no,M,L,M,Futures short buildup flag
+10_futures_data,short_covering_flag,bool,no,M,L,M,Short covering flag
+10_futures_data,long_unwinding_flag,bool,no,M,L,M,Long unwinding flag
+10_futures_data,futures_impulse_persistence,float,no,H,M,H,Persistence of futures impulse
+10_futures_data,futures_volume_relative,float,no,M,M,M,Futures relative volume
+11_premium_elasticity_data,raw_elasticity,float,yes,H,H,H,Raw option premium change / futures move
+11_premium_elasticity_data,delta_adjusted_elasticity,float,yes,H,H,H,Delta-adjusted elasticity
+11_premium_elasticity_data,elasticity_trend,string,yes,H,M,H,Rising/Falling/Stable
+11_premium_elasticity_data,elasticity_strength,string,yes,H,M,H,Weak/Acceptable/Strong
+11_premium_elasticity_data,elasticity_rank_percentile,float,no,H,M,H,Elasticity percentile vs baseline
+11_premium_elasticity_data,premium_acceleration_score,float,no,H,M,H,Premium acceleration score
+11_premium_elasticity_data,opposite_premium_elasticity,float,no,H,M,H,Elasticity of opposite option side
+11_premium_elasticity_data,premium_dominance_ratio,float,no,H,M,H,Directional vs opposite premium change ratio
+11_premium_elasticity_data,premium_failure_flag,bool,no,H,H,H,Premium failed despite favorable underlying move
+12_liquidity_execution_data,entry_spread_points,float,yes,H,H,H,Ask-bid spread at entry
+12_liquidity_execution_data,entry_spread_pct,float,yes,H,H,H,Spread as percent of mid
+12_liquidity_execution_data,exit_spread_points,float,no,H,H,H,Spread at exit
+12_liquidity_execution_data,bid_qty_lots,float,yes,M,H,H,Top bid quantity in lots
+12_liquidity_execution_data,ask_qty_lots,float,yes,M,H,H,Top ask quantity in lots
+12_liquidity_execution_data,top_book_coverage,float,yes,M,H,H,Top-book coverage vs order quantity
+12_liquidity_execution_data,five_depth_coverage,float,no,M,H,H,5-depth coverage vs order quantity
+12_liquidity_execution_data,volume_lots,float,no,M,M,M,Contract volume in lots
+12_liquidity_execution_data,contract_oi_lots,float,no,M,M,M,Contract OI in lots
+12_liquidity_execution_data,liquidity_score,float,yes,H,H,H,Liquidity sub-score
+12_liquidity_execution_data,execution_quality_score,float,yes,H,H,H,Execution quality score
+12_liquidity_execution_data,paper_fill_probability_score,float,no,H,H,H,Probability of realistic fill
+12_liquidity_execution_data,entry_slippage_points,float,no,H,H,H,Entry slippage vs reference
+12_liquidity_execution_data,exit_slippage_points,float,no,H,H,H,Exit slippage vs reference
+12_liquidity_execution_data,spread_stability_score,float,no,H,H,H,Spread stability
+12_liquidity_execution_data,depth_persistence_score,float,no,H,H,H,Depth persistence
+12_liquidity_execution_data,liquidity_regime_shift_score,float,no,H,H,H,Liquidity regime shift score
+13_technical_context,atr_value,float,yes,M,M,M,ATR value
+13_technical_context,atr_regime,string,yes,H,M,H,Low/Normal/High/Extreme ATR
+13_technical_context,adx,float,no,M,L,M,ADX trend strength
+13_technical_context,rsi,float,no,L,L,L,RSI context
+13_technical_context,vwap_position,string,yes,H,M,H,Above/Below/Near VWAP
+13_technical_context,vwap_slope,string,yes,H,M,H,Rising/Falling/Flat
+13_technical_context,orb_status,string,yes,H,M,H,Inside/Breakout/Breakdown/Accepted/Failed
+13_technical_context,opening_range_high,float,yes,M,M,M,Opening range high
+13_technical_context,opening_range_low,float,yes,M,M,M,Opening range low
+13_technical_context,distance_from_or_high_pct,float,no,M,L,M,Distance from OR high
+13_technical_context,distance_from_or_low_pct,float,no,M,L,M,Distance from OR low
+13_technical_context,range_expansion_quality,float,no,H,M,H,Range expansion quality
+13_technical_context,trade_location_efficiency,float,no,H,H,H,Trade location efficiency
+13_technical_context,late_entry_risk,float,no,H,H,H,Late entry risk
+13_technical_context,trend_exhaustion_risk,float,no,H,H,H,Trend exhaustion risk
+14_event_news_data,event_risk_state,string,yes,H,H,M,None/Caution/Defensive/Survival/NoTrade
+14_event_news_data,rbi_day_flag,bool,yes,H,H,M,RBI event day flag
+14_event_news_data,fed_day_flag,bool,no,M,M,L,Fed event day flag
+14_event_news_data,cpi_day_flag,bool,no,M,M,L,CPI event day flag
+14_event_news_data,gdp_day_flag,bool,no,L,L,L,GDP event day flag
+14_event_news_data,election_event_flag,bool,no,M,H,L,Election event flag
+14_event_news_data,major_banking_news_flag,bool,no,H,H,M,Major banking news flag
+14_event_news_data,geopolitical_event_flag,bool,no,M,H,L,Geopolitical shock flag
+14_event_news_data,news_risk_score,float,no,H,H,M,NewsRiskScore
+14_event_news_data,news_risk_state,string,no,H,H,M,NEWS_NORMAL/CAUTION/DEFENSIVE/SURVIVAL/NO_TRADE
+14_event_news_data,event_resolution_score,float,no,H,H,M,Whether event risk is resolved/accepted
+14_event_news_data,post_event_stabilization_score,float,no,H,H,H,Post-event stabilization
+15_behavioral_positioning_data,fear_level,float,no,M,M,M,Fear level proxy
+15_behavioral_positioning_data,greed_level,float,no,M,M,M,Greed/euphoria proxy
+15_behavioral_positioning_data,crowd_long_score,float,no,M,M,M,Crowd long/call chasing proxy
+15_behavioral_positioning_data,crowd_short_score,float,no,M,M,M,Crowd short/put chasing proxy
+15_behavioral_positioning_data,panic_environment_flag,bool,no,H,H,M,Panic environment
+15_behavioral_positioning_data,euphoria_environment_flag,bool,no,M,M,M,Euphoria environment
+15_behavioral_positioning_data,positioning_extreme_flag,bool,no,M,M,M,Extreme positioning flag
+15_behavioral_positioning_data,fomo_environment_flag,bool,no,M,H,M,FOMO environment flag
+15_behavioral_positioning_data,same_direction_recent_loss_penalty,float,no,M,H,M,Penalty after recent same-direction loss
+15_behavioral_positioning_data,drawdown_strictness_state,string,yes,M,H,M,Normal/Caution/Defensive/Recovery/Shutdown
+16_trade_management_data,initial_stop_points,float,yes,H,H,H,Initial hard stop in option points
+16_trade_management_data,initial_stop_rupees,float,yes,H,H,H,Initial hard stop risk rupees
+16_trade_management_data,minimum_viable_stop_points,float,yes,M,H,M,Minimum executable stop distance
+16_trade_management_data,initial_target_points,float,yes,H,M,H,Initial target in option points
+16_trade_management_data,target_r_multiple,float,yes,H,M,H,Target in R units
+16_trade_management_data,trailing_stop_used,bool,no,M,M,M,Whether trailing stop used
+16_trade_management_data,time_stop_seconds,int,yes,H,H,H,Planned time stop seconds
+16_trade_management_data,time_stop_hit,bool,no,H,M,H,Whether time stop hit
+16_trade_management_data,premium_failure_exit,bool,no,H,H,H,Whether premium failure exit triggered
+16_trade_management_data,iv_exit,bool,no,H,H,H,Whether IV/IV crush exit triggered
+16_trade_management_data,direction_exit,bool,no,M,M,M,Whether direction thesis failed
+16_trade_management_data,manual_override_flag,bool,yes,M,H,M,Any manual override
+16_trade_management_data,rule_violation_flag,bool,yes,M,H,M,Any rule violation
+16_trade_management_data,rule_violation_type,string,no,M,H,M,Type of rule violation
+17_post_trade_analysis,trade_correct_direction,bool,no,H,M,H,Was directional view correct?
+17_post_trade_analysis,trade_correct_option,bool,no,H,H,H,Was option contract correct?
+17_post_trade_analysis,entry_timing_quality,string,no,H,M,H,Early/Good/Late/Bad
+17_post_trade_analysis,exit_timing_quality,string,no,H,M,H,Early/Good/Late/Bad
+17_post_trade_analysis,signal_failure_cause,string,no,H,M,H,Primary signal failure cause
+17_post_trade_analysis,execution_failure_cause,string,no,H,H,H,Execution failure cause
+17_post_trade_analysis,regime_failure_cause,string,no,H,M,H,Regime failure cause
+17_post_trade_analysis,premium_failure_cause,string,no,H,H,H,Why premium failed
+17_post_trade_analysis,success_cause,string,no,H,M,H,Primary success cause
+17_post_trade_analysis,lesson_learned,string,no,M,M,M,Human lesson from trade
+17_post_trade_analysis,improvement_action,string,no,M,M,M,Proposed process improvement
+18_alpha_discovery,trade_archetype_code,string,yes,H,M,H,Standard archetype code A01 etc.
+18_alpha_discovery,trade_archetype_name,string,yes,H,M,H,Human-readable archetype
+18_alpha_discovery,setup_category,string,yes,H,M,H,Breakout/Pullback/Gap/Reversal/Event/etc.
+18_alpha_discovery,setup_subcategory,string,no,H,M,H,More granular setup subtype
+18_alpha_discovery,signal_combination_id,string,yes,H,M,H,Hash/code of signal combination present
+18_alpha_discovery,regime_combination_id,string,yes,H,M,H,Hash/code of regime combination
+18_alpha_discovery,opportunity_cluster_id,string,yes,H,M,H,Cluster ID for similar opportunities
+18_alpha_discovery,similar_historical_trades_count,int,no,H,M,H,Historical similar sample size
+18_alpha_discovery,historical_win_rate,float,no,H,M,H,Historical win rate for similar cluster
+18_alpha_discovery,historical_avg_return_r,float,no,H,M,H,Historical average return R
+18_alpha_discovery,historical_expectancy_r,float,no,H,M,H,Historical expectancy R
+18_alpha_discovery,historical_profit_factor,float,no,H,M,H,Historical profit factor
+18_alpha_discovery,historical_max_drawdown_r,float,no,H,H,H,Historical max drawdown for cluster
+18_alpha_discovery,archetype_live_status,string,yes,H,H,H,ACTIVE/PAPER_ONLY/DISABLED/REVIEW
+18_alpha_discovery,edge_decay_score,float,no,H,H,H,Edge decay risk for setup/instrument
+18_alpha_discovery,instrument_edge_attribution_score,float,no,H,M,H,Instrument-specific edge attribution
+18_alpha_discovery,notes_for_research,string,no,M,L,M,Research notes
+02_entry_data,paper_fill_model,string,no,M,H,H,Paper fill model used for simulated entry/exit
+02_entry_data,simulated_entry_fill,float,no,H,H,H,Paper simulated entry fill price
+03_exit_data,simulated_exit_fill,float,no,H,H,H,Paper simulated exit fill price
+02_entry_data,candidate_age_seconds,float,no,H,H,H,Candidate age at final revalidation
+02_entry_data,revalidation_passed,bool,no,H,H,H,Alias/compatibility field for final pre-order revalidation
+02_entry_data,mapping_validation_passed,bool,no,M,H,M,Whether instrument mapping validation passed
+02_entry_data,lot_size_validation_passed,bool,no,M,H,M,Whether lot size validation passed
+02_entry_data,tick_size_validation_passed,bool,no,M,H,M,Whether tick size validation passed

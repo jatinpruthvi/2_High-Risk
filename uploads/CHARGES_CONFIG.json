@@ -1,0 +1,13 @@
+{
+  "status": "PLACEHOLDER_VERIFY_WITH_BROKER_BEFORE_LIVE",
+  "currency": "INR",
+  "brokerage_per_order_rupees": 20.0,
+  "gst_rate_pct": 18.0,
+  "stt_sell_rate_pct": 0.0625,
+  "exchange_transaction_charge_rate_pct": 0.053,
+  "sebi_turnover_fee_rate_pct": 0.0001,
+  "stamp_duty_buy_rate_pct": 0.003,
+  "ipft_rate_pct": 0.0005,
+  "round_to_rupees": false,
+  "notes": "Rates are placeholders. Verify exact Dhan/NSE/SEBI/STT/GST charges before live use. Used only for paper-mode net P&L approximation."
+}
