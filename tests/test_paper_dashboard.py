@@ -62,6 +62,12 @@ class PaperDashboardTests(unittest.TestCase):
         finally:
             dashboard.stop()
 
+    def test_page_publishes_trade_count_and_research_mode_labels(self):
+        self.assertIn("Trades today", PAGE)
+        self.assertIn("trades_today", PAGE)
+        self.assertIn("PAPER_CALIBRATION", PAGE)
+        self.assertIn("research-only", PAGE)
+
     def test_page_contains_latest_safety_and_observability_guards(self):
         self.assertIn("No live paper cycle is available yet", PAGE)
         self.assertIn("Live Fyers cycle in progress", PAGE)

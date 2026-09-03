@@ -1,162 +1,464 @@
-[11:25:48] PAPER-ONLY config overrides active: {'exit_management': {'vol_time_stop_fraction': 0.35, 'stop_exit_slippage_frac': 0.1, 'edge_scaled_target': True, 'edge_scale_min_ratio': 1.1, 'edge_scale_min_r': 1.0, 'edge_scale_max_r': 3.0}, 'risk': {'normal_risk_pct_of_capital': 5.0, 'normal_risk_cap_rupees': 5000, 'a_plus_risk_pct_of_capital': 6.0, 'a_plus_risk_cap_rupees': 6000, 'max_daily_loss_rupees': 8000}, 'instrument_risk_overrides': {'BANKNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'NIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'FINNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'MIDCPNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}}, 'instrument_calibration_status': {'BANKNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'NIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'FINNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'MIDCPNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}}}
-[11:25:50]   NIFTY [NSE, TRADE_ELIGIBLE]: 18 expiries, nearest 2026-08-25
-[11:25:50]   BANKNIFTY [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   FINNIFTY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   MIDCPNIFTY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   SENSEX [BSE, TRADE_ELIGIBLE]: 19 expiries, nearest 2026-08-27
-[11:25:50]   BANKEX [BSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-27
-[11:25:50]   FOCIT [BSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-27
-[11:25:50]   NIFTYNXT50 [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   NIFTYFPI [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   ADANIENT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   ADANIPORTS [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   APOLLOHOSP [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   ASIANPAINT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   AXISBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   BAJAJ-AUTO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   BAJFINANCE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   BAJAJFINSV [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   BEL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   BHARTIARTL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   CIPLA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   COALINDIA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   DRREDDY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   EICHERMOT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   ETERNAL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   GRASIM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   HCLTECH [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   HDFCBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   HDFCLIFE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   HINDALCO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   HINDUNILVR [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   ICICIBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   ITC [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   INFY [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   INDIGO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   JSWSTEEL [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   JIOFIN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   KOTAKBANK [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   LT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   M&M [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   MARUTI [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   MAXHEALTH [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   NTPC [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   NESTLEIND [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   ONGC [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   POWERGRID [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   RELIANCE [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   SBILIFE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   SHRIRAMFIN [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   SBIN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   SUNPHARMA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   TCS [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   TATACONSUM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   TMPV [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   TATASTEEL [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   TECHM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   TITAN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-25
-[11:25:50]   TRENT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   ULTRACEMCO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50]   WIPRO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-25
-[11:25:50] Paper selector universe: NIFTY, BANKNIFTY, FINNIFTY, MIDCPNIFTY, SENSEX, BANKEX, FOCIT, NIFTYNXT50, NIFTYFPI, ADANIENT, ADANIPORTS, APOLLOHOSP, ASIANPAINT, AXISBANK, BAJAJ-AUTO, BAJFINANCE, BAJAJFINSV, BEL, BHARTIARTL, CIPLA, COALINDIA, DRREDDY, EICHERMOT, ETERNAL, GRASIM, HCLTECH, HDFCBANK, HDFCLIFE, HINDALCO, HINDUNILVR, ICICIBANK, ITC, INFY, INDIGO, JSWSTEEL, JIOFIN, KOTAKBANK, LT, M&M, MARUTI, MAXHEALTH, NTPC, NESTLEIND, ONGC, POWERGRID, RELIANCE, SBILIFE, SHRIRAMFIN, SBIN, SUNPHARMA, TCS, TATACONSUM, TMPV, TATASTEEL, TECHM, TITAN, TRENT, ULTRACEMCO, WIPRO; monitor-only: -
+[13:09:41] PAPER-ONLY config overrides active: {'exit_management': {'vol_time_stop_fraction': 0.35, 'stop_exit_slippage_frac': 0.1, 'edge_scaled_target': True, 'edge_scale_min_ratio': 1.1, 'edge_scale_min_r': 1.0, 'edge_scale_max_r': 3.0}, 'risk': {'normal_risk_pct_of_capital': 5.0, 'normal_risk_cap_rupees': 5000, 'a_plus_risk_pct_of_capital': 6.0, 'a_plus_risk_cap_rupees': 6000, 'max_daily_loss_rupees': 8000}, 'instrument_risk_overrides': {'BANKNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'NIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'FINNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}, 'MIDCPNIFTY': {'normal_risk_cap_rupees': 5000, 'a_plus_risk_cap_rupees': 6000}}, 'instrument_calibration_status': {'BANKNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'NIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'FINNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}, 'MIDCPNIFTY': {'direction': 'OBSERVED', 'liquidity': 'OBSERVED', 'expected_move': 'UNVALIDATED'}}}
+[13:09:53]   NIFTY [NSE, TRADE_ELIGIBLE]: 18 expiries, nearest 2026-09-01
+[13:09:53]   BANKNIFTY [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-09-29
+[13:09:53]   FINNIFTY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   MIDCPNIFTY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   SENSEX [BSE, TRADE_ELIGIBLE]: 19 expiries, nearest 2026-08-27
+[13:09:53]   BANKEX [BSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-27
+[13:09:53]   FOCIT [BSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-08-27
+[13:09:53]   NIFTYNXT50 [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   NIFTYFPI [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   ADANIENT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   ADANIPORTS [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   APOLLOHOSP [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   ASIANPAINT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   AXISBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   BAJAJ-AUTO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   BAJFINANCE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   BAJAJFINSV [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   BEL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   BHARTIARTL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   CIPLA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   COALINDIA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   DRREDDY [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   EICHERMOT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   ETERNAL [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   GRASIM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   HCLTECH [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   HDFCBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   HDFCLIFE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   HINDALCO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   HINDUNILVR [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   ICICIBANK [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   ITC [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   INFY [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   INDIGO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   JSWSTEEL [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   JIOFIN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   KOTAKBANK [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   LT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   M&M [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   MARUTI [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   MAXHEALTH [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   NTPC [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   NESTLEIND [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   ONGC [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   POWERGRID [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   RELIANCE [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   SBILIFE [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   SHRIRAMFIN [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   SBIN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   SUNPHARMA [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   TCS [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   TATACONSUM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   TMPV [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   TATASTEEL [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   TECHM [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   TITAN [NSE, TRADE_ELIGIBLE]: 6 expiries, nearest 2026-08-27
+[13:09:53]   TRENT [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   ULTRACEMCO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53]   WIPRO [NSE, TRADE_ELIGIBLE]: 3 expiries, nearest 2026-09-29
+[13:09:53] Paper selector universe: NIFTY, BANKNIFTY, FINNIFTY, MIDCPNIFTY, SENSEX, BANKEX, FOCIT, NIFTYNXT50, NIFTYFPI, ADANIENT, ADANIPORTS, APOLLOHOSP, ASIANPAINT, AXISBANK, BAJAJ-AUTO, BAJFINANCE, BAJAJFINSV, BEL, BHARTIARTL, CIPLA, COALINDIA, DRREDDY, EICHERMOT, ETERNAL, GRASIM, HCLTECH, HDFCBANK, HDFCLIFE, HINDALCO, HINDUNILVR, ICICIBANK, ITC, INFY, INDIGO, JSWSTEEL, JIOFIN, KOTAKBANK, LT, M&M, MARUTI, MAXHEALTH, NTPC, NESTLEIND, ONGC, POWERGRID, RELIANCE, SBILIFE, SHRIRAMFIN, SBIN, SUNPHARMA, TCS, TATACONSUM, TMPV, TATASTEEL, TECHM, TITAN, TRENT, ULTRACEMCO, WIPRO; monitor-only: -
 
 Dashboard: http://127.0.0.1:8775  (Ctrl+C to stop)
-[11:25:50] Loop started.
-[11:26:12]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:26:12]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
-[11:26:13]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:26:14]   NIFTYFPI chain unavailable [OPTIONS_CHAIN_UNAVAILABLE]: OptionChainParseError: Missing data.optionsChain in Fyers payload
-[11:26:48]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:26:48]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
-[11:26:49]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:26:50]   NIFTYFPI chain unavailable [OPTIONS_CHAIN_UNAVAILABLE]: OptionChainParseError: Missing data.optionsChain in Fyers payload
-[11:26:58]   DATA HEALTH ALERT NIFTY: Invalid IV for CE 22650.0; Missing delta for CE 22650.0; Invalid IV for PE 22650.0; Zero volume CE at 22650.0; Zero volume CE at 22750.0; Zero volume CE at 22850.0; Candidate option quote stale 27.67s; Candidate option quote stale 27.68s; Candidate option quote stale 28.68s; Candidate option quote stale 28.68s; Candidate option quote stale 27.69s; Candidate option quote stale 27.69s
-[11:26:58]   DATA HEALTH ALERT BANKNIFTY: Invalid IV for CE 54400.0; Missing delta for CE 54400.0; Invalid IV for PE 54400.0; Zero volume CE at 54400.0; Zero volume CE at 54600.0; Zero volume CE at 54700.0; Candidate option quote stale 25.69s; Candidate option quote stale 24.69s; Candidate option quote stale 25.69s; Candidate option quote stale 25.69s; Candidate option quote stale 24.69s; Candidate option quote stale 24.70s
-[11:26:58]   DATA HEALTH ALERT FINNIFTY: Invalid IV for CE 24600.0; Missing delta for CE 24600.0; Invalid IV for PE 24600.0; Zero volume CE at 24600.0; Zero volume CE at 24650.0; Zero volume CE at 24700.0; Candidate option quote stale 23.70s; Candidate option quote stale 23.70s; Candidate option quote stale 24.70s; Candidate option quote stale 24.70s; Candidate option quote stale 22.70s; Candidate option quote stale 21.70s
-[11:26:58]   DATA HEALTH ALERT MIDCPNIFTY: Invalid IV for CE 14125.0; Missing delta for CE 14125.0; Invalid IV for PE 14125.0; Zero volume CE at 14125.0; Zero volume CE at 14150.0; Zero volume CE at 14175.0; Candidate option quote stale 20.71s; Candidate option quote stale 21.71s; Candidate option quote stale 21.71s; Candidate option quote stale 20.72s; Candidate option quote stale 20.72s; Candidate option quote stale 19.72s
-[11:26:58]   DATA HEALTH ALERT SENSEX: Invalid IV for CE 74200.0; Missing delta for CE 74200.0; Invalid IV for PE 74200.0; Zero volume CE at 74200.0; Zero volume CE at 74300.0; Zero volume CE at 74400.0; Candidate option quote stale 18.72s; Candidate option quote stale 18.72s; Candidate option quote stale 18.72s; Candidate option quote stale 18.72s; Candidate option quote stale 18.72s; Candidate option quote stale 17.72s
-[11:26:58]   DATA HEALTH ALERT BANKEX: CE/PE timestamp delta 177.00s at 65100.0; CE/PE timestamp delta 88.00s at 65200.0; Candidate option quote stale 199.72s; Candidate option quote stale 22.72s; Candidate option quote stale 16.72s; Candidate option quote stale 16.73s; Candidate option quote stale 110.73s; Candidate option quote stale 22.73s
-[11:26:58]   DATA HEALTH ALERT FOCIT: CE/PE timestamp delta 1630.00s at 37000.0; Candidate option quote stale 41218.74s; Candidate option quote stale 41218.74s; Candidate option quote stale 41218.74s; Candidate option quote stale 41218.74s; Candidate option quote stale 1943.74s; Candidate option quote stale 313.74s
-[11:26:58]   DATA HEALTH ALERT NIFTYNXT50: CE/PE timestamp delta 2151078.78s at 73800.0; CE/PE timestamp delta 139.00s at 74000.0; Candidate option quote depth unavailable; Candidate option quote invalid; Candidate option quote stale 2151089.75s; Candidate option quote invalid; Candidate option quote stale 151.75s; Candidate option quote stale 290.75s
-[11:26:58]   DATA HEALTH ALERT ADANIENT: CE/PE timestamp delta 59.00s at 3050.0; Candidate option quote stale 874.76s; Candidate option quote stale 17.76s; Candidate option quote stale 76.76s; Candidate option quote stale 40.77s; Candidate option quote stale 40.77s
-[11:26:58]   DATA HEALTH ALERT ADANIPORTS: CE/PE timestamp delta 429.00s at 1660.0; CE/PE timestamp delta 97.00s at 1700.0; Candidate option quote stale 58.77s; Candidate option quote stale 60.77s; Candidate option quote stale 475.77s; Candidate option quote stale 46.78s; Candidate option quote stale 32.78s; Candidate option quote stale 129.78s
-[11:26:58]   DATA HEALTH ALERT APOLLOHOSP: CE/PE timestamp delta 48.00s at 8700.0; CE/PE timestamp delta 8.00s at 8800.0; Candidate option quote stale 38.79s; Candidate option quote stale 86.79s; Candidate option quote stale 80.79s; Candidate option quote stale 79.79s; Candidate option quote stale 46.80s; Candidate option quote stale 54.80s
-[11:28:19]   DATA HEALTH ALERT ASIANPAINT: CE/PE timestamp delta 90.00s at 2600.0; CE/PE timestamp delta 107.00s at 2620.0; CE/PE timestamp delta 8.00s at 2640.0; Candidate option quote stale 147.22s; Candidate option quote stale 254.22s; Candidate option quote stale 156.22s; Candidate option quote stale 66.22s; Candidate option quote stale 237.22s; Candidate option quote stale 245.22s
-[11:28:19]   DATA HEALTH ALERT AXISBANK: CE/PE timestamp delta 50.00s at 1220.0; CE/PE timestamp delta 126.00s at 1260.0; Candidate option quote stale 45.23s; Candidate option quote stale 46.23s; Candidate option quote stale 33.23s; Candidate option quote stale 83.23s; Candidate option quote stale 107.23s; Candidate option quote stale 233.24s
-[11:28:19]   DATA HEALTH ALERT BAJAJ-AUTO: CE/PE timestamp delta 47.00s at 11700.0; CE/PE timestamp delta 47.00s at 11800.0; CE/PE timestamp delta 1235.00s at 11900.0; Candidate option quote stale 20.25s; Candidate option quote stale 67.25s; Candidate option quote stale 97.25s; Candidate option quote stale 50.25s; Candidate option quote stale 41.25s; Candidate option quote stale 1276.25s
-[11:28:19]   DATA HEALTH ALERT BAJFINANCE: CE/PE timestamp delta 271.00s at 1070.0; CE/PE timestamp delta 4.00s at 1080.0; CE/PE timestamp delta 147.00s at 1090.0; Candidate option quote stale 23.26s; Candidate option quote stale 19.26s; Candidate option quote stale 289.26s; Candidate option quote stale 18.26s; Candidate option quote stale 19.26s; Candidate option quote stale 166.26s
-[11:28:19]   DATA HEALTH ALERT BAJAJFINSV: CE/PE timestamp delta 1282.00s at 1960.0; CE/PE timestamp delta 563.00s at 1980.0; CE/PE timestamp delta 61.00s at 2000.0; Candidate option quote stale 653.27s; Candidate option quote stale 90.27s; Candidate option quote stale 1346.27s; Candidate option quote stale 64.27s; Candidate option quote stale 193.27s; Candidate option quote stale 132.27s
-[11:28:19]   DATA HEALTH ALERT BEL: CE/PE timestamp delta 149.00s at 405.0; CE/PE timestamp delta 84.00s at 410.0; CE/PE timestamp delta 343.00s at 415.0; Candidate option quote stale 59.27s; Candidate option quote stale 143.28s; Candidate option quote stale 25.28s; Candidate option quote stale 174.28s; Candidate option quote stale 33.28s; Candidate option quote stale 376.28s
-[11:28:19]   DATA HEALTH ALERT BHARTIARTL: CE/PE timestamp delta 86.00s at 1920.0; Candidate option quote stale 12.29s; Candidate option quote stale 10.29s; Candidate option quote stale 12.29s; Candidate option quote stale 98.29s; Candidate option quote stale 26.29s; Candidate option quote stale 25.29s
-[11:28:19]   DATA HEALTH ALERT CIPLA: CE/PE timestamp delta 14.00s at 1410.0; CE/PE timestamp delta 56.00s at 1420.0; CE/PE timestamp delta 279.00s at 1430.0; Candidate option quote stale 10.30s; Candidate option quote stale 66.30s; Candidate option quote stale 53.30s; Candidate option quote stale 39.30s; Candidate option quote stale 41.30s; Candidate option quote stale 320.30s
-[11:28:39]   COALINDIA NSE:COALINDIA26AUG410CE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:29:18]   COALINDIA NSE:COALINDIA26AUG410CE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:29:37]   DATA HEALTH ALERT COALINDIA: CE/PE timestamp delta 52.14s at 410.0; Candidate option quote stale 72.38s; Candidate option quote stale 72.38s; Candidate option quote stale 70.38s; Candidate option quote stale 70.38s; Candidate option quote invalid; Candidate option quote stale 72.38s
-[11:29:37]   DATA HEALTH ALERT DRREDDY: CE/PE timestamp delta 481.00s at 1190.0; CE/PE timestamp delta 99.00s at 1200.0; Candidate option quote stale 36.39s; Candidate option quote stale 517.39s; Candidate option quote stale 60.39s; Candidate option quote stale 60.39s; Candidate option quote stale 36.39s; Candidate option quote stale 135.39s
-[11:29:37]   DATA HEALTH ALERT EICHERMOT: CE/PE timestamp delta 493.00s at 7900.0; CE/PE timestamp delta 14.00s at 8000.0; CE/PE timestamp delta 559.00s at 8100.0; Candidate option quote stale 69.39s; Candidate option quote stale 83.39s; Candidate option quote stale 604.40s; Candidate option quote stale 111.40s; Candidate option quote stale 291.40s; Candidate option quote stale 850.40s
-[11:29:37]   DATA HEALTH ALERT ETERNAL: CE/PE timestamp delta 55.00s at 325.0; CE/PE timestamp delta 85.00s at 335.0; Candidate option quote stale 39.40s; Candidate option quote stale 39.40s; Candidate option quote stale 107.40s; Candidate option quote stale 52.40s; Candidate option quote stale 124.40s; Candidate option quote stale 39.41s
-[11:29:37]   DATA HEALTH ALERT GRASIM: CE/PE timestamp delta 301.00s at 3220.0; CE/PE timestamp delta 462.00s at 3240.0; CE/PE timestamp delta 72.00s at 3260.0; Candidate option quote stale 566.41s; Candidate option quote stale 104.41s; Candidate option quote stale 367.41s; Candidate option quote stale 66.41s; Candidate option quote stale 57.41s; Candidate option quote stale 129.41s
-[11:29:37]   DATA HEALTH ALERT HCLTECH: CE/PE timestamp delta 779.00s at 1290.0; CE/PE timestamp delta 356.00s at 1300.0; Candidate option quote stale 452.41s; Candidate option quote stale 96.42s; Candidate option quote stale 1151.42s; Candidate option quote stale 372.42s; Candidate option quote stale 149.42s; Candidate option quote stale 149.42s
-[11:29:37]   DATA HEALTH ALERT HDFCBANK: CE/PE timestamp delta 17.00s at 720.0; CE/PE timestamp delta 19.00s at 730.0; Candidate option quote stale 28.42s; Candidate option quote stale 9.42s; Candidate option quote stale 31.42s; Candidate option quote stale 14.42s; Candidate option quote stale 12.43s; Candidate option quote stale 13.43s
-[11:29:37]   DATA HEALTH ALERT HDFCLIFE: CE/PE timestamp delta 150.00s at 545.0; Candidate option quote stale 22.43s; Candidate option quote stale 23.43s; Candidate option quote stale 257.43s; Candidate option quote stale 107.43s; Candidate option quote stale 269.43s; Candidate option quote stale 269.43s
-[11:30:55]   DATA HEALTH ALERT HINDALCO: CE/PE timestamp delta 124.00s at 1020.0; CE/PE timestamp delta 3.00s at 1040.0; CE/PE timestamp delta 26.00s at 1060.0; Candidate option quote stale 36.25s; Candidate option quote stale 33.25s; Candidate option quote stale 55.25s; Candidate option quote stale 179.25s; Candidate option quote stale 35.25s; Candidate option quote stale 61.25s
-[11:30:55]   DATA HEALTH ALERT HINDUNILVR: CE/PE timestamp delta 85.00s at 2000.0; CE/PE timestamp delta 80.00s at 2020.0; CE/PE timestamp delta 161.00s at 2040.0; Candidate option quote stale 182.26s; Candidate option quote stale 102.26s; Candidate option quote stale 123.26s; Candidate option quote stale 38.26s; Candidate option quote stale 91.26s; Candidate option quote stale 252.26s
-[11:30:55]   DATA HEALTH ALERT ICICIBANK: CE/PE timestamp delta 117.00s at 1430.0; Candidate option quote stale 17.26s; Candidate option quote stale 17.26s; Candidate option quote stale 48.27s; Candidate option quote stale 48.27s; Candidate option quote stale 28.27s; Candidate option quote stale 145.27s
-[11:30:55]   DATA HEALTH ALERT ITC: CE/PE timestamp delta 303.00s at 265.0; CE/PE timestamp delta 70.00s at 267.5; CE/PE timestamp delta 26.00s at 270.0; Candidate option quote stale 118.27s; Candidate option quote stale 48.27s; Candidate option quote stale 471.27s; Candidate option quote stale 168.27s; Candidate option quote stale 127.27s; Candidate option quote stale 101.27s
-[11:30:55]   DATA HEALTH ALERT INFY: CE/PE timestamp delta 419.00s at 1115.0; CE/PE timestamp delta 14.00s at 1120.0; Candidate option quote stale 41.28s; Candidate option quote stale 27.28s; Candidate option quote stale 500.28s; Candidate option quote stale 81.28s; Candidate option quote stale 173.28s
-[11:30:55]   DATA HEALTH ALERT INDIGO: CE/PE timestamp delta 117.00s at 5000.0; CE/PE timestamp delta 194.00s at 5200.0; Candidate option quote stale 16.28s; Candidate option quote stale 16.28s; Candidate option quote stale 152.29s; Candidate option quote stale 35.29s; Candidate option quote stale 64.29s; Candidate option quote stale 258.29s
-[11:30:55]   DATA HEALTH ALERT JSWSTEEL: CE/PE timestamp delta 110.00s at 1300.0; CE/PE timestamp delta 1715.00s at 1320.0; CE/PE timestamp delta 2200.00s at 1340.0; Candidate option quote stale 30.29s; Candidate option quote stale 1745.29s; Candidate option quote stale 251.29s; Candidate option quote stale 141.29s; Candidate option quote stale 52.30s; Candidate option quote stale 2252.30s
-[11:30:55]   DATA HEALTH ALERT JIOFIN: CE/PE timestamp delta 109.00s at 237.5; CE/PE timestamp delta 42.00s at 240.0; CE/PE timestamp delta 193.00s at 242.5; Candidate option quote stale 13.30s; Candidate option quote stale 55.30s; Candidate option quote stale 662.30s; Candidate option quote stale 553.30s; Candidate option quote stale 40.30s; Candidate option quote stale 233.30s
-[11:31:14]   KOTAKBANK NSE:KOTAKBANK26AUG395PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:31:28]   NTPC NSE:NTPC26AUG330PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:31:53]   KOTAKBANK NSE:KOTAKBANK26AUG395PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:32:05]   NTPC NSE:NTPC26AUG330PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:32:12]   DATA HEALTH ALERT KOTAKBANK: CE/PE timestamp delta 81.48s at 395.0; CE/PE timestamp delta 9.00s at 400.0; CE/PE timestamp delta 12.00s at 405.0; Candidate option quote stale 27.63s; Candidate option quote stale 36.63s; Candidate option quote stale 101.63s; Candidate option quote invalid; Candidate option quote stale 36.63s; Candidate option quote stale 48.63s
-[11:32:12]   DATA HEALTH ALERT LT: CE/PE timestamp delta 219.00s at 4050.0; CE/PE timestamp delta 32.00s at 4100.0; Candidate option quote stale 117.64s; Candidate option quote stale 50.64s; Candidate option quote stale 82.64s; Candidate option quote stale 259.64s; Candidate option quote stale 40.64s
-[11:32:12]   DATA HEALTH ALERT M&M: CE/PE timestamp delta 64.00s at 3350.0; CE/PE timestamp delta 12.00s at 3400.0; CE/PE timestamp delta 81.00s at 3450.0; Candidate option quote stale 42.65s; Candidate option quote stale 54.65s; Candidate option quote stale 224.65s; Candidate option quote stale 160.65s; Candidate option quote stale 45.65s; Candidate option quote stale 126.65s
-[11:32:12]   DATA HEALTH ALERT MARUTI: CE/PE timestamp delta 149.00s at 13400.0; CE/PE timestamp delta 24.00s at 13500.0; CE/PE timestamp delta 41.00s at 13600.0; Candidate option quote stale 62.65s; Candidate option quote stale 86.66s; Candidate option quote stale 175.66s; Candidate option quote stale 26.66s; Candidate option quote stale 28.66s; Candidate option quote stale 69.66s
-[11:32:12]   DATA HEALTH ALERT MAXHEALTH: CE/PE timestamp delta 1097.00s at 980.0; CE/PE timestamp delta 4.00s at 1000.0; Candidate option quote stale 28.66s; Candidate option quote stale 28.67s; Candidate option quote stale 1134.67s; Candidate option quote stale 37.67s; Candidate option quote stale 41.67s; Candidate option quote stale 37.67s
-[11:32:12]   DATA HEALTH ALERT NTPC: CE/PE timestamp delta 2291.54s at 330.0; CE/PE timestamp delta 82.00s at 335.0; CE/PE timestamp delta 24.00s at 340.0; Candidate option quote stale 140.67s; Candidate option quote stale 58.67s; Candidate option quote stale 2299.67s; Candidate option quote invalid; Candidate option quote stale 120.68s; Candidate option quote stale 96.68s
-[11:32:12]   DATA HEALTH ALERT NESTLEIND: CE/PE timestamp delta 28.00s at 1460.0; CE/PE timestamp delta 286.00s at 1470.0; Candidate option quote stale 81.68s; Candidate option quote stale 367.68s; Candidate option quote stale 70.69s; Candidate option quote stale 42.69s; Candidate option quote stale 113.69s; Candidate option quote stale 113.69s
-[11:32:12]   DATA HEALTH ALERT ONGC: CE/PE timestamp delta 2336.00s at 232.5; CE/PE timestamp delta 183.00s at 237.5; Candidate option quote stale 18.69s; Candidate option quote stale 18.69s; Candidate option quote stale 2557.69s; Candidate option quote stale 221.70s; Candidate option quote stale 22.70s; Candidate option quote stale 205.70s
-[11:32:36]   SBILIFE NSE:SBILIFE26AUG1740CE depth unavailable: ValueError: Fyers depth source timestamp invalid
-[11:32:51]   TATACONSUM NSE:TATACONSUM26AUG1040PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:33:16]   SBILIFE NSE:SBILIFE26AUG1740CE depth unavailable: ValueError: Fyers depth source timestamp invalid
-[11:33:30]   TATACONSUM NSE:TATACONSUM26AUG1070CE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:33:32]   DATA HEALTH ALERT POWERGRID: CE/PE timestamp delta 39.00s at 270.0; CE/PE timestamp delta 831.00s at 272.5; Candidate option quote stale 37.22s; Candidate option quote stale 76.22s; Candidate option quote stale 119.22s; Candidate option quote stale 119.22s; Candidate option quote stale 114.22s; Candidate option quote stale 945.22s
-[11:33:32]   DATA HEALTH ALERT RELIANCE: CE/PE timestamp delta 6.00s at 1300.0; CE/PE timestamp delta 66.00s at 1310.0; Candidate option quote stale 33.22s; Candidate option quote stale 39.23s; Candidate option quote stale 39.23s; Candidate option quote stale 39.23s; Candidate option quote stale 47.23s; Candidate option quote stale 113.23s
-[11:33:32]   DATA HEALTH ALERT SBILIFE: CE/PE timestamp delta 178.04s at 1740.0; CE/PE timestamp delta 138.00s at 1760.0; Candidate option quote stale 173.23s; Candidate option quote stale 35.24s; Candidate option quote depth unavailable; Candidate option quote stale 194.24s; Candidate option quote stale 80.24s; Candidate option quote stale 82.24s
-[11:33:32]   DATA HEALTH ALERT SHRIRAMFIN: CE/PE timestamp delta 23.00s at 1120.0; CE/PE timestamp delta 111.00s at 1140.0; Candidate option quote stale 56.24s; Candidate option quote stale 79.24s; Candidate option quote stale 76.25s; Candidate option quote stale 76.25s; Candidate option quote stale 82.25s; Candidate option quote stale 193.25s
-[11:33:32]   DATA HEALTH ALERT SBIN: CE/PE timestamp delta 21.00s at 1030.0; CE/PE timestamp delta 4.00s at 1050.0; Candidate option quote stale 28.25s; Candidate option quote stale 28.25s; Candidate option quote stale 53.25s; Candidate option quote stale 32.26s; Candidate option quote stale 28.26s; Candidate option quote stale 32.26s
-[11:33:32]   DATA HEALTH ALERT SUNPHARMA: CE/PE timestamp delta 19.00s at 1900.0; CE/PE timestamp delta 63.00s at 1920.0; CE/PE timestamp delta 24.00s at 1940.0; Candidate option quote stale 22.26s; Candidate option quote stale 85.26s; Candidate option quote stale 11.26s; Candidate option quote stale 30.26s; Candidate option quote stale 23.26s; Candidate option quote stale 47.27s
-[11:33:32]   DATA HEALTH ALERT TCS: CE/PE timestamp delta 13.00s at 2260.0; CE/PE timestamp delta 9.00s at 2300.0; Candidate option quote stale 20.27s; Candidate option quote stale 20.27s; Candidate option quote stale 20.27s; Candidate option quote stale 33.27s; Candidate option quote stale 23.27s; Candidate option quote stale 32.27s
-[11:33:32]   DATA HEALTH ALERT TATACONSUM: CE/PE timestamp delta 31.00s at 1050.0; CE/PE timestamp delta 58.00s at 1060.0; CE/PE timestamp delta 423.27s at 1070.0; Candidate option quote stale 22.27s; Candidate option quote stale 80.28s; Candidate option quote stale 103.28s; Candidate option quote stale 134.28s; Candidate option quote invalid; Candidate option quote stale 427.28s
-[11:34:51]   DATA HEALTH ALERT TMPV: CE/PE timestamp delta 73.00s at 310.0; CE/PE timestamp delta 5.00s at 320.0; Candidate option quote stale 22.49s; Candidate option quote stale 22.50s; Candidate option quote stale 118.50s; Candidate option quote stale 45.50s; Candidate option quote stale 73.50s; Candidate option quote stale 78.50s
-[11:34:51]   DATA HEALTH ALERT TATASTEEL: CE/PE timestamp delta 317.00s at 182.5; CE/PE timestamp delta 304.00s at 185.0; CE/PE timestamp delta 472.00s at 187.5; Candidate option quote stale 38.50s; Candidate option quote stale 342.51s; Candidate option quote stale 342.51s; Candidate option quote stale 25.51s; Candidate option quote stale 69.51s; Candidate option quote stale 541.51s
-[11:34:51]   DATA HEALTH ALERT TECHM: CE/PE timestamp delta 163.00s at 1560.0; CE/PE timestamp delta 3365.00s at 1564.0; CE/PE timestamp delta 44.00s at 1580.0; Candidate option quote stale 3574.51s; Candidate option quote stale 209.52s; Candidate option quote stale 357.52s; Candidate option quote stale 194.52s; Candidate option quote stale 46.52s; Candidate option quote stale 90.52s
-[11:34:51]   DATA HEALTH ALERT TITAN: CE/PE timestamp delta 433.00s at 5100.0; Candidate option quote stale 49.52s; Candidate option quote stale 49.52s; Candidate option quote stale 49.52s; Candidate option quote stale 49.52s; Candidate option quote stale 116.53s; Candidate option quote stale 549.53s
-[11:34:51]   DATA HEALTH ALERT TRENT: CE/PE timestamp delta 312.00s at 2850.0; CE/PE timestamp delta 26.00s at 2900.0; CE/PE timestamp delta 396.00s at 2950.0; Candidate option quote stale 63.53s; Candidate option quote stale 37.53s; Candidate option quote stale 403.53s; Candidate option quote stale 91.53s; Candidate option quote stale 22.53s; Candidate option quote stale 418.54s
-[11:34:51]   DATA HEALTH ALERT ULTRACEMCO: CE/PE timestamp delta 130.00s at 11400.0; CE/PE timestamp delta 201.00s at 11460.0; CE/PE timestamp delta 160.00s at 11500.0; Candidate option quote stale 98.54s; Candidate option quote stale 299.54s; Candidate option quote stale 207.54s; Candidate option quote stale 47.54s; Candidate option quote stale 243.54s; Candidate option quote stale 113.54s
-[11:34:51]   DATA HEALTH ALERT WIPRO: CE/PE timestamp delta 696.00s at 177.5; CE/PE timestamp delta 19.00s at 180.0; CE/PE timestamp delta 223.00s at 182.5; Candidate option quote stale 69.55s; Candidate option quote stale 50.55s; Candidate option quote stale 929.55s; Candidate option quote stale 233.55s; Candidate option quote stale 79.55s; Candidate option quote stale 302.55s
-[11:35:16]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:35:16]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
-[11:35:17]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:35:54]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:35:55]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
-[11:35:55]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:36:47]   COALINDIA NSE:COALINDIA26AUG395PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:37:24]   COALINDIA NSE:COALINDIA26AUG395PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:39:24]   KOTAKBANK NSE:KOTAKBANK26AUG395PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:40:03]   KOTAKBANK NSE:KOTAKBANK26AUG395PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:40:37]   NTPC NSE:NTPC26AUG330PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:41:22]   NTPC NSE:NTPC26AUG330PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:41:59]   SBILIFE NSE:SBILIFE26AUG1740CE depth unavailable: ValueError: Fyers depth source timestamp invalid
-[11:42:16]   TATACONSUM NSE:TATACONSUM26AUG1070CE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:42:42]   SBILIFE NSE:SBILIFE26AUG1740CE depth unavailable: ValueError: Fyers depth source timestamp invalid
-[11:42:56]   TATACONSUM NSE:TATACONSUM26AUG1070CE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:44:27]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:44:28]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
-[11:44:28]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:45:10]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73800PE depth unavailable: ValueError: Fyers depth best quote invalid
-[11:45:10]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900CE depth unavailable: ValueError: Fyers depth source timestamp invalid
-[11:45:11]   NIFTYNXT50 NSE:NIFTYNXT5026AUG73900PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:09:53] Loop started.
+[13:10:08]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:10:09]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:10:34]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:10:35]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:10:35]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:10:36]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:10:37]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:10:37]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:10:39]   NIFTYFPI chain unavailable [OPTIONS_CHAIN_UNAVAILABLE]: OptionChainParseError: Missing data.optionsChain in Fyers payload
+[13:11:19]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:12:07]   DATA HEALTH ALERT NIFTY: Option chain stale 67.64s; Candidate option quote stale 66.95s; Candidate option quote stale 65.95s; Candidate option quote stale 67.95s; Candidate option quote stale 66.95s; Candidate option quote stale 65.95s; Candidate option quote stale 64.95s
+[13:12:07]   DATA HEALTH ALERT BANKNIFTY: Option chain stale 59.50s; Candidate option quote stale 57.96s; Candidate option quote stale 57.96s; Candidate option quote stale 59.96s; Candidate option quote stale 58.96s; Candidate option quote stale 56.96s; Candidate option quote stale 55.96s
+[13:12:07]   DATA HEALTH ALERT FINNIFTY: Option chain stale 52.30s; Candidate option quote stale 75.96s; Candidate option quote stale 62.96s; Candidate option quote stale 585.96s; Candidate option quote stale 146.96s; Candidate option quote stale 1002.96s; Candidate option quote depth unavailable
+[13:12:07]   DATA HEALTH ALERT MIDCPNIFTY: Option chain stale 46.44s; Candidate option quote stale 182.96s; Candidate option quote stale 81.96s; Candidate option quote stale 634.96s; Candidate option quote stale 115.96s; Candidate option quote stale 298.96s; Candidate option quote stale 64.96s
+[13:12:33]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:13:52]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:15:10]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:16:28]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:17:13]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:17:39]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:18:23]   DATA HEALTH ALERT SENSEX: Invalid IV for CE 74400.0; Missing delta for CE 74400.0; Invalid IV for PE 74400.0; Zero volume CE at 74400.0; Zero volume CE at 74500.0; Zero volume CE at 74600.0; Candidate option quote warning stale 5.45s
+[13:18:44]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:18:59]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:18:59]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:19:00]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:19:01]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:19:01]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:19:02]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:19:25]   DATA HEALTH ALERT BANKEX: Option chain stale 35.04s; Candidate option quote stale 34.40s; Candidate option quote stale 33.40s; Candidate option quote stale 35.40s; Candidate option quote stale 34.40s; Candidate option quote stale 33.40s; Candidate option quote stale 33.40s
+[13:19:25]   DATA HEALTH ALERT FOCIT: Option chain stale 30.76s; Candidate option quote stale 31.41s; Candidate option quote stale 862.41s; Candidate option quote stale 1430.41s; Candidate option quote stale 404.41s; Candidate option quote stale 37.41s; Candidate option quote stale 3717.41s
+[13:19:25]   DATA HEALTH ALERT NIFTYNXT50: Invalid IV for CE 71300.0; Missing delta for CE 71300.0; Invalid IV for PE 71300.0; Zero volume CE at 71300.0; Zero volume PE at 71300.0; Zero volume CE at 71400.0; Candidate option quote invalid; Candidate option quote invalid; Candidate option quote invalid; Candidate option quote invalid; Candidate option quote invalid; Candidate option quote invalid
+[13:19:25]   DATA HEALTH ALERT ADANIENT: CE/PE timestamp delta 24.00s at 3150.0; CE/PE timestamp delta 28.00s at 3200.0; Candidate option quote stale 54.48s; Candidate option quote stale 30.48s; Candidate option quote stale 48.48s; Candidate option quote stale 48.48s; Candidate option quote stale 20.48s; Candidate option quote stale 48.48s
+[13:19:25]   DATA HEALTH ALERT ADANIPORTS: CE/PE timestamp delta 61.00s at 1700.0; CE/PE timestamp delta 28.00s at 1720.0; CE/PE timestamp delta 115.00s at 1740.0; Candidate option quote stale 58.49s; Candidate option quote stale 86.49s; Candidate option quote stale 34.49s; Candidate option quote stale 95.49s; Candidate option quote stale 35.49s; Candidate option quote stale 150.49s
+[13:19:25]   DATA HEALTH ALERT APOLLOHOSP: CE/PE timestamp delta 140.00s at 8700.0; CE/PE timestamp delta 207.00s at 8800.0; CE/PE timestamp delta 349.00s at 8900.0; Candidate option quote stale 241.49s; Candidate option quote stale 34.50s; Candidate option quote stale 457.50s; Candidate option quote stale 317.50s; Candidate option quote stale 64.50s; Candidate option quote stale 413.50s
+[13:19:25]   DATA HEALTH ALERT ASIANPAINT: CE/PE timestamp delta 258.00s at 2640.0; CE/PE timestamp delta 167.00s at 2660.0; CE/PE timestamp delta 473.00s at 2680.0; Candidate option quote stale 134.50s; Candidate option quote stale 301.50s; Candidate option quote stale 54.50s; Candidate option quote stale 312.50s; Candidate option quote stale 269.51s; Candidate option quote stale 742.51s
+[13:19:25]   DATA HEALTH ALERT AXISBANK: CE/PE timestamp delta 4.00s at 1240.0; Candidate option quote warning stale 5.51s; Candidate option quote warning stale 5.51s; Candidate option quote stale 9.51s; Candidate option quote warning stale 5.51s
+[13:19:45]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:20:27]   DATA HEALTH ALERT BAJAJ-AUTO: Option chain stale 35.78s; Candidate option quote stale 134.01s; Candidate option quote stale 39.01s; Candidate option quote stale 96.01s; Candidate option quote stale 39.01s; Candidate option quote stale 107.01s; Candidate option quote stale 127.01s
+[13:20:27]   DATA HEALTH ALERT BAJFINANCE: Option chain stale 31.30s; Candidate option quote stale 41.02s; Candidate option quote stale 210.02s; Candidate option quote stale 177.03s; Candidate option quote stale 357.03s; Candidate option quote stale 128.03s; Candidate option quote stale 137.03s
+[13:20:27]   DATA HEALTH ALERT BAJAJFINSV: CE/PE timestamp delta 78155.00s at 1980.0; CE/PE timestamp delta 305.00s at 2020.0; Candidate option quote stale 56.03s; Candidate option quote stale 56.03s; Candidate option quote stale 78730.03s; Candidate option quote stale 575.03s; Candidate option quote stale 198.03s; Candidate option quote stale 503.03s
+[13:20:27]   DATA HEALTH ALERT BEL: CE/PE timestamp delta 272.00s at 405.0; CE/PE timestamp delta 92.00s at 415.0; Candidate option quote stale 32.04s; Candidate option quote stale 32.04s; Candidate option quote stale 53.05s; Candidate option quote stale 325.05s; Candidate option quote stale 154.05s; Candidate option quote stale 62.05s
+[13:20:27]   DATA HEALTH ALERT BHARTIARTL: CE/PE timestamp delta 7.00s at 1860.0; CE/PE timestamp delta 9.00s at 1880.0; Candidate option quote stale 27.05s; Candidate option quote stale 18.05s; Candidate option quote stale 27.05s; Candidate option quote stale 20.05s; Candidate option quote stale 16.05s; Candidate option quote stale 16.06s
+[13:20:27]   DATA HEALTH ALERT CIPLA: CE/PE timestamp delta 113.00s at 1400.0; CE/PE timestamp delta 117.00s at 1410.0; CE/PE timestamp delta 59.00s at 1420.0; Candidate option quote stale 155.06s; Candidate option quote stale 38.06s; Candidate option quote stale 43.06s; Candidate option quote stale 156.06s; Candidate option quote stale 98.06s; Candidate option quote stale 39.07s
+[13:20:27]   DATA HEALTH ALERT COALINDIA: CE/PE timestamp delta 74.00s at 395.0; CE/PE timestamp delta 33.00s at 400.0; CE/PE timestamp delta 45.00s at 405.0; Candidate option quote stale 47.08s; Candidate option quote stale 14.08s; Candidate option quote stale 96.08s; Candidate option quote stale 22.08s; Candidate option quote stale 47.08s; Candidate option quote stale 92.08s
+[13:20:27]   DATA HEALTH ALERT DRREDDY: CE/PE timestamp delta 199.00s at 1170.0; CE/PE timestamp delta 21.00s at 1180.0; CE/PE timestamp delta 15.00s at 1190.0; Candidate option quote stale 68.09s; Candidate option quote stale 47.09s; Candidate option quote stale 226.10s; Candidate option quote stale 27.10s; Candidate option quote stale 62.10s; Candidate option quote stale 47.10s
+[13:20:48]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:21:28]   DATA HEALTH ALERT EICHERMOT: Option chain stale 34.22s; Candidate option quote stale 37.21s; Candidate option quote stale 34.21s; Candidate option quote stale 38.21s; Candidate option quote stale 37.21s; Candidate option quote stale 36.21s; Candidate option quote stale 1247.21s
+[13:21:28]   DATA HEALTH ALERT ETERNAL: CE/PE timestamp delta 100.00s at 325.0; CE/PE timestamp delta 185.00s at 330.0; CE/PE timestamp delta 35.00s at 335.0; Candidate option quote stale 54.22s; Candidate option quote stale 239.22s; Candidate option quote stale 75.22s; Candidate option quote stale 175.22s; Candidate option quote stale 75.22s; Candidate option quote stale 40.22s
+[13:21:28]   DATA HEALTH ALERT GRASIM: CE/PE timestamp delta 113.00s at 3260.0; CE/PE timestamp delta 60.00s at 3280.0; CE/PE timestamp delta 161.00s at 3300.0; Candidate option quote stale 89.22s; Candidate option quote stale 29.22s; Candidate option quote stale 686.22s; Candidate option quote stale 573.22s; Candidate option quote stale 194.22s; Candidate option quote stale 33.22s
+[13:21:28]   DATA HEALTH ALERT HCLTECH: CE/PE timestamp delta 104.00s at 1280.0; CE/PE timestamp delta 100.00s at 1290.0; CE/PE timestamp delta 3.00s at 1300.0; Candidate option quote stale 238.23s; Candidate option quote stale 138.23s; Candidate option quote stale 179.23s; Candidate option quote stale 75.23s; Candidate option quote stale 63.23s; Candidate option quote stale 66.23s
+[13:21:28]   DATA HEALTH ALERT HDFCBANK: CE/PE timestamp delta 9.00s at 720.0; CE/PE timestamp delta 16.00s at 730.0; Candidate option quote stale 17.23s; Candidate option quote stale 26.23s; Candidate option quote stale 27.23s; Candidate option quote stale 25.23s; Candidate option quote stale 17.23s; Candidate option quote stale 33.23s
+[13:21:28]   DATA HEALTH ALERT HDFCLIFE: CE/PE timestamp delta 112.00s at 550.0; CE/PE timestamp delta 174.00s at 555.0; Candidate option quote stale 143.24s; Candidate option quote stale 31.24s; Candidate option quote stale 157.24s; Candidate option quote stale 157.24s; Candidate option quote stale 271.24s; Candidate option quote stale 97.24s
+[13:21:28]   DATA HEALTH ALERT HINDALCO: CE/PE timestamp delta 6.00s at 1020.0; CE/PE timestamp delta 39.00s at 1040.0; Candidate option quote stale 26.25s; Candidate option quote stale 65.25s; Candidate option quote stale 42.25s; Candidate option quote stale 36.25s; Candidate option quote stale 42.25s; Candidate option quote stale 42.25s
+[13:21:28]   DATA HEALTH ALERT HINDUNILVR: CE/PE timestamp delta 588.00s at 1980.0; Candidate option quote stale 15.26s; Candidate option quote stale 15.26s; Candidate option quote stale 1033.26s; Candidate option quote stale 445.26s; Candidate option quote stale 296.26s; Candidate option quote stale 296.26s
+[13:21:46]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:22:26]   DATA HEALTH ALERT ICICIBANK: Option chain stale 35.75s; Candidate option quote stale 37.38s; Candidate option quote stale 46.38s; Candidate option quote stale 45.38s; Candidate option quote stale 48.38s; Candidate option quote stale 34.39s; Candidate option quote stale 48.39s
+[13:22:26]   DATA HEALTH ALERT ITC: Option chain stale 31.51s; Candidate option quote stale 64.39s; Candidate option quote stale 173.39s; Candidate option quote stale 118.39s; Candidate option quote stale 133.40s; Candidate option quote stale 127.40s; Candidate option quote stale 258.40s
+[13:22:26]   DATA HEALTH ALERT INFY: CE/PE timestamp delta 144.00s at 1100.0; CE/PE timestamp delta 399.00s at 1140.0; Candidate option quote stale 34.40s; Candidate option quote stale 34.40s; Candidate option quote stale 216.40s; Candidate option quote stale 72.40s; Candidate option quote stale 35.40s; Candidate option quote stale 434.40s
+[13:22:26]   DATA HEALTH ALERT INDIGO: CE/PE timestamp delta 36.00s at 5100.0; CE/PE timestamp delta 160.00s at 5200.0; Candidate option quote stale 215.40s; Candidate option quote stale 55.41s; Candidate option quote stale 325.41s; Candidate option quote stale 289.41s; Candidate option quote stale 155.41s; Candidate option quote stale 155.41s
+[13:22:26]   DATA HEALTH ALERT JSWSTEEL: CE/PE timestamp delta 320.00s at 1320.0; CE/PE timestamp delta 167.00s at 1340.0; CE/PE timestamp delta 778.00s at 1360.0; Candidate option quote stale 48.41s; Candidate option quote stale 215.41s; Candidate option quote stale 468.41s; Candidate option quote stale 788.41s; Candidate option quote stale 79.42s; Candidate option quote stale 857.42s
+[13:22:26]   DATA HEALTH ALERT JIOFIN: CE/PE timestamp delta 189.00s at 237.5; CE/PE timestamp delta 14.00s at 240.0; CE/PE timestamp delta 231.00s at 242.5; Candidate option quote stale 57.42s; Candidate option quote stale 43.42s; Candidate option quote stale 232.42s; Candidate option quote stale 421.42s; Candidate option quote stale 264.42s; Candidate option quote stale 495.42s
+[13:22:26]   DATA HEALTH ALERT KOTAKBANK: CE/PE timestamp delta 6.00s at 420.0; CE/PE timestamp delta 5.00s at 430.0; Candidate option quote stale 21.43s; Candidate option quote stale 21.43s; Candidate option quote stale 20.43s; Candidate option quote stale 26.43s; Candidate option quote stale 16.43s; Candidate option quote stale 21.43s
+[13:22:26]   DATA HEALTH ALERT LT: CE/PE timestamp delta 6.00s at 4000.0; CE/PE timestamp delta 126.00s at 4050.0; CE/PE timestamp delta 83.00s at 4100.0; Candidate option quote stale 90.43s; Candidate option quote stale 216.43s; Candidate option quote stale 25.43s; Candidate option quote stale 31.43s; Candidate option quote stale 9.43s; Candidate option quote stale 92.44s
+[13:22:43]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:23:45]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:24:30]   DATA HEALTH ALERT M&M: Option chain stale 37.06s; Candidate option quote stale 64.61s; Candidate option quote stale 64.61s; Candidate option quote stale 67.61s; Candidate option quote stale 41.61s; Candidate option quote stale 40.61s; Candidate option quote stale 64.61s
+[13:24:30]   DATA HEALTH ALERT MARUTI: Option chain stale 32.77s; Candidate option quote stale 82.62s; Candidate option quote stale 55.62s; Candidate option quote stale 555.62s; Candidate option quote stale 36.62s; Candidate option quote stale 39.62s; Candidate option quote stale 39.62s
+[13:24:30]   DATA HEALTH ALERT MAXHEALTH: CE/PE timestamp delta 1687.00s at 990.0; CE/PE timestamp delta 439.00s at 1000.0; CE/PE timestamp delta 600.00s at 1010.0; Candidate option quote stale 149.62s; Candidate option quote stale 588.63s; Candidate option quote stale 285.63s; Candidate option quote stale 1972.63s; Candidate option quote stale 60.63s; Candidate option quote stale 660.63s
+[13:24:30]   DATA HEALTH ALERT NTPC: CE/PE timestamp delta 109.00s at 325.0; CE/PE timestamp delta 11.00s at 330.0; CE/PE timestamp delta 140.00s at 335.0; Candidate option quote stale 79.63s; Candidate option quote stale 90.63s; Candidate option quote stale 190.63s; Candidate option quote stale 81.63s; Candidate option quote stale 50.63s; Candidate option quote stale 190.63s
+[13:24:30]   DATA HEALTH ALERT NESTLEIND: CE/PE timestamp delta 692.00s at 1440.0; CE/PE timestamp delta 494.00s at 1450.0; CE/PE timestamp delta 589.00s at 1460.0; Candidate option quote stale 721.63s; Candidate option quote stale 227.63s; Candidate option quote stale 722.63s; Candidate option quote stale 30.63s; Candidate option quote stale 130.63s; Candidate option quote stale 719.63s
+[13:24:30]   DATA HEALTH ALERT ONGC: CE/PE timestamp delta 3.00s at 230.0; CE/PE timestamp delta 528.00s at 235.0; Candidate option quote stale 28.64s; Candidate option quote stale 28.64s; Candidate option quote stale 40.64s; Candidate option quote stale 43.64s; Candidate option quote stale 28.64s; Candidate option quote stale 556.64s
+[13:24:30]   DATA HEALTH ALERT POWERGRID: CE/PE timestamp delta 557.00s at 262.5; CE/PE timestamp delta 1529.00s at 267.5; Candidate option quote stale 11.64s; Candidate option quote stale 12.64s; Candidate option quote stale 627.65s; Candidate option quote stale 70.65s; Candidate option quote stale 594.65s; Candidate option quote stale 2123.65s
+[13:24:30]   DATA HEALTH ALERT RELIANCE: CE/PE timestamp delta 72.00s at 1280.0; CE/PE timestamp delta 34.00s at 1290.0; CE/PE timestamp delta 18.00s at 1300.0; Candidate option quote stale 64.65s; Candidate option quote stale 30.65s; Candidate option quote stale 52.65s; Candidate option quote stale 124.65s; Candidate option quote stale 46.65s; Candidate option quote stale 64.65s
+[13:24:49]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:25:19]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:25:32]   DATA HEALTH ALERT SBILIFE: Option chain stale 34.50s; Candidate option quote stale 292.11s; Candidate option quote stale 248.11s; Candidate option quote stale 969.11s; Candidate option quote stale 281.11s; Candidate option quote stale 221.11s; Candidate option quote stale 205.12s
+[13:25:32]   DATA HEALTH ALERT SHRIRAMFIN: Option chain stale 30.22s; Candidate option quote stale 120.12s; Candidate option quote stale 33.12s; Candidate option quote stale 169.12s; Candidate option quote stale 163.12s; Candidate option quote stale 131.12s; Candidate option quote stale 179.12s
+[13:25:32]   DATA HEALTH ALERT SBIN: CE/PE timestamp delta 77.00s at 1040.0; CE/PE timestamp delta 9.00s at 1050.0; CE/PE timestamp delta 128.00s at 1060.0; Candidate option quote stale 43.13s; Candidate option quote stale 34.13s; Candidate option quote stale 31.13s; Candidate option quote stale 108.13s; Candidate option quote stale 53.13s; Candidate option quote stale 181.13s
+[13:25:32]   DATA HEALTH ALERT SUNPHARMA: CE/PE timestamp delta 33.00s at 1900.0; CE/PE timestamp delta 26.00s at 1920.0; CE/PE timestamp delta 473.00s at 1940.0; Candidate option quote stale 32.13s; Candidate option quote stale 58.13s; Candidate option quote stale 84.13s; Candidate option quote stale 51.13s; Candidate option quote stale 81.13s; Candidate option quote stale 554.13s
+[13:25:32]   DATA HEALTH ALERT TCS: CE/PE timestamp delta 49.00s at 2260.0; CE/PE timestamp delta 160.00s at 2280.0; Candidate option quote stale 175.13s; Candidate option quote stale 126.13s; Candidate option quote stale 46.13s; Candidate option quote stale 46.13s; Candidate option quote stale 227.13s; Candidate option quote stale 67.14s
+[13:25:32]   DATA HEALTH ALERT TATACONSUM: CE/PE timestamp delta 999.08s at 1030.0; CE/PE timestamp delta 67.00s at 1040.0; Candidate option quote stale 106.14s; Candidate option quote stale 173.14s; Candidate option quote depth unavailable; Candidate option quote stale 1012.14s; Candidate option quote stale 41.14s; Candidate option quote stale 41.14s
+[13:25:32]   DATA HEALTH ALERT TMPV: CE/PE timestamp delta 471.00s at 310.0; CE/PE timestamp delta 115.00s at 315.0; CE/PE timestamp delta 592.00s at 320.0; Candidate option quote stale 47.14s; Candidate option quote stale 162.14s; Candidate option quote stale 491.14s; Candidate option quote stale 20.14s; Candidate option quote stale 17.15s; Candidate option quote stale 609.15s
+[13:25:32]   DATA HEALTH ALERT TATASTEEL: CE/PE timestamp delta 81.00s at 185.0; CE/PE timestamp delta 134.00s at 187.5; CE/PE timestamp delta 40.00s at 190.0; Candidate option quote stale 46.15s; Candidate option quote stale 180.15s; Candidate option quote stale 127.15s; Candidate option quote stale 46.15s; Candidate option quote stale 56.15s; Candidate option quote stale 16.15s
+[13:25:49]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:26:28]   DATA HEALTH ALERT TECHM: Option chain stale 34.33s; Candidate option quote stale 266.15s; Candidate option quote stale 65.15s; Candidate option quote stale 681.15s; Candidate option quote stale 685.15s; Candidate option quote stale 64.15s; Candidate option quote stale 46.15s
+[13:26:28]   DATA HEALTH ALERT TITAN: CE/PE timestamp delta 8.00s at 5100.0; CE/PE timestamp delta 3.00s at 5150.0; Candidate option quote stale 36.15s; Candidate option quote stale 39.15s; Candidate option quote stale 39.15s; Candidate option quote stale 31.15s; Candidate option quote stale 28.16s; Candidate option quote stale 30.16s
+[13:26:28]   DATA HEALTH ALERT TRENT: CE/PE timestamp delta 191.00s at 2850.0; CE/PE timestamp delta 15.00s at 2900.0; CE/PE timestamp delta 203.00s at 2950.0; Candidate option quote stale 49.16s; Candidate option quote stale 64.16s; Candidate option quote stale 240.16s; Candidate option quote stale 49.16s; Candidate option quote stale 222.16s; Candidate option quote stale 425.16s
+[13:26:28]   DATA HEALTH ALERT ULTRACEMCO: CE/PE timestamp delta 38.00s at 11700.0; CE/PE timestamp delta 31.00s at 11800.0; Candidate option quote stale 54.16s; Candidate option quote stale 54.16s; Candidate option quote stale 71.16s; Candidate option quote stale 102.16s; Candidate option quote stale 50.17s; Candidate option quote stale 88.17s
+[13:26:28]   DATA HEALTH ALERT WIPRO: CE/PE timestamp delta 27.00s at 177.5; CE/PE timestamp delta 289.00s at 180.0; Candidate option quote stale 61.17s; Candidate option quote stale 34.17s; Candidate option quote stale 142.17s; Candidate option quote stale 141.17s; Candidate option quote stale 63.17s; Candidate option quote stale 352.17s
+[13:26:46]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:27:47]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:27:52]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:27:52]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:27:53]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:27:54]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:27:54]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:27:55]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:28:48]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:29:52]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:31:10]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:31:10]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:32:29]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:32:29]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:32:55]   NESTLEIND NSE:NESTLEIND26SEP1430CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:33:52]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:34:19]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:35:19]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:36:01]   NIFTYNXT50 structural prefilter deferred: STRUCTURAL_NO_FRESH_VALID_QUOTES
+[13:36:32]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:37:48]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:39:00]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:39:32]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:39:33]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:39:33]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:39:34]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:39:34]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:39:35]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:40:03]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:41:13]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:42:31]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:42:52]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:43:40]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:43:40]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:44:44]   FINNIFTY NSE:FINNIFTY26SEP26450PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:45:40]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:45:41]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:46:49]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:46:50]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:47:23]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:47:24]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:47:24]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:47:25]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:47:25]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:47:26]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:48:03]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:48:03]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:49:12]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:49:13]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:50:11]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:50:11]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:50:18]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:51:12]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:51:12]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:51:20]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:52:16]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:52:16]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:53:19]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:53:20]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:54:28]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:54:28]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:55:36]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:55:36]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:56:06]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:56:07]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:56:07]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:56:08]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:56:08]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:56:09]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:56:40]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:56:41]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:58:19]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[13:58:20]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[13:59:09]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:00:03]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:00:03]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:01:37]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:01:37]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:01:38]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:02:58]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:02:59]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:04:22]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:04:23]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:05:43]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:05:43]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:06:21]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:06:22]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:06:22]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:06:23]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:06:23]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:06:24]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:06:56]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:06:56]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:08:02]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:08:02]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:08:03]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:08:29]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:09:08]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:09:08]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:09:09]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:09:45]   FOCIT structural prefilter deferred: STRUCTURAL_ALL_SPREADS_TOO_WIDE
+[14:10:11]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:10:11]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:10:12]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:11:21]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:11:22]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:12:40]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:12:41]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:13:46]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:13:47]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:14:24]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:14:24]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:14:25]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:14:26]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:14:27]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:14:27]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:15:01]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:15:02]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:16:06]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:16:07]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:16:32]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:17:15]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:17:15]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:18:25]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:18:25]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:19:36]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:19:37]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:20:42]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:20:43]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:21:52]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:21:53]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:22:27]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:22:28]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:22:28]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:22:29]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:22:30]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:22:30]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:23:00]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:23:00]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:24:09]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:24:09]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:24:22]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:25:21]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:25:21]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:26:47]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:26:47]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:27:54]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:27:54]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:28:58]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:28:59]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:30:08]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:30:09]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:30:38]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:30:39]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:30:39]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:30:40]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:30:40]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:30:41]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:31:09]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:31:10]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:31:48]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:32:15]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:32:15]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:33:17]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:33:17]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:34:23]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:34:24]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:35:27]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:35:27]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:36:31]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:36:32]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:37:34]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:37:34]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:38:06]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:38:06]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:38:07]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:38:07]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:38:08]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:38:08]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:38:52]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:38:53]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:39:29]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:40:06]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:40:07]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:41:16]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:41:17]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:42:30]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:42:31]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:43:58]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:43:59]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:45:54]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:45:55]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:47:22]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:47:22]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:48:05]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:48:06]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:48:06]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:48:10]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:48:11]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:48:11]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:48:51]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:48:51]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:49:24]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:50:20]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:50:20]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:51:48]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:51:49]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:53:16]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:53:17]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:54:47]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:54:48]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:56:25]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:56:25]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:57:54]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:57:55]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:58:40]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:58:41]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:58:41]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:58:42]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:58:43]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:58:43]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:59:24]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[14:59:25]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[14:59:44]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:01:09]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:01:11]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:02:50]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:02:51]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:04:21]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:04:22]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:05:41]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:05:42]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:07:32]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:07:33]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:08:35]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:08:36]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:09:05]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:09:05]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:09:06]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:09:06]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:09:07]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:09:07]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:09:13]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:09:48]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:09:48]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:11:01]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:11:02]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:12:02]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:12:03]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:13:01]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:13:56]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:13:56]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:14:49]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:14:50]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:15:48]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:15:49]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:15:49]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:16:41]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:16:42]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:16:42]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:17:41]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:17:41]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:17:42]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:18:43]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:18:43]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:18:44]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:19:09]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:19:14]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:19:14]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74200PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:19:15]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:19:15]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:19:16]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:19:16]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:20:03]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:20:04]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:20:05]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:21:43]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:21:43]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:21:44]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:23:32]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:23:33]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:23:33]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:25:07]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:25:08]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:26:09]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:26:10]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:27:13]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:27:14]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:28:11]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:28:12]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:29:01]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:29:02]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:29:17]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:29:29]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:29:30]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:29:30]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:29:31]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:29:32]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74500PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:29:58]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:29:58]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:29:59]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:30:11]   TATACONSUM NSE:TATACONSUM26SEP1030CE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:30:22]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:30:23]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74300PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:30:23]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:30:24]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74400PE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:30:25]   NIFTYNXT50 NSE:NIFTYNXT5026SEP74500PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:30:49]   FINNIFTY NSE:FINNIFTY26SEP26250PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:30:50]   FINNIFTY NSE:FINNIFTY26SEP26300CE depth unavailable: ValueError: Fyers depth best quote invalid
+[15:30:50]   FINNIFTY NSE:FINNIFTY26SEP26300PE depth unavailable: ValueError: Fyers depth source timestamp invalid
+[15:31:18]   BANKEX BSE:BANKEX26AUG64400CE depth unavailable: ValueError: Fyers depth best quote invalid

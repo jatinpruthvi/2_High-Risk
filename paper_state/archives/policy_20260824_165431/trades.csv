@@ -1,1 +1,0 @@
-trade_id,underlying,side,expiry,strike,entry_time,exit_time,entry_fill,exit_fill,exit_reason,gross_points,gross_pnl,costs,net_pnl,hold_seconds,max_adverse_points,max_favorable_points

@@ -1,2 +1,0 @@
-ts,date,stage,underlying,instrument_class,exchange,instrument_kind,side,strike,filled,fill_price,reason,gate_snapshot_id,strategy_version,score_version,universe_version,parameter_profile
-2026-08-25T10:47:46.397025+05:30,2026-08-25,PAPER_CALIBRATION_ENTRY,SENSEX,BSE_INDEX,BSE,INDEX,CE,77200.0,True,345.6,,2c55d017dc19,paper-strategy-e935c30a69b1,opportunity-score-e935c30a69b1,universe-a8e55c76a270,PAPER_OVERRIDE::FYERS_PAPER_PROXY_RESEARCH

@@ -39,6 +39,8 @@ from .candidates import CandidateFactory, CandidateFactoryContext
 from .engine import PaperOpportunityEngine, PaperPortfolioState
 from .fyers_client import FyersCredentials, FyersRestClient, FyersSymbolMaster, TokenStore
 from .fyers_parser import FyersOptionChainParser, parse_expiry_calendar, parse_india_vix
+from .feed_quality import assess_fyers_payload
+from .derived_iv import implied_volatility
 from .lifecycle import (
     EXIT_BREAKEVEN, EXIT_END_OF_DATA, EXIT_LOSING_TIME, EXIT_NO_DATA,
     EXIT_STOP, EXIT_TARGET, EXIT_TIME, EXIT_TRAIL, EXIT_VOL_TIME,
@@ -51,7 +53,10 @@ from .option_chain import OptionChainSnapshot, OptionLeg, OptionStrike
 from .playbooks import RegimeContext, RegimeLabel, RegimePlaybookSelectionEngine
 from .surface_diagnostics import OptionSurfaceDiagnostics
 from .paper_evidence import PaperEvidenceCollector
+from .evidence_analytics import build_evidence_snapshot, build_opportunity_heartbeat, timestamp_quality
+from .opportunity_learning import OpportunityLearningLedger
 from .paper_signal import PaperSignalCalculator
+from .cas_monitor import CasAnomalyMonitor
 from .edge_modules import ExecutionQualityCalculator
 from .experimental_impulse import ImpulseBreakoutResult, ImpulseBreakoutSelector
 from .orchestrators import DataHealthOrchestrator
@@ -122,6 +127,7 @@ class RunnerState:
     cycle_started_at: str = ""
     market_open: bool = False
     open_position: Optional[OpenPosition] = None
+    open_positions: list[OpenPosition] = field(default_factory=list)
     closed_trades: list[ClosedTradeRecord] = field(default_factory=list)
     underlyings: dict[str, Any] = field(default_factory=dict)   # per-underlying display data
     equity: list[float] = field(default_factory=list)
@@ -150,7 +156,18 @@ class PaperRunner:
         self.state_dir = Path(state_dir)
         self._prepare_state_directory()
         self._daily_risk_path = self.state_dir / "daily_risk.json"
+        self._account_state_path = self.state_dir / "paper_account.json"
         self._open_position_path = self.state_dir / "paper_open_position.json"
+        self._open_positions_path = self.state_dir / "paper_open_positions.json"
+        self._entry_audit_path = self.state_dir / "entry_audit.csv"
+        self._qualified_opportunity_path = self.state_dir / "qualified_opportunities.csv"
+        self._missed_opportunity_path = self.state_dir / "best_missed_opportunities.csv"
+        self.opportunity_learning = OpportunityLearningLedger(self.state_dir)
+        self._write_entry_audit_header()
+        self._write_qualified_opportunity_header()
+        self._write_missed_opportunity_header()
+        self._evidence_analytics_cache: dict[str, Any] = {}
+        self._evidence_analytics_cache_at = 0.0
         self._rank_persistence_path = self.state_dir / "rank_persistence.json"
         self._rank_persistence: dict[str, dict[str, Any]] = self._load_rank_persistence()
         self._gate_breakout_path = self.state_dir / "gate_breakout_history.json"
@@ -162,6 +179,9 @@ class PaperRunner:
         self._daily_risk_date = now_ist().date().isoformat()
         self._risk_week_key = (now_ist().date() - timedelta(days=now_ist().weekday())).isoformat()
         self.state = RunnerState(session_id=now_ist().strftime("%Y%m%d_%H%M%S"))
+        self.cas_monitor = CasAnomalyMonitor(self.state_dir, self.cfg.get("cas_monitor", {}))
+        self._cas_paper_entry_enabled = bool(self.cfg.get("cas_monitor", {}).get("paper_position_enabled", True))
+        self._restore_account_state()
         self._restore_daily_risk_state(now_ist())
         self._replay = bool(replay)
 
@@ -807,6 +827,48 @@ class PaperRunner:
                 except Exception:
                     pass
 
+    def _positions(self) -> list[OpenPosition]:
+        positions = list(getattr(self.state, "open_positions", []) or [])
+        if not positions and self.state.open_position is not None:
+            positions = [self.state.open_position]
+        return positions
+
+    def _has_open_positions(self) -> bool:
+        return bool(self._positions())
+
+    def _primary_open_position(self) -> Optional[OpenPosition]:
+        positions = self._positions()
+        return positions[0] if positions else None
+
+    def _max_concurrent_paper_positions(self) -> int:
+        try:
+            return max(1, min(5, int(self.cfg.get("max_concurrent_paper_positions", 2))))
+        except (TypeError, ValueError):
+            return 2
+
+    def _capacity_available(self) -> bool:
+        return len(self._positions()) < self._max_concurrent_paper_positions()
+
+    def _sync_position_alias(self) -> None:
+        self.state.open_positions = list(self._positions())
+        self.state.open_position = self.state.open_positions[0] if self.state.open_positions else None
+
+    def _add_open_position(self, position: OpenPosition) -> bool:
+        positions = self._positions()
+        if len(positions) >= self._max_concurrent_paper_positions():
+            return False
+        if any(item.trade.trade_id == position.trade.trade_id for item in positions):
+            return False
+        positions.append(position)
+        self.state.open_positions = positions
+        self._sync_position_alias()
+        return True
+
+    def _remove_open_position(self, position: OpenPosition) -> None:
+        positions = [item for item in self._positions() if item.trade.trade_id != position.trade.trade_id]
+        self.state.open_positions = positions
+        self._sync_position_alias()
+
     def run_one_cycle(self) -> None:
         now = now_ist()
         # Clear only the global cycle-failure field. Instrument-level warnings
@@ -819,7 +881,7 @@ class PaperRunner:
         self._refresh_daily_controls(now)
         self.state.market_open = self._market_open(now)
         if not self.state.market_open:
-            if self.state.open_position is not None and now.weekday() < 5 and now.hour * 60 + now.minute > 15 * 60 + 30:
+            if self._has_open_positions() and now.weekday() < 5 and now.hour * 60 + now.minute > 15 * 60 + 30:
                 self._force_close_end_of_day(now)
             self.state.last_cycle = now.isoformat()
             self.state.cycle_in_progress = False
@@ -831,6 +893,7 @@ class PaperRunner:
         histories: dict[str, Any] = {}
         depth_payloads: dict[str, Any] = {}
         self._depth_payloads = depth_payloads
+        cas_snapshot: dict[str, Any] = {}
         for und in self._cycle_underlyings():
             meta = self.universe[und]
             try:
@@ -859,6 +922,15 @@ class PaperRunner:
                         self._log(f"  {und} structural prefilter deferred: {prefilter_reason}")
                         continue
                 chain = self._enrich_fyers_depth(und, chain, payload)
+                depth_health = self.state.underlyings.get(und, {}).get("depth_health", {})
+                feed_report = assess_fyers_payload(
+                    payload, chain=chain,
+                    depth_status=str(depth_health.get("status", "UNKNOWN")),
+                    market_open=True,
+                )
+                self.state.underlyings.setdefault(und, {})["feed_health"] = feed_report.to_dict()
+                if self._derived_iv_research_enabled():
+                    self.state.underlyings[und]["derived_iv_research"] = self._derived_iv_research_snapshot(chain)
                 vix = parse_india_vix(payload)
                 chains[und] = chain
                 vix_map[und] = vix
@@ -889,6 +961,14 @@ class PaperRunner:
             raise RuntimeError("No underlying chains fetched this cycle.")
         if self._capture_file is not None:
             self._capture_cycle(payloads, histories, now, depth_payloads)
+        try:
+            cas_snapshot = self.cas_monitor.observe(chains, now_ist(), self.universe, self.state.session_id)
+            self.state.underlyings["_cas_monitor"] = cas_snapshot
+            if not self._has_open_positions() and cas_snapshot.get("new_event"):
+                self._enter_cas_paper_position(chains, context_map, cas_snapshot, now_ist())
+        except Exception as exc:
+            self.state.underlyings["_cas_monitor"] = {"status": "ERROR", "error": f"{type(exc).__name__}: {exc}", "paper_only": True}
+            self._log(f"  CAS monitor failed: {type(exc).__name__}: {exc}")
         self._update_playbook_filters(context_map, now)
         self.state.underlyings["_risk_context"] = dict(self._risk_context)
         for und, chain in chains.items():
@@ -942,10 +1022,10 @@ class PaperRunner:
         # Build candidates from all fresh chains and select only inside the
         # configured entry window.  Outside the window we still fetch data and
         # manage an open position, but do not create new exposure.
-        if self.state.open_position is None and self._entry_window_open(now):
+        if self._capacity_available() and self._entry_window_open(now):
             self.state.underlyings.pop("_entry_window", None)
             self._select_and_enter(chains, context_map, histories)
-        elif self.state.open_position is None:
+        elif not self._has_open_positions():
             self.state.underlyings["_entry_window"] = {
                 "status": "CLOSED",
                 "reason": "New entries disabled outside configured entry window",
@@ -1215,6 +1295,19 @@ class PaperRunner:
             "candidate_strikes": sorted(target_strikes),
         }
         return replace(chain, strikes=tuple(enriched_strikes))
+
+    def _derived_iv_research_enabled(self) -> bool:
+        cfg = self.config.raw.get("derived_iv_research", {}) if isinstance(self.config.raw, Mapping) else {}
+        return bool(cfg.get("enabled", False)) if isinstance(cfg, Mapping) else False
+
+    def _derived_iv_research_snapshot(self, chain: OptionChainSnapshot) -> dict[str, Any]:
+        """Compute labelled theoretical IV for research only; never mutates candidates."""
+        atm = chain.nearest_strike()
+        row: dict[str, Any] = {"status": "DERIVED_RESEARCH_ONLY", "source": "DERIVED_BLACK_SCHOLES_RESEARCH", "strike": atm, "legs": {}}
+        for side, leg in (("CE", chain.leg_at(atm, OptionType.CE)), ("PE", chain.leg_at(atm, OptionType.PE))):
+            result = implied_volatility(leg.quote.mid, chain.underlying_price, atm, chain.expiry, side, valuation_time=chain.timestamp)
+            row["legs"][side] = {"value": result.value, "status": result.status, "reason": result.reason}
+        return row
 
     def _evaluate_chain_health(self, chain, scope: str = "trade", now: Optional[datetime] = None) -> DataHealth:
         """Evaluate chain health, scoping the Fyers timestamp exception safely.
@@ -1784,8 +1877,12 @@ class PaperRunner:
         if self.paper_calibration_engine is None:
             self.state.underlyings["_paper_calibration"] = meta
             return None
-        if self.state.open_position is not None:
-            meta.update({"status": "BLOCKED", "reason": "Global open position lock active"})
+        if not self._cost_model_valid:
+            meta.update({"status": "BLOCKED", "reason": "Calibration paper entry blocked: cost model is not validated"})
+            self.state.underlyings["_paper_calibration"] = meta
+            return None
+        if not self._capacity_available():
+            meta.update({"status": "BLOCKED", "reason": f"Concurrent paper-position capacity reached: {len(self._positions())}/{self._max_concurrent_paper_positions()}"})
             self.state.underlyings["_paper_calibration"] = meta
             return None
         max_entries = max(0, int(cfg.get("max_entries_per_day", 1)))
@@ -1821,15 +1918,22 @@ class PaperRunner:
         result = self.paper_calibration_engine.evaluate_and_select(
             safe,
             state=PaperPortfolioState(
-                open_positions_count=0,
+                open_positions_count=len(self._positions()),
                 pending_orders_count=0,
                 realized_loss_today=0.0,
             ),
         )
-        self._update_candidate_display(result, key="_paper_calibration_candidates")
         selected = result.selected
+        self._record_qualified_opportunities(
+            result.evaluations, now, lane="PAPER_CALIBRATION", selected=selected,
+            portfolio_blocked=False,
+        )
+        if selected is not None and not self._candidate_is_armed(selected):
+            meta.update({"status": "ARMING", "reason": "Candidate must pass two consecutive fresh qualified observations before paper entry"})
+            selected = None
+        self._update_candidate_display(result, key="_paper_calibration_candidates")
         meta.update({
-            "status": "SELECTED" if selected is not None else "NO_CALIBRATION_CANDIDATE",
+            "status": "SELECTED" if selected is not None else meta.get("status", "NO_CALIBRATION_CANDIDATE"),
             "selected_underlying": selected.candidate.instrument.underlying if selected else "",
             "selected_side": selected.candidate.side.value if selected else "",
             "reason": "Selected bounded proxy candidate" if selected else "; ".join(result.reasons),
@@ -1846,6 +1950,8 @@ class PaperRunner:
 
     def _select_and_enter(self, chains, context_map, histories: Optional[Mapping[str, list]] = None) -> None:
         now = now_ist()
+        self.opportunity_learning.update_coverage(list(self.universe.keys()), chains, now)
+        self.opportunity_learning.update_forward_outcomes(chains, now)
         if time.time() < self._incident_block_until:
             reason = f"{self._incident_reason}; reconnect stabilization in progress"
             self.state.underlyings["_incident"] = {"status": "BLOCKED", "reason": reason, "until": self._incident_block_until}
@@ -1893,6 +1999,7 @@ class PaperRunner:
             allowed_playbooks = set().union(*self._playbook_codes_by_underlying.values()) if self._playbook_codes_by_underlying else set()
         result = self.scorer_engine.evaluate_and_select(candidates, state=state, allowed_playbooks=allowed_playbooks)
         result = self._apply_gate_breakout_filter(result, now)
+        self.state.underlyings["_data_quorum"] = self._data_quorum_snapshot(result.evaluations, now)
         self._record_gate_observations(result.evaluations, now)
         if result.decision == TradeDecision.NO_TRADE and any("ambiguous" in str(reason).lower() for reason in result.reasons):
             tie_payload = {
@@ -1915,6 +2022,10 @@ class PaperRunner:
             portfolio_snapshot["status"] = "BLOCKED"
             portfolio_snapshot.setdefault("hard_vetoes", []).append("no_candidate_grade_A_or_better")
         self.state.underlyings["_portfolio_no_trade"] = portfolio_snapshot
+        self._record_qualified_opportunities(
+            result.evaluations, now, lane="CANONICAL", selected=result.selected,
+            portfolio_blocked=portfolio_snapshot.get("status") == "BLOCKED",
+        )
         self._update_candidate_display(result)
         self._evaluate_experimental_impulse_breakouts(
             chains, context_map, histories or {}, result.evaluations, now,
@@ -1950,6 +2061,9 @@ class PaperRunner:
         else:
             selected = result.selected
             entry_mode = "CANONICAL"
+            if selected is not None and not self._candidate_is_armed(selected):
+                self.state.underlyings["_arm_gate"] = {"status": "ARMING", "underlying": selected.candidate.instrument.underlying, "reason": "Candidate must pass two consecutive fresh qualified observations before paper entry", "timestamp": now.isoformat()}
+                return
             if selected is None:
                 selected = self._select_paper_calibration_candidate(chains, context_map, histories or {}, now)
                 entry_mode = "PAPER_CALIBRATION" if selected is not None else "CANONICAL"
@@ -2071,6 +2185,23 @@ class PaperRunner:
             return
         selected = refreshed
         self.state.underlyings.pop("_revalidation", None)
+        if entry_mode == "PAPER_CALIBRATION":
+            calibration_hard_failures = []
+            if not self._cost_model_valid:
+                calibration_hard_failures.append("cost model is not validated")
+            if not selected.candidate.data_health.valid:
+                calibration_hard_failures.append("final candidate data health is invalid")
+            if not selected.candidate.quote.is_valid():
+                calibration_hard_failures.append("final quote is invalid")
+            if selected.candidate.quote.bid_qty <= 0 or selected.candidate.quote.ask_qty <= 0:
+                calibration_hard_failures.append("final executable quote has non-positive size")
+            if not selected.candidate.quote.source_timestamp_available:
+                calibration_hard_failures.append("final source timestamp is unavailable")
+            if calibration_hard_failures:
+                reason = "; ".join(calibration_hard_failures)
+                self.state.underlyings["_revalidation"] = {"status": "BLOCKED", "reasons": [reason], "underlying": selected.candidate.instrument.underlying}
+                self._log(f"Calibration paper entry hard-blocked: {reason}")
+                return
         mapping_ok, mapping_reason = self._validate_entry_mapping(selected.candidate)
         try:
             self.evidence.record_revalidation(selected, mapping_ok, (mapping_reason,) if not mapping_ok else tuple(), stage="MAPPING_VALIDATION", ts=now_ist())
@@ -2092,7 +2223,27 @@ class PaperRunner:
             "lot_size_validation_passed": selected.candidate.instrument.lot_size > 0,
             "tick_size_validation_passed": selected.candidate.instrument.tick_size > 0,
         })
+        audit_payload = {
+            "underlying": selected.candidate.instrument.underlying,
+            "side": selected.candidate.side.value,
+            "expiry": str(selected.candidate.instrument.expiry),
+            "strike": selected.candidate.instrument.strike,
+            "entry_mode": entry_mode,
+            "quote_timestamp": str(selected.candidate.quote.timestamp),
+            "bid": selected.candidate.quote.bid,
+            "ask": selected.candidate.quote.ask,
+            "mid": selected.candidate.quote.mid,
+            "score": selected.comparable_opportunity_score,
+            "threshold": selected.threshold,
+            "data_health_valid": selected.candidate.data_health.valid,
+            "source_timestamp_available": selected.candidate.quote.source_timestamp_available,
+            "cost_model_valid": self._cost_model_valid,
+        }
+        audit_id = hashlib.sha256(json.dumps(audit_payload, sort_keys=True, default=str).encode("utf-8")).hexdigest()[:20]
+        entry_notes["entry_audit_id"] = audit_id
+        entry_notes["entry_audit_payload"] = audit_payload
         selected = replace(selected, candidate=replace(selected.candidate, notes=entry_notes))
+        self._append_entry_audit(audit_id, "ENTRY_APPROVED", selected, now_ist(), {"paper_only": True})
         symbol = self.master.symbol_for(
             selected.candidate.instrument.underlying,
             selected.candidate.instrument.expiry,
@@ -2100,6 +2251,7 @@ class PaperRunner:
             selected.candidate.side.value,
         )
         fill = self.fill_sim.entry_buy(selected.candidate.quote, selected.candidate.instrument.tick_size)
+        spread_pct = (selected.candidate.quote.spread / selected.candidate.quote.mid * 100.0) if selected.candidate.quote.mid > 0 else 99.0
         # Record execution quality for entry fill
         if fill.filled and fill.fill_price is not None:
             self.execution_quality.record_fill(
@@ -2115,8 +2267,10 @@ class PaperRunner:
         except Exception as e:
             self._log(f"  entry-fill evidence failed: {e}")
         if not fill.filled or fill.fill_price is None:
+            self._append_entry_audit(audit_id, "FILL_REJECTED", selected, now_ist(), {"reason": fill.reason, "paper_only": True})
             self._log(f"Entry not filled for {symbol}: {fill.reason}")
             return
+        self._append_entry_audit(audit_id, "FILL_CONFIRMED", selected, now_ist(), {"fill_price": fill.fill_price, "paper_only": True})
         trade = PaperTrade(
             trade_id=f"{now_ist().strftime('%H%M%S')}-{symbol.split(':')[-1]}",
             entry_evaluation=selected,
@@ -2139,7 +2293,9 @@ class PaperRunner:
             last_quote=selected.candidate.quote,
             entry_mode=entry_mode,
         )
-        self.state.open_position = pos
+        if not self._add_open_position(pos):
+            self._log("Paper entry blocked: concurrent position capacity reached")
+            return
         self.state.trades_today += 1
         self._save_daily_risk_state()
         self._save_open_position_checkpoint(pos)
@@ -2157,6 +2313,75 @@ class PaperRunner:
         )
         self._log(f"OPEN {symbol} @ {fill.fill_price:.2f} stop={stop:.2f} target={stop*target_r:.2f}")
 
+    def _enter_cas_paper_position(self, chains, context_map, cas_snapshot: Mapping[str, Any], now: datetime) -> None:
+        """Create one research-only paper position from a verified CAS anomaly.
+
+        This path is intentionally separate from canonical selection. It requires
+        a fresh two-sided quote with positive top-book quantities, valid mapping,
+        one lot, and no open position; it never calls a broker order endpoint.
+        """
+        if not self._cas_paper_entry_enabled or not self._capacity_available():
+            return
+        risk_block = self._daily_risk_block_reason(now)
+        if risk_block:
+            self._log(f"CAS paper entry blocked by daily risk control: {risk_block}")
+            return
+        event = cas_snapshot.get("last_event") or {}
+        if event.get("execution_status") != "EXECUTABLE" or event.get("phase") != "CAS_WINDOW":
+            return
+        underlying = str(event.get("underlying", ""))
+        side = str(event.get("side", ""))
+        try:
+            strike = float(event.get("strike"))
+        except (TypeError, ValueError):
+            return
+        if underlying not in chains or side not in {"CE", "PE"}:
+            return
+        # Build the same instrument/risk objects as the normal pipeline, but do
+        # not require the canonical score threshold for this research-only lane.
+        try:
+            candidates = self._build_candidates(chains, context_map, scope="calibration")
+            matches = [c for c in candidates if c.instrument.underlying == underlying and c.side.value == side and abs(float(c.instrument.strike) - strike) < 1e-6]
+            if not matches:
+                self._log(f"CAS paper entry unavailable: candidate not built for {underlying} {strike} {side}")
+                return
+            candidate = matches[0]
+            quote = chains[underlying].leg_at(candidate.instrument.strike, candidate.side).quote
+            fresh = quote.timestamp is not None and (now - quote.timestamp).total_seconds() <= float(self.cfg.get("cas_monitor", {}).get("max_quote_age_seconds", 5.0))
+            if not fresh or quote.bid <= 0 or quote.ask < quote.bid or quote.bid_qty <= 0 or quote.ask_qty <= 0:
+                self._log(f"CAS paper entry blocked: fresh executable quote check failed for {underlying} {strike} {side}")
+                return
+            candidate = replace(candidate, quote=quote, data_health=DataHealth(True, False, "CAS executable quote verified"))
+            selected = self.paper_calibration_engine.scorer.evaluate(candidate, realized_loss_today=0.0)
+            if not bool(getattr(selected.risk_plan, "hard_stop_fit", False)) or int(getattr(selected.risk_plan, "lots", 1)) != 1:
+                self._log(f"CAS paper entry blocked: risk plan is not valid one-lot bounded risk for {underlying} {strike} {side}")
+                return
+            mapping_ok, mapping_reason = self._validate_entry_mapping(selected.candidate)
+            if not mapping_ok:
+                self._log(f"CAS paper entry blocked: {mapping_reason}")
+                return
+            symbol = self.master.symbol_for(underlying, selected.candidate.instrument.expiry, selected.candidate.instrument.strike, side)
+            fill = self.fill_sim.entry_buy(quote, selected.candidate.instrument.tick_size)
+            if not fill.filled or fill.fill_price is None:
+                self._log(f"CAS paper entry not filled for {symbol}: {fill.reason}")
+                return
+            notes = dict(selected.candidate.notes or {})
+            notes.update({"entry_mode": "CAS_ANOMALY_RESEARCH", "research_only": True, "cas_phase": "CAS_WINDOW", "cas_anomaly": True, "executable_quote_verified": True})
+            selected = replace(selected, candidate=replace(selected.candidate, quote=quote, notes=notes))
+            trade = PaperTrade(trade_id=f"{now.strftime('%H%M%S')}-{symbol.split(':')[-1]}", entry_evaluation=selected, entry_fill=fill, entry_time=now)
+            stop = max(selected.risk_plan.hard_stop_points, 1.0)
+            target_r = self._target_r(selected)
+            pos = OpenPosition(trade=trade, symbol=symbol, underlying=underlying, expiry=chains[underlying].expiry, stop_points=stop, target_points=stop * target_r, max_duration_seconds=self.entry_hold_seconds, last_premium=fill.fill_price, highest_premium=fill.fill_price, lowest_premium=fill.fill_price, last_quote=quote, entry_mode="CAS_ANOMALY_RESEARCH")
+            if not self._add_open_position(pos):
+                self._log("CAS paper entry blocked: concurrent position capacity reached")
+                return
+            self.state.trades_today += 1
+            self._save_daily_risk_state()
+            self._save_open_position_checkpoint(pos)
+            self.event_ledger.append("PAPER_ENTRY", session_id=self.state.session_id, underlying=underlying, exchange=selected.candidate.instrument.exchange, instrument_kind=selected.candidate.instrument.instrument_kind, instrument_class=selected.candidate.instrument.instrument_class, lifecycle_state=selected.candidate.lifecycle_state, exposure_group=selected.candidate.exposure_group, decision_source="cas_anomaly_monitor", ts=now, payload={"symbol": symbol, "entry_mode": "CAS_ANOMALY_RESEARCH", "research_only": True, "cas_event": event, "fill": fill.fill_price, "stop": stop, "target_r": target_r, "paper_only": True})
+            self._log(f"OPEN CAS RESEARCH {symbol} @ {fill.fill_price:.2f} stop={stop:.2f} target={stop*target_r:.2f}")
+        except Exception as exc:
+            self._log(f"CAS paper entry failed safely: {type(exc).__name__}: {exc}")
     def _validate_entry_mapping(self, candidate) -> tuple[bool, str]:
         spec = candidate.instrument
         if not spec.security_id or spec.security_id == "":
@@ -2197,9 +2422,10 @@ class PaperRunner:
     # -- open position management -----------------------------------------------
 
     def _manage_open_position(self, chains, context_map=None) -> None:
-        pos = self.state.open_position
-        if pos is None:
-            return
+        for pos in list(self._positions()):
+            self._manage_single_position(pos, chains, context_map)
+
+    def _manage_single_position(self, pos, chains, context_map=None) -> None:
         chain = chains.get(pos.underlying)
         if chain is None:
             return
@@ -2236,9 +2462,10 @@ class PaperRunner:
         # EXIT_END_OF_DATA / NO_DATA means no exit triggered yet on the bars so far.
 
     def _force_close_end_of_day(self, now: datetime) -> None:
-        pos = self.state.open_position
-        if pos is None:
-            return
+        for pos in list(self._positions()):
+            self._force_close_single_position(pos, now)
+
+    def _force_close_single_position(self, pos, now: datetime) -> None:
         quote = pos.last_quote
         if quote is None or not quote.is_valid():
             self.state.underlyings["_eod_guard"] = {
@@ -2318,6 +2545,7 @@ class PaperRunner:
         self.state.realized_pnl += net
         self.state.realized_pnl_today += net
         self.state.realized_pnl_week += net
+        self._save_account_state()
         if net < 0:
             self.state.losses_today += 1
             self.state.loss_streak_today += 1
@@ -2328,7 +2556,11 @@ class PaperRunner:
         else:
             self.state.loss_streak_today = 0
         self._save_daily_risk_state()
-        self.state.open_position = None
+        self._remove_open_position(pos)
+        entry_notes = dict(pos.trade.entry_evaluation.candidate.notes or {})
+        audit_id = str(entry_notes.get("entry_audit_id", ""))
+        if audit_id:
+            self._append_entry_audit(audit_id, "TRADE_CLOSED", pos.trade.entry_evaluation, result.trade.exit_time or now_ist(), {"exit_reason": reason, "net_pnl": net, "r_multiple": r_multiple, "paper_only": True})
         self._append_journal(rec)
         # Phase-2 evidence: one MTIL row per closed trade with entry proxy scores.
         planned = pos.trade.entry_evaluation.risk_plan.planned_risk
@@ -2377,9 +2609,15 @@ class PaperRunner:
     # -- display / state ----------------------------------------------------------
 
     def _update_chain_display(self, chains, vix_map, context_map) -> None:
+        received_at = now_ist()
         for und, chain in chains.items():
             ctx = context_map[und]
             meta = self.universe.get(und, {})
+            self.state.underlyings.setdefault(und, {})["evidence_clocks"] = {
+                "local_received_at": received_at.isoformat(),
+                "source_timestamp": str(getattr(chain, "source_timestamp", "") or ""),
+                "timestamp_quality": timestamp_quality(getattr(chain, "source_timestamp", None), received_at.isoformat(), max_delay_seconds=5.0),
+            }
             legs = []
             atm = chain.nearest_strike()
             for s in chain.strikes:
@@ -2428,8 +2666,11 @@ class PaperRunner:
 
     def _update_candidate_display(self, result, key: str = "_candidates") -> None:
         rows = []
+        eligible_scores = sorted(float(e.comparable_opportunity_score) for e in result.evaluations if e.eligible)
         for e in result.evaluations:
             c = e.candidate
+            score = float(e.comparable_opportunity_score)
+            percentile = (100.0 * sum(1 for value in eligible_scores if value <= score) / len(eligible_scores)) if eligible_scores else 0.0
             rows.append({
                 "underlying": c.instrument.underlying,
                 "research_only": key == "_shadow_candidates" or bool((c.notes or {}).get("research_only", False)),
@@ -2438,7 +2679,8 @@ class PaperRunner:
                 "strike": c.instrument.strike,
                 "expiry": str(c.instrument.expiry),
                 "grade": e.grade.value,
-                "score": round(e.comparable_opportunity_score, 1),
+                "score": round(score, 1),
+                "relative_percentile": round(percentile, 1),
                 "threshold": round(e.dynamic_excellent_threshold, 1),
                 "eligible": e.eligible,
                 "decision": e.decision.value,
@@ -2465,6 +2707,7 @@ class PaperRunner:
 
     def _update_equity(self) -> None:
         self.state.equity.append(round(self.state.realized_pnl, 2))
+        self._save_account_state()
         if len(self.state.equity) > 5000:
             self.state.equity = self.state.equity[-5000:]
 
@@ -2484,8 +2727,56 @@ class PaperRunner:
         except Exception as e:
             self._log(f"  capture failed: {e}")
 
+    def _publish_default_paper_calibration_state(self) -> None:
+        """Keep the research-only calibration panel truthful on every snapshot.
+
+        Entry selection can be skipped before the calibration selector runs,
+        especially while a restored paper position holds the global lock. The
+        dashboard must not report the lane as unpublished in that case. This
+        method publishes metadata only; it never makes a candidate eligible.
+        """
+        cfg = self._paper_calibration_cfg()
+        if not bool(cfg.get("enabled", False)):
+            return
+        current = self.state.underlyings.get("_paper_calibration")
+        if isinstance(current, Mapping) and current.get("enabled") is not None:
+            return
+        if self._has_open_positions():
+            status = "BLOCKED"
+            reason = "Global open position lock active"
+        else:
+            status = "NOT_EVALUATED"
+            reason = "Awaiting calibration evaluation in the current cycle"
+        self.state.underlyings["_paper_calibration"] = {
+            "enabled": True,
+            "research_only": bool(cfg.get("research_only", True)),
+            "entry_mode": "PAPER_CALIBRATION",
+            "cost_model_valid": bool(getattr(self, "_cost_model_valid", False)),
+            "status": status,
+            "reason": reason,
+            "timestamp": now_ist().isoformat(),
+        }
+
+    def _position_view(self, pos: OpenPosition) -> dict[str, Any]:
+        entry = pos.trade.entry_fill.fill_price
+        return {
+            "symbol": pos.symbol, "entry_mode": getattr(pos, "entry_mode", "CANONICAL"),
+            "underlying": pos.underlying, "side": pos.trade.entry_evaluation.candidate.side.value,
+            "strike": pos.trade.entry_evaluation.candidate.instrument.strike, "entry": entry,
+            "last": pos.last_premium, "unrealized_points": pos.last_premium - entry,
+            "unrealized_pnl": (pos.last_premium - entry) * pos.trade.entry_evaluation.candidate.instrument.lot_size,
+            "stop_points": pos.stop_points, "target_points": pos.target_points,
+            "max_duration_sec": pos.max_duration_seconds,
+            "elapsed_sec": int((now_ist() - pos.trade.entry_time).total_seconds()),
+            "highest": pos.highest_premium, "lowest": pos.lowest_premium, "bars": len(pos.bars),
+            "mfe_points": pos.highest_premium - entry,
+            "mae_points": entry - (pos.lowest_premium if pos.lowest_premium > 0 else entry),
+            "opened_at": pos.trade.entry_time.isoformat(), "exit_policy": self._exit_policy_view(),
+        }
+
     def snapshot(self) -> dict[str, Any]:
-        pos = self.state.open_position
+        self._publish_default_paper_calibration_state()
+        pos = self._primary_open_position()
         pos_view = None
         if pos is not None:
             entry = pos.trade.entry_fill.fill_price
@@ -2523,11 +2814,18 @@ class PaperRunner:
             "market_open": self.state.market_open,
             "mode": "PAPER (no orders placed)",
             "open_position": pos_view,
+            "open_positions": [self._position_view(item) for item in self._positions()],
+            "open_positions_count": len(self._positions()),
+            "max_concurrent_paper_positions": self._max_concurrent_paper_positions(),
             "closed_trades": closed,
+            "trades_today": self.state.trades_today,
+            "losses_today": self.state.losses_today,
             "underlyings": self.state.underlyings,
             "equity": self.state.equity[-2000:],
             "realized_pnl": self.state.realized_pnl,
-            "capital": self.base_config.section("capital")["starting_capital"],
+            "starting_capital": self.base_config.section("capital")["starting_capital"],
+            "current_equity": round(float(self.base_config.section("capital")["starting_capital"]) + float(self.state.realized_pnl), 2),
+            "capital": round(float(self.base_config.section("capital")["starting_capital"]) + float(self.state.realized_pnl), 2),
             "paper_overrides_active": bool(self._active_overrides),
             "active_overrides": self._active_overrides,
             "daily_mode": dict(self.state.underlyings.get("_daily_mode", {})),
@@ -2535,6 +2833,13 @@ class PaperRunner:
             "score_version": self.versions.score_version,
             "universe_version": self.versions.universe_version,
             "calibration": self.calibration.snapshot(),
+            "evidence_analytics": self._evidence_analytics_view(),
+            "opportunity_heartbeat": build_opportunity_heartbeat(self.state_dir),
+            "qualified_opportunities": list(self.state.underlyings.get("_qualified_opportunities", []))[-200:],
+            "opportunity_learning": self.opportunity_learning.snapshot(),
+            "data_quorum": self.state.underlyings.get("_data_quorum", {}),
+            "best_missed_opportunities": list(self.state.underlyings.get("_qualified_opportunities", []))[-50:],
+            "cas_monitor": self.cas_monitor.snapshot(),
             "lifecycle_states": dict(self.lifecycle_states),
             "fyers_request_health": (self.client.request_stats() if hasattr(self.client, "request_stats") else {}),
             "note": "Live Fyers data. All scores marked PROXY are research-grade approximations; see paper_signal.py. Shadow outcomes are counterfactual paper fills only.",
@@ -2553,7 +2858,137 @@ class PaperRunner:
             "stop_exit_slippage_frac": p.stop_exit_slippage_frac,
         }
 
+    def _evidence_analytics_view(self) -> dict[str, Any]:
+        now = time.monotonic()
+        if self._evidence_analytics_cache and now - self._evidence_analytics_cache_at < 10.0:
+            return self._evidence_analytics_cache
+        self._evidence_analytics_cache = build_evidence_snapshot(
+            self.state_dir,
+            min_sample=int(self.cfg.get("evidence_min_sample_for_calibration", 30)),
+        )
+        self._evidence_analytics_cache_at = now
+        return self._evidence_analytics_cache
+
     # -- journal -------------------------------------------------------------------
+
+    def _write_qualified_opportunity_header(self) -> None:
+        if self._qualified_opportunity_path.exists() and self._qualified_opportunity_path.stat().st_size:
+            return
+        fields = ["ts", "underlying", "side", "expiry", "strike", "lane", "status", "score", "threshold", "bid", "ask", "mid", "quote_age_seconds", "reason", "paper_only"]
+        with self._qualified_opportunity_path.open("w", encoding="utf-8", newline="") as handle:
+            csv.DictWriter(handle, fieldnames=fields).writeheader()
+
+    def _candidate_is_armed(self, evaluation) -> bool:
+        c = evaluation.candidate
+        key = "|".join(str(value) for value in (c.instrument.underlying, c.side.value, c.instrument.expiry, c.instrument.strike, (c.notes or {}).get("entry_mode", "CANONICAL")))
+        record = self.opportunity_learning.state.get("active", {}).get(key, {})
+        return record.get("state") == "ARMED"
+
+    def _record_qualified_opportunities(self, evaluations, ts: datetime, lane: str, selected=None, portfolio_blocked: bool = False) -> None:
+        rows = []
+        selected_key = ""
+        if selected is not None:
+            c = selected.candidate
+            selected_key = f"{c.instrument.underlying}|{c.instrument.expiry}|{c.instrument.strike}|{c.side.value}"
+        for evaluation in evaluations:
+            if not evaluation.eligible:
+                continue
+            c = evaluation.candidate
+            key = f"{c.instrument.underlying}|{c.instrument.expiry}|{c.instrument.strike}|{c.side.value}"
+            if portfolio_blocked:
+                status, reason = "BLOCKED_PORTFOLIO", "portfolio or daily risk veto"
+            elif self._has_open_positions():
+                status, reason = "BLOCKED_OPEN_POSITION", "one-open-position limit"
+            elif key == selected_key:
+                status, reason = "SELECTED_FOR_REVALIDATION", "top qualified candidate"
+            else:
+                status, reason = "QUALIFIED_NOT_SELECTED", "qualified but ranked below selected candidate"
+            row = {
+                "ts": ts.isoformat(), "underlying": c.instrument.underlying, "side": c.side.value,
+                "expiry": str(c.instrument.expiry), "strike": c.instrument.strike, "lane": lane,
+                "status": status, "score": round(float(evaluation.comparable_opportunity_score), 3),
+                "threshold": round(float(evaluation.dynamic_excellent_threshold), 3),
+                "bid": c.quote.bid, "ask": c.quote.ask, "mid": c.quote.mid,
+                "quote_age_seconds": c.quote.age_seconds(ts), "reason": reason, "paper_only": True,
+            }
+            rows.append(row)
+        if not rows:
+            return
+        fields = list(rows[0])
+        with self._qualified_opportunity_path.open("a", encoding="utf-8", newline="") as handle:
+            csv.DictWriter(handle, fieldnames=fields).writerows(rows)
+        learned = self.opportunity_learning.process_qualified(rows, ts)
+        self._write_best_missed_opportunities(learned)
+        recent = list(self.state.underlyings.get("_qualified_opportunities", []))
+        recent.extend(learned)
+        self.state.underlyings["_qualified_opportunities"] = recent[-200:]
+        self.state.underlyings["_opportunity_learning"] = self.opportunity_learning.snapshot()
+
+    def _write_missed_opportunity_header(self) -> None:
+        if self._missed_opportunity_path.exists() and self._missed_opportunity_path.stat().st_size:
+            return
+        fields = ["ts", "underlying", "side", "expiry", "strike", "lane", "status", "score", "threshold", "bid", "ask", "mid", "quote_age_seconds", "reason", "paper_only"]
+        with self._missed_opportunity_path.open("w", encoding="utf-8", newline="") as handle:
+            csv.DictWriter(handle, fieldnames=fields).writeheader()
+
+    def _write_best_missed_opportunities(self, rows) -> None:
+        missed = [row for row in rows if row.get("status") != "SELECTED_FOR_REVALIDATION"]
+        if not missed:
+            return
+        fields = ["ts", "underlying", "side", "expiry", "strike", "lane", "status", "score", "threshold", "bid", "ask", "mid", "quote_age_seconds", "reason", "paper_only"]
+        selected = sorted(missed, key=lambda row: float(row.get("score") or 0), reverse=True)[:20]
+        projected = [{field: row.get(field, "") for field in fields} for row in selected]
+        with self._missed_opportunity_path.open("a", encoding="utf-8", newline="") as handle:
+            csv.DictWriter(handle, fieldnames=fields).writerows(projected)
+
+    def _data_quorum_snapshot(self, evaluations, now: datetime) -> dict:
+        stages = {"total": len(evaluations), "data_health": 0, "quote": 0, "top_book": 0, "source_timestamp": 0, "contract_mapping": 0, "cost_model": 0}
+        failures = {}
+        for evaluation in evaluations:
+            c = evaluation.candidate
+            checks = {
+                "data_health": bool(getattr(c.data_health, "valid", False)),
+                "quote": bool(c.quote.is_valid()),
+                "top_book": float(getattr(c.quote, "bid_qty", 0) or 0) > 0 and float(getattr(c.quote, "ask_qty", 0) or 0) > 0,
+                "source_timestamp": bool(getattr(c.quote, "source_timestamp_available", False)),
+                "contract_mapping": bool(getattr(c.instrument, "security_id", "")) and float(getattr(c.instrument, "lot_size", 0) or 0) > 0 and float(getattr(c.instrument, "tick_size", 0) or 0) > 0,
+                "cost_model": bool(self._cost_model_valid),
+            }
+            for name, passed in checks.items():
+                if passed:
+                    stages[name] = stages.get(name, 0) + 1
+                else:
+                    failures[name] = failures.get(name, 0) + 1
+        return {"timestamp": now.isoformat(), "session_phase": OpportunityLearningLedger.session_phase(now), "stages": stages, "failures": failures, "status": "READY" if all(stages.get(name, 0) == stages["total"] for name in ("data_health", "quote", "top_book", "source_timestamp", "contract_mapping", "cost_model")) else "DEGRADED", "paper_only": True}
+
+    def _write_entry_audit_header(self) -> None:
+        if self._entry_audit_path.exists() and self._entry_audit_path.stat().st_size:
+            return
+        with self._entry_audit_path.open("w", encoding="utf-8", newline="") as handle:
+            csv.DictWriter(handle, fieldnames=["ts", "audit_id", "stage", "underlying", "side", "expiry", "strike", "entry_mode", "score", "threshold", "data_health_valid", "source_timestamp_available", "cost_model_valid", "payload", "paper_only"]).writeheader()
+
+    def _append_entry_audit(self, audit_id: str, stage: str, evaluation, ts: datetime, payload: Mapping[str, Any] | None = None) -> None:
+        candidate = evaluation.candidate
+        notes = dict(candidate.notes or {})
+        row = {
+            "ts": ts.isoformat(),
+            "audit_id": audit_id,
+            "stage": stage,
+            "underlying": candidate.instrument.underlying,
+            "side": candidate.side.value,
+            "expiry": str(candidate.instrument.expiry),
+            "strike": candidate.instrument.strike,
+            "entry_mode": notes.get("entry_mode", "CANONICAL"),
+            "score": getattr(evaluation, "comparable_opportunity_score", ""),
+            "threshold": getattr(evaluation, "threshold", ""),
+            "data_health_valid": candidate.data_health.valid,
+            "source_timestamp_available": candidate.quote.source_timestamp_available,
+            "cost_model_valid": self._cost_model_valid,
+            "payload": json.dumps(dict(payload or {}), sort_keys=True, default=str),
+            "paper_only": True,
+        }
+        with self._entry_audit_path.open("a", encoding="utf-8", newline="") as handle:
+            csv.DictWriter(handle, fieldnames=list(row)).writerow(row)
 
     def _write_journal_header(self) -> None:
         cols = ["trade_id", "underlying", "side", "expiry", "strike", "entry_time", "exit_time",
@@ -2812,7 +3247,7 @@ class PaperRunner:
                 now,
                 cost_model_valid=self._cost_model_valid,
                 portfolio_blocked=portfolio_blocked,
-                open_position=self.state.open_position is not None,
+                open_position=self._has_open_positions(),
                 cooldown_until=cooldown_until,
                 last_trigger_key=previous_key,
             )
@@ -3128,6 +3563,35 @@ class PaperRunner:
         }
 
     def _save_open_position_checkpoint(self, pos: Optional[OpenPosition] = None) -> None:
+        positions = [pos] if pos is not None else self._positions()
+        if not positions:
+            self._clear_open_position_checkpoint()
+            return
+        if len(positions) == 1:
+            PaperRunner._save_single_open_position_checkpoint(self, positions[0])
+            extra_path = getattr(self, "_open_positions_path", None)
+            if extra_path is not None:
+                try: extra_path.unlink()
+                except FileNotFoundError: pass
+            return
+        original = self._open_position_path
+        payloads = []
+        try:
+            for index, position in enumerate(positions):
+                temp = self.state_dir / f".paper_position_{index}.json"
+                self._open_position_path = temp
+                PaperRunner._save_single_open_position_checkpoint(self, position)
+                payloads.append(json.loads(temp.read_text(encoding="utf-8")))
+                temp.unlink(missing_ok=True)
+        finally:
+            self._open_position_path = original
+        tmp = self._open_positions_path.with_suffix(".tmp")
+        tmp.write_text(json.dumps({"version": 1, "saved_at": now_ist().isoformat(), "positions": payloads, "paper_only": True}, indent=2, sort_keys=True), encoding="utf-8")
+        tmp.replace(self._open_positions_path)
+        try: self._open_position_path.unlink()
+        except FileNotFoundError: pass
+
+    def _save_single_open_position_checkpoint(self, pos: Optional[OpenPosition] = None) -> None:
         """Persist the in-memory paper position for restart-safe lifecycle evidence.
 
         This file represents paper state only; it is never read by any broker
@@ -3191,6 +3655,15 @@ class PaperRunner:
         tmp.replace(self._open_position_path)
 
     def _clear_open_position_checkpoint(self) -> None:
+        for path in (self._open_position_path, self._open_positions_path):
+            try:
+                path.unlink()
+            except FileNotFoundError:
+                pass
+            except OSError as exc:
+                self._log(f"  paper position checkpoint cleanup failed: {exc}")
+
+    def _clear_single_open_position_checkpoint_legacy(self) -> None:
         try:
             self._open_position_path.unlink()
         except FileNotFoundError:
@@ -3199,6 +3672,35 @@ class PaperRunner:
             self._log(f"  paper position checkpoint cleanup failed: {exc}")
 
     def _restore_open_position(self) -> None:
+        self.state.open_positions = []
+        multi_path = getattr(self, "_open_positions_path", None)
+        if multi_path is not None and multi_path.exists():
+            try:
+                wrapper = json.loads(multi_path.read_text(encoding="utf-8"))
+                payloads = wrapper.get("positions", []) if isinstance(wrapper, Mapping) else []
+                for index, payload in enumerate(payloads):
+                    temp = self.state_dir / f".restore_position_{index}.json"
+                    temp.write_text(json.dumps(payload), encoding="utf-8")
+                    original = self._open_position_path
+                    self._open_position_path = temp
+                    try: self._restore_single_open_position()
+                    finally: self._open_position_path = original
+                    if self.state.open_position is not None:
+                        self.state.open_positions.append(self.state.open_position)
+                        self.state.open_position = None
+                    temp.unlink(missing_ok=True)
+                self._sync_position_alias()
+                return
+            except Exception as exc:
+                self.state.underlyings["_position_recovery"] = {"status": "BLOCKED", "reason": f"Invalid multi-position checkpoint: {type(exc).__name__}"}
+                self._clear_open_position_checkpoint()
+                return
+        self._restore_single_open_position()
+        if self.state.open_position is not None:
+            self.state.open_positions = [self.state.open_position]
+            self._sync_position_alias()
+
+    def _restore_single_open_position(self) -> None:
         """Restore a same-day paper position, or fail closed on bad state."""
         if not self._open_position_path.exists():
             return
@@ -3312,6 +3814,56 @@ class PaperRunner:
             }
             self._log(f"Paper position checkpoint blocked: {type(exc).__name__}: {exc}")
 
+    def _restore_account_state(self) -> None:
+        """Restore lifetime paper equity; daily risk counters reset by date."""
+        raw: Mapping[str, Any] = {}
+        try:
+            loaded = json.loads(self._account_state_path.read_text(encoding="utf-8"))
+            if isinstance(loaded, Mapping):
+                raw = loaded
+        except (OSError, json.JSONDecodeError):
+            raw = {}
+        if "realized_pnl" in raw:
+            try:
+                self.state.realized_pnl = float(raw["realized_pnl"])
+            except (TypeError, ValueError):
+                self.state.realized_pnl = 0.0
+        else:
+            # One-time bootstrap from canonical trades only; calibration evidence is excluded.
+            total = 0.0
+            ledger = self.state_dir / "trades.csv"
+            try:
+                with ledger.open("r", encoding="utf-8", newline="") as handle:
+                    for row in csv.DictReader(handle):
+                        try:
+                            total += float(row.get("net_pnl", 0.0) or 0.0)
+                        except (TypeError, ValueError):
+                            continue
+            except OSError:
+                pass
+            self.state.realized_pnl = total
+        values = raw.get("equity")
+        if isinstance(values, list):
+            try:
+                self.state.equity = [float(value) for value in values][-5000:]
+            except (TypeError, ValueError):
+                self.state.equity = []
+        if not self.state.equity:
+            self.state.equity = [round(self.state.realized_pnl, 2)]
+        self._save_account_state()
+
+    def _save_account_state(self) -> None:
+        payload = {
+            "version": 1,
+            "updated_at": now_ist().isoformat(),
+            "starting_capital": float(self.base_config.section("capital").get("starting_capital", 0.0)),
+            "realized_pnl": round(float(self.state.realized_pnl), 2),
+            "equity": self.state.equity[-5000:],
+            "live_execution": "DISABLED",
+        }
+        tmp = self._account_state_path.with_suffix(".tmp")
+        tmp.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
+        tmp.replace(self._account_state_path)
     def _restore_daily_risk_state(self, now: datetime) -> None:
         """Restore same-day risk counters; never carry them into a new date."""
         try:
@@ -3378,14 +3930,14 @@ class PaperRunner:
         tmp.replace(self._daily_risk_path)
 
     def _open_position_risk_reservation(self) -> float:
-        pos = self.state.open_position
-        if pos is None:
-            return 0.0
-        entry = float(pos.trade.entry_fill.fill_price or 0.0)
-        last = float(pos.last_premium or entry)
-        lot = max(1, int(pos.trade.entry_evaluation.candidate.instrument.lot_size))
-        stop_price = max(0.0, entry - float(pos.stop_points))
-        return max(0.0, last - stop_price) * lot
+        total = 0.0
+        for pos in self._positions():
+            entry = float(pos.trade.entry_fill.fill_price or 0.0)
+            last = float(pos.last_premium or entry)
+            lot = max(1, int(pos.trade.entry_evaluation.candidate.instrument.lot_size))
+            stop_price = max(0.0, entry - float(pos.stop_points))
+            total += max(0.0, last - stop_price) * lot
+        return total
 
     def _same_direction_loss_active(self, underlying: str, side: str, now: datetime) -> bool:
         """Return whether the same underlying/option side recently lost.
@@ -3586,3 +4138,4 @@ class PaperRunner:
 
     def _log(self, msg: str) -> None:
         print(f"[{now_ist().strftime('%H:%M:%S')}] {msg}", flush=True)
+

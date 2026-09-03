@@ -78,10 +78,15 @@ PAGE = r"""<!DOCTYPE html>
   <div id="override" class="err" style="display:none;background:#3d1414;border:1px solid var(--red);border-radius:8px;padding:8px 12px;margin-bottom:10px;font-weight:600">⚠ PAPER-ONLY CONFIG OVERRIDES ACTIVE — these do NOT affect uploads/PARAMETERS.json. Do not treat these results as live-parameter evidence.</div>
   <div class="cards">
     <div class="card"><div class="k">Mode</div><div class="v" id="mode">—</div></div>
-    <div class="card"><div class="k">Market</div><div class="v" id="market">—</div></div>
-    <div class="card"><div class="k">Capital</div><div class="v" id="capital">—</div></div>
+    <div class="card"><div class="k">Market</div><div class="v" id="market"></div></div>
+    <div class="card"><div class="k">CAS monitor</div><div class="v" id="cas-monitor">-</div></div>
+    <div class="card"><div class="k">Evidence quality</div><div class="v" id="evidence-quality">-</div></div>
+    <div class="card"><div class="k">Opportunity flow</div><div class="v" id="opportunity-flow">-</div></div>
+    <div class="card"><div class="k">Learning pipeline</div><div class="v" id="learning-pipeline">-</div></div>
+    <div class="card"><div class="k">Data quorum</div><div class="v" id="data-quorum">-</div></div>
+    <div class="card"><div class="k">Current equity</div><div class="v" id="capital">—</div></div>
     <div class="card"><div class="k">Realized P&amp;L</div><div class="v" id="pnl">—</div></div>
-    <div class="card"><div class="k">Trades</div><div class="v" id="trades">—</div></div>
+    <div class="card"><div class="k">Trades today</div><div class="v" id="trades">—</div></div>
     <div class="card"><div class="k">Win rate</div><div class="v" id="winrate">—</div></div>
     <div class="card"><div class="k">Net P&amp;L avg</div><div class="v" id="avgpnl">—</div></div>
   </div>
@@ -98,6 +103,10 @@ PAGE = r"""<!DOCTYPE html>
 
   <h2>Candidates</h2>
   <div id="cands">waiting for cycle…</div>
+
+  <h2>Qualified Opportunities (paper-only)</h2>
+  <div class="note">Qualified candidates are shown even when capacity, daily risk, or ranking prevents a paper position.</div>
+  <div id="qualified">no qualified opportunities recorded</div>
 
   <h2>Live Chains</h2>
   <div class="chain-grid" id="chains"></div>
@@ -127,7 +136,8 @@ function render(st) {
   $('pnl').className = cls(st.realized_pnl);
   const trades = st.closed_trades || [];
   const wins = trades.filter(t => t.net_pnl > 0).length;
-  $('trades').textContent = trades.length;
+  const tradesToday = Number.isFinite(Number(st.trades_today)) ? Number(st.trades_today) : trades.length;
+  $('trades').textContent = tradesToday;
   $('winrate').textContent = trades.length ? (100*wins/trades.length).toFixed(0) + '%' : '—';
   $('avgpnl').textContent = trades.length ? '₹' + fmt(trades.reduce((a,t)=>a+t.net_pnl,0)/trades.length, 0) : '—';
   const cycleStartedMs = st.cycle_started_at ? Date.parse(st.cycle_started_at) : NaN;
@@ -160,7 +170,23 @@ function render(st) {
   $('schedule').textContent = schedule.mode
     ? `Scheduler: ${schedule.mode} · selected ${selected} · opportunity ${opportunities} · audit ${audits} · deferred ${deferred} · max audit age ${schedule.max_full_audit_cycles ?? '—'} cycles`
     : 'Scheduler metadata not published yet';
-  const breakout = (st.underlyings && st.underlyings._gate_breakout) || {};
+  const cas = (st.underlyings && st.underlyings._cas_monitor) || st.cas_monitor || {};
+  $('cas-monitor').textContent = cas.status
+     ? `CAS ${cas.status} - ${cas.phase || '-'} - observed ${cas.observed_legs ?? 0} legs - anomalies ${cas.anomaly_events ?? 0} - ${cas.paper_only ? 'research-only' : 'CHECK CONFIG'}`
+     : 'CAS monitor not published yet';
+  const evidence = st.evidence_analytics || {};
+  const integrity = evidence.session_integrity || {};
+  const totalEvidence = evidence.total || {};
+  $('evidence-quality').textContent = `${integrity.status || 'UNKNOWN'} - ${totalEvidence.sample_size ?? 0}/${evidence.min_sample_for_calibration ?? 30} trades - ${totalEvidence.status || 'WARMUP'}`;
+  const flow = st.opportunity_heartbeat || {};
+  $('opportunity-flow').textContent = `${flow.status || 'UNKNOWN'} - ${flow.evaluated ?? 0} eval / ${flow.eligible ?? 0} eligible / ${flow.data_invalid ?? 0} invalid`;
+  const learning = st.opportunity_learning || {};
+  $('learning-pipeline').textContent = `${learning.armed_candidates ?? 0} armed / ${learning.active_candidates ?? 0} active / ${learning.forward_outcome_records ?? 0} outcomes`;
+  const quorum = st.data_quorum || {};
+  const stages = quorum.stages || {};
+  $('data-quorum').textContent = `${quorum.status || 'UNKNOWN'} - ${stages.data_health ?? 0}/${stages.total ?? 0} health / ${stages.quote ?? 0}/${stages.total ?? 0} quote / ${stages.top_book ?? 0}/${stages.total ?? 0} book`;
+  const breakout =
+(st.underlyings && st.underlyings._gate_breakout) || {};
   const breakoutNames = Array.isArray(breakout.breakout_underlyings) ? breakout.breakout_underlyings.join(', ') : '';
   $('breakout').textContent = breakout.enabled
     ? `Gate breakout: ${breakoutNames || 'none'} · metric ${breakout.metric || '—'} · lookback ${breakout.lookback_seconds ?? '—'}s · selected ${breakout.selected_underlying || 'none'}`
@@ -190,29 +216,51 @@ function render(st) {
   } else {
     ov.style.display = 'none';
   }
-  renderOpen(st.open_position);
+  renderOpen(st.open_position, st.open_positions || []);
   renderCands((st.underlyings && st.underlyings._candidates) || []);
+  renderQualified(st.qualified_opportunities || []);
   renderChains(st.underlyings || {});
   renderEquity(st.equity || []);
   renderClosed(trades);
 }
 
-function renderOpen(p) {
+function renderOpen(primary, positions) {
   const el = $('open');
-  if (!p) { el.textContent = 'no open position'; return; }
-  const uPoints = p.unrealized_points ?? ((p.last != null && p.entry != null) ? p.last - p.entry : null);
-  const uPnl = p.unrealized_pnl ?? uPoints;
-  const pol = p.exit_policy || {};
-  const bits = [
-    `${esc(p.side || '—')} ${fmt(p.strike,0)} @ ${fmt(p.entry)}`,
-    `last ${fmt(p.last)}`,
-    `uPnL <span class="${cls(uPnl)}">₹${fmt(uPnl, 0)}</span> (${fmt(uPoints,1)} pts)`,
-    `stop ${fmt(p.stop_points,1)} pts · target ${fmt(p.target_points,1)} pts`,
-    `elapsed ${p.elapsed_sec}s / ${p.max_duration_sec}s`,
-    `MFE ${fmt(p.mfe_points,1)} · MAE ${fmt(p.mae_points,1)} · bars ${p.bars}`,
-    `policy: be@${pol.breakeven_trigger_r}R trail@${pol.trail_trigger_r}R/${pol.trail_distance_r}R lossCut@${pol.losing_time_stop_fraction} vts@${pol.vol_time_stop_fraction||0} slip@${pol.stop_exit_slippage_frac||0}`,
-  ];
-  el.innerHTML = '<div class="card open" style="min-width:100%"><div class="v" style="font-size:14px">' + bits.map(b=>`<span class="pill">${b}</span>`).join('') + '</div></div>';
+  const rows = Array.isArray(positions) && positions.length ? positions : (primary ? [primary] : []);
+  if (!rows.length) { el.textContent = 'no open paper positions'; return; }
+  let total = 0;
+  let html = '<div class="card open" style="min-width:100%"><div class="v" style="font-size:14px">' +
+    `<span class="pill">open paper positions: ${rows.length}</span>`;
+  for (const p of rows) {
+    const uPoints = p.unrealized_points ?? ((p.last != null && p.entry != null) ? p.last - p.entry : null);
+    const uPnl = p.unrealized_pnl ?? uPoints;
+    total += Number(uPnl || 0);
+    const pol = p.exit_policy || {};
+    const bits = [
+      `${esc(p.underlying || '')} ${esc(p.side || '—')} ${fmt(p.strike,0)} @ ${fmt(p.entry)}`,
+      `last ${fmt(p.last)}`,
+      `uPnL <span class="${cls(uPnl)}">₹${fmt(uPnl, 0)}</span> (${fmt(uPoints,1)} pts)`,
+      `stop ${fmt(p.stop_points,1)} pts · target ${fmt(p.target_points,1)} pts`,
+      `elapsed ${p.elapsed_sec}s / ${p.max_duration_sec}s`,
+      `MFE ${fmt(p.mfe_points,1)} · MAE ${fmt(p.mae_points,1)} · bars ${p.bars}`,
+      `mode: ${esc(p.entry_mode || 'CANONICAL')}${p.entry_mode === 'PAPER_CALIBRATION' ? ' · research-only' : ''}`,
+      `policy: be@${pol.breakeven_trigger_r}R trail@${pol.trail_trigger_r}R/${pol.trail_distance_r}R lossCut@${pol.losing_time_stop_fraction} vts@${pol.vol_time_stop_fraction||0} slip@${pol.stop_exit_slippage_frac||0}`,
+    ];
+    html += '<div class="v" style="font-size:14px;margin-top:8px">' + bits.map(b=>`<span class="pill">${b}</span>`).join('') + '</div>';
+  }
+  html += `<div class="v" style="font-size:14px;margin-top:8px"><span class="pill">aggregate unrealized P&L: <span class="${cls(total)}">₹${fmt(total,0)}</span></span></div></div>`;
+  el.innerHTML = html;
+}
+
+function renderQualified(rows) {
+  const el = $('qualified');
+  if (!rows.length) { el.textContent = 'no qualified opportunities recorded'; return; }
+  const head = ['time','underlying','side','strike','lane','status','score','bid','ask','reason'];
+  let html = '<table><tr>' + head.map(h => '<th>' + esc(h) + '</th>').join('') + '</tr>';
+  for (const r of rows.slice(-200).reverse()) {
+    html += '<tr>' + [r.ts, r.underlying, r.side, fmt(r.strike, 0), r.lane, r.status, fmt(r.score, 1), fmt(r.bid, 2), fmt(r.ask, 2), r.reason].map(v => '<td>' + esc(v) + '</td>').join('') + '</tr>';
+  }
+  el.innerHTML = html + '</table>';
 }
 
 function renderCands(rows) {
@@ -318,6 +366,14 @@ setInterval(tick, 3000);
 class DashboardHandler(BaseHTTPRequestHandler):
     snapshot_fn: Callable[[], dict] = lambda: {}
 
+    def _safe_write(self, body: bytes) -> None:
+        """Write the body, ignoring client-connection aborts so a single
+        dropped dashboard connection cannot take down the whole runner."""
+        try:
+            self.wfile.write(body)
+        except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError, TimeoutError):
+            return
+
     def do_GET(self):  # noqa: N802 (stdlib naming)
         path = self.path.split("?", 1)[0]
         if path == "/state.json":
@@ -333,7 +389,7 @@ class DashboardHandler(BaseHTTPRequestHandler):
             self.send_header("Cache-Control", "no-store")
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
-            self.wfile.write(body)
+            self._safe_write(body)
             return
         if path not in {"/", "/index.html"}:
             body = json.dumps({"error": "not_found", "preview_only": True, "live_execution": "DISABLED"}).encode("utf-8")
@@ -342,7 +398,7 @@ class DashboardHandler(BaseHTTPRequestHandler):
             self.send_header("Cache-Control", "no-store")
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
-            self.wfile.write(body)
+            self._safe_write(body)
             return
         body = PAGE.encode("utf-8")
         self.send_response(200)
@@ -350,7 +406,7 @@ class DashboardHandler(BaseHTTPRequestHandler):
         self.send_header("Cache-Control", "no-store")
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
-        self.wfile.write(body)
+        self._safe_write(body)
 
     def log_message(self, fmt, *args):  # keep the loop output clean
         return

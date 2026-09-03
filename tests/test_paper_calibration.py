@@ -141,7 +141,7 @@ class PaperCalibrationTests(unittest.TestCase):
         cal = self.runner_cfg["paper_calibration"]
         self.assertTrue(cal["enabled"])
         self.assertTrue(cal["research_only"])
-        self.assertEqual(cal["max_entries_per_day"], 1)
+        self.assertEqual(cal["max_entries_per_day"], 4)
         self.assertEqual(cal["max_quote_age_seconds"], 45.0)
         self.assertEqual(cal["max_chain_age_seconds"], 45.0)
         self.assertEqual(cal["max_candidate_age_seconds"], 45.0)

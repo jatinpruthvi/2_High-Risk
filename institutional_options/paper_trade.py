@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import threading
 from pathlib import Path
 
@@ -57,6 +58,16 @@ def main(argv: list[str] | None = None) -> int:
         print(f"PREFLIGHT PASS: 59 instruments paper-enabled; metadata=59/59; monitor-only=0; live execution=DISABLED; max_open_positions=1; max_pending_orders=1; state_dir={state_dir}")
         return 0
 
+    # Load local gitignored credentials for unattended paper-runner startup.
+    # Never print or persist credential values here; the runner only uses them
+    # to authenticate read-only Fyers market-data requests.
+    creds_path = state_dir / "creds.env"
+    if creds_path.exists():
+        for line in creds_path.read_text(encoding="utf-8-sig").splitlines():
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                key, value = line.split("=", 1)
+                os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
     state_dir = str(state_dir)
     runner = PaperRunner(cfg, runner_cfg, state_dir=state_dir)
     dash_cfg = runner_cfg.get("dashboard", {})

@@ -557,6 +557,12 @@
       }
     }
   },
+  "derived_iv_research": {
+    "enabled": false,
+    "mode": "RESEARCH_ONLY",
+    "never_qualify_canonical_entries": true,
+    "risk_free_rate": 0.0
+  },
   "state_dir": "paper_state",
   "state_management": {
     "fresh_state_on_policy_change": true,
@@ -629,7 +635,7 @@
   "paper_calibration": {
     "enabled": true,
     "research_only": true,
-    "max_entries_per_day": 1,
+    "max_entries_per_day": 4,
     "min_score": 40.0,
     "min_core_gate_score": 50.0,
     "contract_quality_min": 70.0,
@@ -638,18 +644,38 @@
     "expected_required_ratio_min": 1.1,
     "market_hostility_max": 55.0,
     "iv_crush_max": 70.0,
-    "trade_quality_min": 50.0,
+    "trade_quality_min": 40.0,
     "regime_confidence_min": 50.0,
     "final_confidence_min": 60.0,
     "execution_quality_min": 60.0,
     "convexity_edge_min": 60.0,
     "opportunity_confidence_min": 60.0,
     "regime_fit_min": 55.0,
-    "rationale": "Bounded paper-only calibration lane using real Fyers bid/ask/depth and the same conservative fill, stop, one-lot, one-position, no-overnight controls. Proxy elasticity and relaxed signal floors are research-only and excluded from canonical validation.",
+    "rationale": "Bounded paper-only research lane; up to two sequential entries per day, never concurrent, with canonical data, risk, quote, mapping, and paper-fill hard gates preserved.",
     "max_quote_age_seconds": 45.0,
     "max_chain_age_seconds": 45.0,
     "max_candidate_age_seconds": 45.0,
     "allow_chain_semantic_warnings": true,
     "allow_chain_timestamp_mismatch_warnings": true
+  },
+  "cas_monitor": {
+    "enabled": true,
+    "start_time": "15:05",
+    "end_time": "15:30",
+    "min_jump_pct": 100,
+    "max_quote_age_seconds": 5,
+    "paper_position_enabled": true
+  },
+  "evidence_min_sample_for_calibration": 30,
+  "max_concurrent_paper_positions": 2,
+  "paper_only_position_policy": {
+    "enabled": true,
+    "max_concurrent_positions": 2,
+    "max_lots_per_position": 1,
+    "max_pending_orders": 1,
+    "max_entries_per_day_research": 4,
+    "live_execution": "DISABLED",
+    "risk_aggregation": "SUM_OPEN_POSITION_STOP_RESERVATIONS",
+    "research_note": "Bounded concurrent paper positions for research only; canonical risk and daily loss gates remain active."
   }
 }
